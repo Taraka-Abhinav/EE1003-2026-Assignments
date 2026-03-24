@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.3.24)  24 MAR 2026 16:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.3.24)  24 MAR 2026 18:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1137,6 +1137,34 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <20.74> not available
 [9
 
 ]
+
+[10
+
+]
+
+[11
+
+]
+Overfull \vbox (8.43716pt too high) detected at line 333
+ []
+
+
+
+[12
+
+]
+
+[13
+
+]
+
+[14
+
+]
+
+[15
+
+]
 \openout4 = `main.vrb'.
 
  (./main.vrb
@@ -1146,57 +1174,9 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ))
 
-[10
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-\openout4 = `main.vrb'.
-
- (./main.vrb)
-
-[11
-
-]
-<figs/Vc.png, id=355, 478.78876pt x 281.55188pt>
-File: figs/Vc.png Graphic file (type png)
-<use figs/Vc.png>
-Package pdftex.def Info: figs/Vc.png  used on input line 302.
-(pdftex.def)             Requested size: 340.6956pt x 200.34572pt.
-
-
-[12
-
- <./figs/Vc.png>]
-\openout4 = `main.vrb'.
-
- (./main.vrb)
-
-[13
-
-]
-\openout4 = `main.vrb'.
-
- (./main.vrb)
-
-[14
-
-]
-<figs/Ic.png, id=442, 466.74374pt x 280.04625pt>
-File: figs/Ic.png Graphic file (type png)
-<use figs/Ic.png>
-Package pdftex.def Info: figs/Ic.png  used on input line 346.
-(pdftex.def)             Requested size: 340.6956pt x 204.42776pt.
-
-
-[15
-
- <./figs/Ic.png>]
-\openout4 = `main.vrb'.
-
- (./main.vrb)
-
 [16
 
-]
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 \openout4 = `main.vrb'.
 
  (./main.vrb)
@@ -1204,16 +1184,119 @@ Package pdftex.def Info: figs/Ic.png  used on input line 346.
 [17
 
 ]
-<figs/O.png, id=527, 521.69907pt x 286.82156pt>
-File: figs/O.png Graphic file (type png)
-<use figs/O.png>
-Package pdftex.def Info: figs/O.png  used on input line 399.
-(pdftex.def)             Requested size: 340.6956pt x 187.31148pt.
+<figs/Vc.png, id=519, 478.78876pt x 281.55188pt>
+File: figs/Vc.png Graphic file (type png)
+<use figs/Vc.png>
+Package pdftex.def Info: figs/Vc.png  used on input line 451.
+(pdftex.def)             Requested size: 340.6956pt x 200.34572pt.
 
 
 [18
 
+ <./figs/Vc.png>]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[19
+
+]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[20
+
+]
+<figs/Ic.png, id=605, 466.74374pt x 280.04625pt>
+File: figs/Ic.png Graphic file (type png)
+<use figs/Ic.png>
+Package pdftex.def Info: figs/Ic.png  used on input line 494.
+(pdftex.def)             Requested size: 340.6956pt x 204.42776pt.
+
+
+[21
+
+ <./figs/Ic.png>]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[22
+
+]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[23
+
+]
+<figs/O.png, id=690, 521.69907pt x 286.82156pt>
+File: figs/O.png Graphic file (type png)
+<use figs/O.png>
+Package pdftex.def Info: figs/O.png  used on input line 545.
+(pdftex.def)             Requested size: 340.6956pt x 187.31148pt.
+
+
+[24
+
  <./figs/O.png>]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[25
+
+]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[26
+
+]
+<figs/PS.png, id=777, 578.16pt x 361.35pt>
+File: figs/PS.png Graphic file (type png)
+<use figs/PS.png>
+Package pdftex.def Info: figs/PS.png  used on input line 591.
+(pdftex.def)             Requested size: 340.6956pt x 212.9355pt.
+
+Overfull \vbox (6.16486pt too high) detected at line 591
+ []
+
+
+
+[27
+
+ <./figs/PS.png>]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+Overfull \vbox (4.02899pt too high) detected at line 620
+ []
+
+
+
+[28
+
+]
+<figs/PP.png, id=836, 505.89pt x 433.62pt>
+File: figs/PP.png Graphic file (type png)
+<use figs/PP.png>
+Package pdftex.def Info: figs/PP.png  used on input line 628.
+(pdftex.def)             Requested size: 255.5217pt x 219.01938pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{fig:placehold
+er}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.628 \end{frame}
+                 
+
+[29
+
+ <./figs/PP.png>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1232,17 +1315,20 @@ L3 programming layer <2025-01-18>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 45138 strings out of 475178
- 1069854 string characters out of 5766539
- 1831510 words of memory out of 5000000
- 67490 multiletter control sequences out of 15000+600000
+ 45184 strings out of 475178
+ 1070455 string characters out of 5766539
+ 1853510 words of memory out of 5000000
+ 67507 multiletter control sequences out of 15000+600000
  585494 words of font info for 130 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,15n,107p,396b,1133s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,15n,107p,396b,1134s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
@@ -1262,10 +1348,10 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (18 pages, 557305 bytes).
+Output written on main.pdf (29 pages, 661429 bytes).
 PDF statistics:
- 650 PDF objects out of 1000 (max. 8388607)
- 539 compressed objects within 6 object streams
- 37 named destinations out of 1000 (max. 500000)
- 99 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 963 PDF objects out of 1000 (max. 8388607)
+ 820 compressed objects within 9 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

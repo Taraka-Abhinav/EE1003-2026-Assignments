@@ -1,18 +1,27 @@
-\frametitle{Overlay Plot -- C Code}
+\frametitle{\textbf {Python Code: Phase Portrait (Themed)}}
+\scriptsize
 \begin{lstlisting}
-#include <stdio.h>
-#include <math.h>
+import numpy as np
+import matplotlib.pyplot as plt
 
-int main() {
-    double t, V=5, tau=0.04;
+t = np.linspace(0, 0.2, 1000)
+V = 5
+tau = 0.04
 
-    for(int i=0;i<=200;i++){
-        t = i/1000.0;
-        double Vc = V*(1-exp(-t/tau));
-        double ic = (V/10000.0)*exp(-t/tau)*1000;
+Vc = V * (1 - np.exp(-t/tau))
+dVc_dt = (V / tau) * np.exp(-t/tau)
 
-        printf("%lf %lf %lf\n", t*1000, Vc, ic);
-    }
-    return 0;
-}
+bg = '#0b1220'
+curve = '#8fd3d1'
+accent = '#f5e6a8'
+fig, ax = plt.subplots()
+fig.patch.set_facecolor(bg)
+ax.set_facecolor(bg)
+
+ax.plot(Vc, dVc_dt, color=curve)
+ax.fill_between(Vc, dVc_dt, alpha=0.12)
+ax.scatter([0], [125], color=accent)
+ax.scatter([5], [0], color=accent)
+
+plt.show()
 \end{lstlisting}

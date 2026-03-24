@@ -225,7 +225,7 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
     Multiplying by $C = 4 \times 10^{-6}\,\mathrm{F}$:
     \[
       i_c(t) \;=\; 4\times10^{-6} \;\times\; 125\,e^{-25t}
-              \;=\; 500\times10^{-6}\,e^{-25t}\,\mathrm{A}
+             \;=\; 500\times10^{-6}\,e^{-25t}\,\mathrm{A}
     \]
 
     \vspace{1em}
@@ -250,7 +250,7 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
     Substituting $V_C = 5(1 - e^{-25t})$, so $\;2V_C = 10(1 - e^{-25t})$:
     \[
       i_c(t) \;=\; \frac{10 - 10(1 - e^{-25t})}{20\,\mathrm{k}}
-              \;=\; \frac{10\,e^{-25t}}{20\,\mathrm{k}}
+             \;=\; \frac{10\,e^{-25t}}{20\,\mathrm{k}}
     \]
 
     \vspace{1em}
@@ -258,6 +258,156 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
     \vfill
   \end{center}
 \end{frame}
+
+%% ── ADVANCED: DIFFERENTIAL EQUATION ──────────────────────────────
+\begin{frame}{\textbf{Advanced: ODE Formulation}}
+  \begin{center}
+    \vfill
+    Applying \textbf{KCL} at the capacitor node for $t > 0$:
+    \[
+      C\frac{dV_C(t)}{dt} \;+\; \frac{V_C(t)}{R_2} \;=\; \frac{V_s - V_C(t)}{R_1}
+    \]
+    
+    \vspace{1.5em}
+    Rearranging into the standard first-order linear ODE form:
+    \[
+      \frac{dV_C(t)}{dt} \;+\; \left( \frac{R_1 + R_2}{R_1 R_2 C} \right) V_C(t) \;=\; \frac{V_s}{R_1 C}
+    \]
+    
+    \vspace{1.5em}
+    Substituting circuit values:
+    \[
+      \frac{dV_C(t)}{dt} \;+\; \mathbf{25\,V_C(t)} \;=\; \mathbf{125}
+    \]
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── ADVANCED: DIFFERENTIAL EQUATION SOLVED ───────────────────────
+\begin{frame}{\textbf{Advanced: ODE Solution}}
+  \begin{center}
+    \vfill
+    From the derived ODE:
+    \[
+      \frac{dV_C(t)}{dt} \;+\; 25\,V_C(t) \;=\; 125
+    \]
+
+    \vspace{1.5em}
+    The complete response is the sum of \textbf{natural} and \textbf{forced} responses:
+    \[
+      V_C(t) \;=\; K e^{-25t} \;+\; 5
+    \]
+    
+    \vspace{1.5em}
+    Applying the initial condition $V_C(0^+) = 0$, we find $K = -5$.
+    
+    \vspace{2em}
+    \Large\textbf{\textcolor{madblue}{$V_C(t) \;=\; 5\bigl(1 - e^{-25t}\bigr)\,\mathrm{V}$}}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── ADVANCED: FREQUENCY RESPONSE ─────────────────────────────────
+\begin{frame}{\textbf{Advanced: Transfer Function $H(s)$}}
+  \begin{center}
+    \vfill
+    Analyzing the circuit as a system mapping $V_s(t) \to V_C(t)$ in the \textbf{$s$-domain}.
+    
+    \vspace{1.5em}
+    The Transfer Function is found via \textbf{voltage division} with impedances:
+    \[
+      H(s) \;=\; \frac{V_C(s)}{V_s(s)} \;=\; \frac{R_2 \parallel \frac{1}{sC}}{R_1 + \left( R_2 \parallel \frac{1}{sC} \right)}
+    \]
+    
+    \vspace{1.5em}
+    Simplifying and substituting values yields:
+    \[
+      H(s) \;=\; \frac{12.5}{s + \mathbf{25}}
+    \]
+    
+    \vspace{1.5em}
+    \normalsize
+    \textit{The pole is located at $s = -25\,\mathrm{rad/s}$, which defines the system's cutoff frequency.}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── ADVANCED: LAPLACE TRANSFORM ──────────────────────────────────
+\begin{frame}{\textbf{Advanced: Laplace Transform}}
+  \begin{center}
+    \vfill
+    In the \textbf{$s$-domain}, the input is a step: $V_s(s) = \frac{10}{s}$.
+    
+    \vspace{1.5em}
+    Using Nodal Analysis and solving for $V_C(s)$:
+    \[
+      V_C(s) \;=\; \frac{125}{s(s + 25)}
+    \]
+    
+    \vspace{1.5em}
+    Applying \textbf{Partial Fraction Expansion}:
+    \[
+      V_C(s) \;=\; \frac{5}{s} \;-\; \frac{5}{s + 25}
+    \]
+    
+    \vspace{2em}
+    \Large\textbf{\textcolor{madblue}{$V_C(t) \;=\; 5\bigl(1 - e^{-25t}\bigr) \, u(t) \;\mathrm{V}$}}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── ADVANCED: STATE-SPACE ────────────────────────────────────────
+\begin{frame}{\textbf{Advanced: State-Space Formulation}}
+  \begin{center}
+    \vfill
+    For modern control theory, we express the circuit as:
+    \[
+      \mathbf{\dot{x}(t) \;=\; Ax(t) + Bu(t)}
+    \]
+    
+    \vspace{1.5em}
+    Let the state variable be $x(t) = V_C(t)$ and the input $u(t) = V_s(t)$.
+    
+    \vspace{1.5em}
+    From the earlier ODE, we directly extract the matrices:
+    \[
+      \mathbf{\dot{x}(t) \;=\; \underbrace{-25}_{\mathbf{A}} \, x(t) \;+\; \underbrace{12.5}_{\mathbf{B}} \, u(t)}
+    \]
+    
+    \vspace{1.5em}
+    \normalsize
+    \textit{The eigenvalue of $\mathbf{A}$ is $\lambda = -25$. \\ Since $\lambda < 0$, the system is strictly stable.}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── ADVANCED: ENERGY DYNAMICS ────────────────────────────────────
+\begin{frame}{\textbf{Advanced: Energy Dynamics}}
+  \begin{center}
+    \vfill
+    \textbf{Steady-State Energy Stored ($t \to \infty$):}
+    \[
+      E_C \;=\; \frac{1}{2} C V_\infty^2 \;=\; \frac{1}{2} (4\,\mu\mathrm{F}) (5\,\mathrm{V})^2 \;=\; \mathbf{50\,\mu\mathrm{J}}
+    \]
+    
+    \vspace{2em}
+    \textbf{Instantaneous Power Delivered:}
+    \[
+      p_C(t) \;=\; V_C(t) \cdot i_C(t)
+    \]
+    
+    \vspace{1em}
+    \[
+      p_C(t) \;=\; 2.5 \bigl(e^{-25t} - e^{-50t}\bigr) \;\mathrm{mW}
+    \]
+    
+    \vspace{1.5em}
+    \normalsize
+    \textit{Maximum power transfer occurs at $t = \frac{\ln(2)}{25} \approx \mathbf{27.7\,\mathrm{ms}}$.}
+    \vfill
+  \end{center}
+\end{frame}
+
 %% ── VOLTAGE: PYTHON ─────────────────────────────────────────────
 \begin{frame}[fragile,allowframebreaks]{Capacitor Voltage -- Python}
 \begin{lstlisting}
@@ -296,7 +446,6 @@ int main(){
 \end{lstlisting}
 \end{frame}
 
-%% ── VOLTAGE: PLOT ───────────────────────────────────────────────
 \begin{frame}{Capacitor Voltage Plot}
 \includegraphics[width=\linewidth]{figs/Vc.png}
 \end{frame}
@@ -340,8 +489,7 @@ int main(){
 \end{lstlisting}
 \end{frame}
 
-%% ── CURRENT: PLOT ───────────────────────────────────────────────
-\begin{frame}{Capacitor Current Plot}
+\begin{frame}{Capacitor Voltage Plot}
 \includegraphics[width=\linewidth]{figs/Ic.png}
 \end{frame}
 
@@ -392,10 +540,91 @@ int main() {
 }
 \end{lstlisting}
 \end{frame}
-
-%% ── OVERLAY: PLOT ───────────────────────────────────────────────
-\begin{frame}{Overlay Plot}
+\begin{frame}{Capacitor Voltage Plot}
 \includegraphics[width=\linewidth]{figs/O.png}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Power \& Energy (Themed)}}
+\scriptsize
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.linspace(0, 0.2, 1000)
+V = 5
+tau = 0.04
+C = 4e-6
+
+Vc = V * (1 - np.exp(-t/tau))
+ic = (V / 10000) * np.exp(-t/tau)
+
+power_mW = (Vc * ic) * 1000 
+energy_uJ = (0.5 * C * Vc**2) * 1e6 
+
+bg = '#0b1220'
+power_color = '#8fd3d1'
+energy_color = '#f5e6a8'
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Power \& Energy (Themed)}}
+\scriptsize
+\begin{lstlisting}
+fig, ax1 = plt.subplots()
+fig.patch.set_facecolor(bg)
+ax1.set_facecolor(bg)
+
+ax1.plot(t*1000, power_mW, color=power_color)
+ax2 = ax1.twinx()
+ax2.plot(t*1000, energy_uJ, color=energy_color)
+
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{\textbf{Plot - Power \& Energy}}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{figs/PS.png}
+        \label{fig:placeholder}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Phase Portrait (Themed)}}
+\scriptsize
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.linspace(0, 0.2, 1000)
+V = 5
+tau = 0.04
+
+Vc = V * (1 - np.exp(-t/tau))
+dVc_dt = (V / tau) * np.exp(-t/tau)
+
+bg = '#0b1220'
+curve = '#8fd3d1'
+accent = '#f5e6a8'
+fig, ax = plt.subplots()
+fig.patch.set_facecolor(bg)
+ax.set_facecolor(bg)
+
+ax.plot(Vc, dVc_dt, color=curve)
+ax.fill_between(Vc, dVc_dt, alpha=0.12)
+ax.scatter([0], [125], color=accent)
+ax.scatter([5], [0], color=accent)
+
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Frame Title}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\linewidth]{figs/PP.png}
+        \label{fig:placeholder}
+    \end{figure}
 \end{frame}
 
 \end{document}
