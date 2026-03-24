@@ -1,0 +1,455 @@
+\documentclass[12pt]{beamer}
+\usetheme{Madrid}
+
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, shapes.geometric}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage{listings}
+\usepackage{pgfplots}
+\usepackage{courier}
+\pgfplotsset{compat=1.17}
+\usepackage{circuitikz}
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  columns=fullflexible
+}
+\setbeamerfont{frametitle}{series=\bfseries, size=\large}
+\setbeamerfont{title}{series=\bfseries, size=\Large}
+\setbeamerfont{subtitle}{series=\bfseries}
+
+\definecolor{madblue}{RGB}{0,62,126}
+\definecolor{okgreen}{RGB}{0,130,60}
+\definecolor{darkred}{RGB}{160,20,20}
+
+%% ── TOC-style circled option ────────────────────────────
+\newcommand{\myopt}[2]{%
+  \vspace{5pt}\noindent
+  \begin{tikzpicture}[baseline=(ch.base)]
+    \node[circle, fill=madblue, text=white,
+          font=\bfseries\small, minimum size=17pt, inner sep=0pt] (ch) {#1};
+  \end{tikzpicture}
+  \hspace{5pt}\textbf{#2}\par
+}
+
+%% ── Inline math result ──────────────────────────────────
+\newcommand{\res}[1]{\textcolor{madblue}{\bm{#1}}}
+
+\title{\bfseries Newton-Raphson Method}
+\subtitle{\textbf{Problem 1.2.16 \;|\; EC 2007}}
+\author{}
+\institute{\textbf{EE25BTECH11016 - CH. Taraka Abhinav}}
+\date{}
+
+\begin{document}
+
+%% ── TITLE ────────────────────────────────────────────────
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%% ── QUESTION + OPTIONS ───────────────────────────────────
+\begin{frame}{\textbf{Problem 1.2.16 \;--\; EC 2007}}
+
+  \textbf{\large The equation}
+  \[
+    \bm{f(x) = x^2 + x^4 - 4x - 4 = 0}
+  \]
+  \textbf{is to be solved using Newton-Raphson.
+  If $x = 2$ is the initial approximation, then the
+  \emph{next} approximation is:}
+
+  \vspace{0.8em}
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \myopt{a}{$\dfrac{2}{3}$}
+      \vspace{0.5em}
+      \myopt{b}{$\dfrac{4}{3}$}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \myopt{c}{$1$}
+      \vspace{0.5em}
+      \myopt{d}{$\dfrac{3}{2}$}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+%% ── NR FORMULA ────────────────────────────────────────────
+\begin{frame}{\textbf{The Newton-Raphson Formula}}
+  \begin{center}
+    \vfill
+
+    The Newton-Raphson iteration formula is:
+    \[
+      x_{n+1} \;=\; x_n \;-\; \frac{f(x_n)}{f'(x_n)}
+    \]
+
+    \vspace{1em}
+    For \textbf{one} iteration from $x_0 = 2$:
+    \[
+      x_1 \;=\; x_0 \;-\; \frac{f(x_0)}{f'(x_0)}
+           \;=\; 2 \;-\; \frac{f(2)}{f'(2)}
+    \]
+
+    \vspace{1.2em}
+    \textit{We need two things:} \quad
+    \textcolor{madblue}{\textbf{$f(2)$}} \quad and \quad
+    \textcolor{madblue}{\textbf{$f'(2)$}}
+
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── DERIVATIVE ────────────────────────────────────────────
+\begin{frame}{\textbf{Setting Up \;--\; Function \& Derivative}}
+  \begin{center}
+    \vfill
+
+    The function:
+    \[
+      f(x) \;=\; x^4 + x^2 - 4x - 4
+    \]
+
+    \vspace{0.8em}
+    Differentiating term by term:
+    \[
+      f'(x) \;=\; 4x^3 + 2x - 4
+    \]
+
+    \vspace{1.2em}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{r@{\qquad}l}
+      \textbf{Term} & \textbf{Derivative} \\
+      $x^4$         & $4x^3$ \\
+      $x^2$         & $2x$   \\
+      $-4x$         & $-4$   \\
+      $-4$          & $0$    \\
+    \end{tabular}
+
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── EVALUATE f(2) ─────────────────────────────────────────
+\begin{frame}{\textbf{Evaluating $f(2)$}}
+  \begin{center}
+    \vfill
+
+    \[
+      f(x) = x^4 + x^2 - 4x - 4
+    \]
+
+    \vspace{0.6em}
+    Substituting $x = 2$:
+    \[
+      f(2) \;=\; (2)^4 + (2)^2 - 4(2) - 4
+    \]
+    \[
+      f(2) \;=\; 16 + 4 - 8 - 4
+    \]
+
+    \vspace{0.8em}
+    \LARGE\textbf{\textcolor{madblue}{$f(2) \;=\; 8$}}
+
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── EVALUATE f'(2) ────────────────────────────────────────
+\begin{frame}{\textbf{Evaluating $f'(2)$}}
+  \begin{center}
+    \vfill
+
+    \[
+      f'(x) = 4x^3 + 2x - 4
+    \]
+
+    \vspace{0.6em}
+    Substituting $x = 2$:
+    \[
+      f'(2) \;=\; 4(2)^3 + 2(2) - 4
+    \]
+    \[
+      f'(2) \;=\; 4 \times 8 + 4 - 4
+    \]
+    \[
+      f'(2) \;=\; 32 + 4 - 4
+    \]
+
+    \vspace{0.8em}
+    \textbf{\textcolor{madblue}{$f'(2) \;=\; 32$}}
+
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── APPLY NR ──────────────────────────────────────────────
+\begin{frame}{\textbf{Applying the Newton-Raphson Formula}}
+  \begin{center}
+    \vfill
+
+    \[
+      x_1 \;=\; x_0 - \frac{f(x_0)}{f'(x_0)}
+           \;=\; 2 - \frac{f(2)}{f'(2)}
+    \]
+
+    \vspace{0.8em}
+    \textbf{Substituting the computed values:}
+    \[
+      x_1 \;=\; 2 - \frac{8}{32}
+    \]
+    \[
+      x_1 \;=\; 2 - \frac{1}{4}
+    \]
+    \[
+      x_1 \;=\; \frac{8}{4} - \frac{1}{4}
+    \]
+    \rarrow\boxed{\textbf{\textcolor{madblue}{$x_1 \;=\; \dfrac{7}{4}$}}}
+    \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Convergence of Iterations}}
+
+\begin{center}
+\vfill
+
+Starting with $x_0 = 2$:
+
+\[
+x_1 = 1.75
+\]
+\[
+x_2 \approx 1.68115672
+\]
+\[
+x_3 \approx 1.67628062
+\]
+\[
+x_4 \approx 1.67625719
+\]
+
+\vspace{1em}
+
+\textbf{After several iterations:}
+\[
+x_n \;\longrightarrow\; \textcolor{madblue}{1.67}
+\]
+
+\vspace{1em}
+
+\textit{Hence, the root of the equation is approximately:}
+\[
+\boxed{1.67}
+\]
+
+\vfill
+\end{center}
+\end{frame}
+
+%% ── LIMIT-BASED FINAL VERIFICATION ──────────────────────
+\begin{frame}{\textbf{Final Verification via Limit}}
+
+\begin{center}
+\vfill
+
+From Newton-Raphson iterations:
+\[
+x_n \;\longrightarrow\; \textcolor{madblue}{1.67}
+\]
+
+\vspace{1em}
+
+Let the exact root be:
+\[
+x^* = \lim_{n \to \infty} x_n
+\]
+
+\vspace{1em}
+
+Since Newton-Raphson converges:
+\[
+f(x^*) = 0
+\]
+
+\vspace{1em}
+\end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Final Verification via Limit}}
+
+\begin{center}
+\textbf{Numerical verification:}
+
+\[
+f(1.67) = (1.67)^4 + (1.67)^2 - 4(1.67) - 4
+\]
+\[
+= 7.78 + 2.79 - 6.68 - 4
+\]
+\[
+= 10.57 - 10.68
+\]
+\[
+f(1.67) = -0.112 \;\neq\; 0
+\]
+\vspace{0.8em}
+\textbf{for x = 1.673:}
+\[
+f(1.673) \approx -0.01
+\]
+\[
+f(1.6735) \approx 0
+\]
+
+\vfill
+\end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Final Verification via Limit}}
+
+\begin{center}
+\textbf{Numerical verification:}
+\textbf{Hence:}
+\[
+\lim_{n \to \infty} f(x_n) = 0
+\]
+
+
+\[
+\boxed{
+x^* \approx \textcolor{madblue}{1.673}
+}
+\]
+
+\vspace{1em}
+
+\textit{Error $\to 0$ as iterations $\to \infty$}
+
+\vfill
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Newton Plot}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x):
+    return x**4 + x**2 - 4*x - 4
+
+def df(x):
+    return 4*x**3 + 2*x - 4
+
+x0 = 2
+x1 = x0 - f(x0)/df(x0)
+
+plt.style.use('dark_background')
+
+fig1, ax1 = plt.subplots(figsize=(8,5))
+
+x = np.linspace(0, 3, 400)
+ax1.plot(x, f(x))
+
+tangent = f(x0) + df(x0)*(x - x0)
+ax1.plot(x, tangent, '--')
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Newton Plot}}
+\begin{lstlisting}
+ax1.scatter(x0, f(x0))
+ax1.scatter(x1, 0)
+
+ax1.plot([x0, x0], [0, f(x0)], '--')
+
+ax1.annotate("7/4", (x1, 0),
+ textcoords="offset points",
+ xytext=(0, -15), ha='center')
+
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+%% ── NEWTON PLOT ─────────────────────────────
+\begin{frame}{\textbf{Newton-Raphson First Iteration}}
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{NR.png}
+
+    \vspace{0.5em}
+    {\small \textit{Tangent at $x_0 = 2$ intersects x-axis at $x_1 = \frac{7}{4}$}}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Zoomed Plot}}
+\begin{lstlisting}
+fig2, ax2 = plt.subplots(figsize=(8,5))
+
+x_zoom = np.linspace(1.4, 2.1, 400)
+
+ax2.plot(x_zoom, f(x_zoom))
+ax2.axhline(0)
+
+ax2.scatter(x0, f(x0))
+ax2.scatter(x1, 0)
+
+tangent_zoom = f(x0) + df(x0)*(x_zoom - x0)
+ax2.plot(x_zoom, tangent_zoom, '--')
+
+ax2.plot([x0, x0], [0, f(x0)], '--')
+
+ax2.annotate("7/4", (x1, 0),
+ textcoords="offset points",
+ xytext=(0, -15), ha='center')
+
+plt.show()
+\end{lstlisting}
+\end{frame}
+%% ── ZOOMED VIEW ────────────────────────────
+\begin{frame}{\textbf{Zoomed Newton Step}}
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{Z.png}
+
+    \vspace{0.5em}
+    {\small \textit{Zoomed view showing tangent intersection clearly at $x = \frac{7}{4}$}}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Full Graph}}
+\footnotesize
+\begin{lstlisting}
+root = 1.6762517
+
+fig3, ax3 = plt.subplots(figsize=(8,5))
+
+x_full = np.linspace(-3, 3, 600)
+
+ax3.plot(x_full, f(x_full))
+
+ax3.axhline(0)
+ax3.axvline(0)
+
+ax3.scatter(root, 0)
+ax3.annotate("1.673",
+ (root, 0),
+ textcoords="offset points",
+ xytext=(10, 10), ha='left')
+
+plt.show()
+\end{lstlisting}
+\end{frame}
+%% ── FULL GRAPH ─────────────────────────────
+\begin{frame}{\textbf{Graph of $f(x)$}}
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{G.png}
+
+    \vspace{0.5em}
+    {\small \textit{Function plotted from $-3$ to $3$, root at $x \approx 1.673$}}
+  \end{center}
+\end{frame}
+\end{document}
