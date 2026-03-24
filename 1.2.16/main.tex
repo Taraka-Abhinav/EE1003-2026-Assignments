@@ -38,6 +38,7 @@
 
 %% ── Inline math result ──────────────────────────────────
 \newcommand{\res}[1]{\textcolor{madblue}{\bm{#1}}}
+\newcommand{\rarrow}{\Rightarrow}
 
 \title{\bfseries Newton-Raphson Method}
 \subtitle{\textbf{Problem 1.2.16 \;|\; EC 2007}}
@@ -93,7 +94,7 @@
     For \textbf{one} iteration from $x_0 = 2$:
     \[
       x_1 \;=\; x_0 \;-\; \frac{f(x_0)}{f'(x_0)}
-           \;=\; 2 \;-\; \frac{f(2)}{f'(2)}
+            \;=\; 2 \;-\; \frac{f(2)}{f'(2)}
     \]
 
     \vspace{1.2em}
@@ -195,7 +196,7 @@
 
     \[
       x_1 \;=\; x_0 - \frac{f(x_0)}{f'(x_0)}
-           \;=\; 2 - \frac{f(2)}{f'(2)}
+            \;=\; 2 - \frac{f(2)}{f'(2)}
     \]
 
     \vspace{0.8em}
@@ -213,6 +214,122 @@
     \vfill
   \end{center}
 \end{frame}
+
+%% ── ADVANCED B.TECH/M.TECH THEORY DETAILS ─────────────────
+
+\begin{frame}{\textbf{Derivation via Taylor Series}}
+  \begin{center}
+  \vfill
+  Let $x^*$ be the exact root, meaning $f(x^*) = 0$. \\
+  Expanding $f(x)$ using the Taylor series around our guess $x_n$:
+  \[
+    f(x^*) = f(x_n) + (x^* - x_n)f'(x_n) + \frac{(x^* - x_n)^2}{2!}f''(\xi) = 0
+  \]
+  For a small interval, we truncate the higher-order terms ($x^* \approx x_{n+1}$):
+  \[
+    f(x_n) + (x_{n+1} - x_n)f'(x_n) \approx 0
+  \]
+  \vspace{0.5em}
+  Rearranging algebraically to solve for the next iteration $x_{n+1}$:
+  \[
+    \boxed{ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} }
+  \]
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Error Analysis \& Asymptotic Constant}}
+  \begin{center}
+  \vfill
+  Let the error at step $n$ be $e_n = x_n - x^*$. \\
+  Using the exact Taylor expansion, we find the relation:
+  \[
+    e_{n+1} \approx \frac{f''(x^*)}{2 f'(x^*)} e_n^2 
+  \]
+  \vspace{0.5em}
+  For a simple root ($f'(x^*) \neq 0$), the sequence exhibits \textbf{Quadratic Convergence} ($p=2$). The \textbf{Asymptotic Error Constant ($M$)} is defined as:
+  \[
+    \lim_{n \to \infty} \frac{|e_{n+1}|}{|e_n|^2} = M = \left| \frac{f''(x^*)}{2f'(x^*)} \right|
+  \]
+  \vspace{0.5em}
+  \textit{Practical Meaning:} The number of correct decimal places essentially \textbf{doubles} with every single iteration once $x_n$ is close to $x^*$.
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Conditions for Guaranteed Convergence}}
+  \begin{center}
+  \vfill
+  \textbf{Fourier's Sufficient Condition:} Convergence is mathematically guaranteed if the initial guess $x_0$ satisfies:
+  \[
+    \left| \frac{f(x) f''(x)}{[f'(x)]^2} \right| < 1 \quad \text{for all } x \text{ in the interval.}
+  \]
+  \vspace{0.2em}
+  \textbf{Verifying our problem at $x_0 = 2$:}
+  \[ f(2) = 8, \quad f'(2) = 32 \]
+  \[ f''(x) = 12x^2 + 2 \implies f''(2) = 12(2)^2 + 2 = 50 \]
+  \[
+    \left| \frac{f(2) f''(2)}{[f'(2)]^2} \right| = \frac{8 \times 50}{(32)^2} = \frac{400}{1024} \approx 0.39 < 1
+  \]
+  \textbf{\textcolor{okgreen}{Condition strongly satisfied!}} Convergence from $x_0=2$ is absolute.
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Advanced Extensions: Multidimensional NR}}
+  \begin{center}
+  \vfill
+  In M.Tech/Advanced applications (e.g., Load Flow Analysis in Power Systems), we solve systems of non-linear equations $\mathbf{F}(\mathbf{x}) = 0$.
+  \vspace{1em}
+  
+  The scalar derivative $f'(x)$ is replaced by the \textbf{Jacobian Matrix} $\mathbf{J}(\mathbf{x})$, containing partial derivatives:
+  \[
+    \mathbf{J}(\mathbf{x}) = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+    \vdots & \ddots & \vdots \\
+    \frac{\partial f_n}{\partial x_1} & \cdots & \frac{\partial f_n}{\partial x_n}
+    \end{bmatrix}
+  \]
+  \vspace{1em}
+  The iteration formula becomes a matrix operation:
+  \[
+    \mathbf{x}_{n+1} = \mathbf{x}_n - \mathbf{J}^{-1}(\mathbf{x}_n) \mathbf{F}(\mathbf{x}_n)
+  \]
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Handling Pathologies: Multiple Roots}}
+  \begin{center}
+  \vfill
+  If a root has a multiplicity $m > 1$ (i.e., $f(x^*) = 0$ and $f'(x^*) = 0$), standard Newton-Raphson degrades to \textbf{Linear Convergence}.
+  \vspace{1em}
+  
+  To restore quadratic convergence, we use the \textbf{Modified Newton-Raphson Method}:
+  \[
+    x_{n+1} = x_n - m \frac{f(x_n)}{f'(x_n)}
+  \]
+  \vspace{1em}
+  Alternatively, applying standard NR to the function $u(x) = \frac{f(x)}{f'(x)}$ always yields quadratic convergence, regardless of root multiplicity.
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Global Dynamics: Basins of Attraction}}
+  \begin{center}
+  \vfill
+  Newton's method is highly sensitive to the initial guess $x_0$. 
+  \vspace{1em}
+  
+  When extended to the \textbf{Complex Plane} ($z \in \mathbb{C}$), the roots act as "attractors". The set of all initial guesses that converge to a specific root is called its \textbf{Basin of Attraction}.
+  \vspace{1em}
+  
+  For our function $f(z) = z^4 + z^2 - 4z - 4$, coloring the complex plane based on which of the 4 roots an initial guess converges to generates a \textbf{Newton Fractal}. The boundaries between these basins are infinitely complex and chaotic.
+  \vfill
+  \end{center}
+\end{frame}
+
+%% ── BACK TO PROBLEM SOLUTION ──────────────────────────────
 
 \begin{frame}{\textbf{Convergence of Iterations}}
 
@@ -344,7 +461,7 @@ def f(x):
     return x**4 + x**2 - 4*x - 4
 
 def df(x):
-    return 4*x**3 + 2*x - 4
+    return 4*x**3 - 2*x - 4
 
 x0 = 2
 x1 = x0 - f(x0)/df(x0)
@@ -379,7 +496,7 @@ plt.show()
 %% ── NEWTON PLOT ─────────────────────────────
 \begin{frame}{\textbf{Newton-Raphson First Iteration}}
   \begin{center}
-    \includegraphics[width=0.9\linewidth]{NR.png}
+    \includegraphics[width=0.9\linewidth]{figs/NR.png}
 
     \vspace{0.5em}
     {\small \textit{Tangent at $x_0 = 2$ intersects x-axis at $x_1 = \frac{7}{4}$}}
@@ -413,7 +530,7 @@ plt.show()
 %% ── ZOOMED VIEW ────────────────────────────
 \begin{frame}{\textbf{Zoomed Newton Step}}
   \begin{center}
-    \includegraphics[width=0.9\linewidth]{Z.png}
+    \includegraphics[width=0.9\linewidth]{figs/Z.png}
 
     \vspace{0.5em}
     {\small \textit{Zoomed view showing tangent intersection clearly at $x = \frac{7}{4}$}}
@@ -446,10 +563,88 @@ plt.show()
 %% ── FULL GRAPH ─────────────────────────────
 \begin{frame}{\textbf{Graph of $f(x)$}}
   \begin{center}
-    \includegraphics[width=0.9\linewidth]{G.png}
+    \includegraphics[width=0.9\linewidth]{figs/G.png}
 
     \vspace{0.5em}
     {\small \textit{Function plotted from $-3$ to $3$, root at $x \approx 1.673$}}
   \end{center}
 \end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Convergence Plot}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x):
+    return x**4 + x**2 - 4*x - 4
+
+def df(x):
+    return 4*x**3 + 2*x - 4
+
+true_root = 1.676251739196307
+
+x = 2.0
+errors = []
+iterations = []
+
+for i in range(7):
+    errors.append(abs(x - true_root))
+    iterations.append(i)
+    x = x - f(x)/df(x)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Convergence Plot}}
+\begin{lstlisting}
+
+fig, ax = plt.subplots()
+
+ax.plot(iterations, np.log10(errors))
+ax.grid(True)
+
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{\textbf{Convergence Plot}}
+\begin{center}
+\includegraphics[width=\linewidth]{figs/QC.png}
+
+\vspace{0.4em}
+{\small \textit{Quadratic convergence of Newton-Raphson method}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Newton Fractal}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(z):
+    return z**4 + z**2 - 4*z - 4
+
+def df(z):
+    return 4*z**3 + 2*z - 4
+
+X, Y = np.meshgrid(np.linspace(-3,3,800),
+                   np.linspace(-3,3,800))
+Z = X + 1j*Y
+
+for _ in range(40):
+    Z = Z - f(Z)/df(Z)
+
+plt.imshow(Z.real)
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{\textbf{Newton Fractal}}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{figs/NF.png}
+
+\vspace{0.4em}
+{\small \textit{Basins of attraction for the polynomial roots}}
+\end{center}
+\end{frame}
+
 \end{document}

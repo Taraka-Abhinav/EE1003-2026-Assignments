@@ -1,0 +1,21 @@
+\frametitle{\textbf {Python Code: Newton Fractal}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(z):
+    return z**4 + z**2 - 4*z - 4
+
+def df(z):
+    return 4*z**3 + 2*z - 4
+
+X, Y = np.meshgrid(np.linspace(-3,3,800),
+                   np.linspace(-3,3,800))
+Z = X + 1j*Y
+
+for _ in range(40):
+    Z = Z - f(Z)/df(Z)
+
+plt.imshow(Z.real)
+plt.show()
+\end{lstlisting}
