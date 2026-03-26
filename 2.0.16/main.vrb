@@ -1,0 +1,16 @@
+\frametitle{Python: Completion Time Trajectory}
+\begin{lstlisting}
+_, _, _, cum_edd = analyze_sequence(seq_edd)
+_, _, _, cum_spt = analyze_sequence(seq_spt)
+_, _, _, cum_lst = analyze_sequence(seq_lst)
+
+steps = [0, 1, 2, 3, 4]
+
+fig4, ax4 = plt.subplots()
+ax4.step(steps, cum_edd, label='EDD', where='post')
+ax4.step(steps, cum_spt, label='SPT', where='post')
+ax4.step(steps, cum_lst, label='LST', where='post')
+
+ax4.legend()
+plt.savefig("T.png")
+\end{lstlisting}
