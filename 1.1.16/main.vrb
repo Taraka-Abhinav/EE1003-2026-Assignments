@@ -1,5 +1,4 @@
-\frametitle{\textbf {Python Code: Phase Portrait (Themed)}}
-\scriptsize
+\frametitle{\textbf {Phase Portrait -- Python Code}}
 \begin{lstlisting}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,20 +7,28 @@ t = np.linspace(0, 0.2, 1000)
 V = 5
 tau = 0.04
 
-Vc = V * (1 - np.exp(-t/tau))
+Vc     = V * (1 - np.exp(-t/tau))
 dVc_dt = (V / tau) * np.exp(-t/tau)
 
-bg = '#0b1220'
-curve = '#8fd3d1'
+bg     = '#0b1220'
+curve  = '#8fd3d1'
 accent = '#f5e6a8'
-fig, ax = plt.subplots()
+
+fig, ax = plt.subplots(figsize=(7, 5))
 fig.patch.set_facecolor(bg)
 ax.set_facecolor(bg)
-
-ax.plot(Vc, dVc_dt, color=curve)
-ax.fill_between(Vc, dVc_dt, alpha=0.12)
-ax.scatter([0], [125], color=accent)
-ax.scatter([5], [0], color=accent)
-
+ax.plot(Vc, dVc_dt, color=curve, lw=2)
+ax.fill_between(Vc, dVc_dt, alpha=0.12, color=curve)
+ax.scatter([0], [125], color=accent, zorder=5, s=60,
+           label='Initial ($V_C=0$, $dV/dt=125$)')
+ax.scatter([5], [0],   color=accent, zorder=5, s=60,
+           label='Equilibrium ($V_C=5$ V)')
+ax.set_xlabel('Capacitor Voltage $V_C$ (V)', color='white')
+ax.set_ylabel('Rate of Change $dV_C/dt$ (V/s)', color='white')
+ax.set_title('Phase Portrait: $dV_C/dt$ vs $V_C$', color='white')
+ax.tick_params(colors='white')
+ax.legend(facecolor=bg, labelcolor='white')
+ax.grid(True, alpha=0.2)
+plt.savefig('figs/PP.png', dpi=150, facecolor=bg)
 plt.show()
 \end{lstlisting}

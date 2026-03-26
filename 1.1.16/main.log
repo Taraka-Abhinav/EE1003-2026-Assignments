@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.3.24)  24 MAR 2026 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.3.24)  26 MAR 2026 14:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1097,16 +1097,16 @@ Package pdftex.def Info: figs/C.png  used on input line 81.
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <17.28> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 127.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 131.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 127.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 131.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 127.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 131.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 127.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 131.
 
 
 
@@ -1126,7 +1126,7 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <20.74> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 235.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 242.
 
 
 
@@ -1145,10 +1145,6 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <20.74> not available
 [11
 
 ]
-Overfull \vbox (8.43716pt too high) detected at line 333
- []
-
-
 
 [12
 
@@ -1158,11 +1154,64 @@ Overfull \vbox (8.43716pt too high) detected at line 333
 
 ]
 
+LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
+(Font)              using `OT1/cmss/b/it' instead on input line 398.
+
+
+
 [14
 
 ]
 
 [15
+
+]
+
+[16
+
+]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 476.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 476.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 476.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 476.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 476.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 476.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 476.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 476.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 476.
+
+
+Overfull \vbox (12.25906pt too high) detected at line 476
+ []
+
+
+
+[17
+
+]
+
+[18
+
+]
+
+[19
 
 ]
 \openout4 = `main.vrb'.
@@ -1172,129 +1221,4186 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
 .
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-))
+)
 
-[16
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-\openout4 = `main.vrb'.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 # ── 
+             Circuit parameters ──────────────�...
 
- (./main.vrb)
+? 
 
-[17
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
 
-]
-<figs/Vc.png, id=519, 478.78876pt x 281.55188pt>
-File: figs/Vc.png Graphic file (type png)
-<use figs/Vc.png>
-Package pdftex.def Info: figs/Vc.png  used on input line 451.
-(pdftex.def)             Requested size: 340.6956pt x 200.34572pt.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 # ── 
+             Circuit parameters ──────────────�...
 
+? 
 
-[18
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
 
- <./figs/Vc.png>]
-\openout4 = `main.vrb'.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
 
- (./main.vrb)
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
 
-[19
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
 
-]
-\openout4 = `main.vrb'.
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
 
- (./main.vrb)
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 # ── 
+              RK4 solver ─────────────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 # ── 
+              RK4 solver ─────────────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 # ── 
+              Exact (theoretical) solution ───────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 # ── 
+              Exact (theoretical) solution ───────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 # ── 
+              Plot: Vc comparison ──────────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 # ── 
+              Plot: Vc comparison ──────────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...──────────────
+                                                  
+? 
+LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 4
+5.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+)
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 # ── 
+              Plot: ic comparison ──────────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 # ── 
+              Plot: ic comparison ──────────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 # ── 
+              Max absolute error ──────────────�...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 # ── 
+              Max absolute error ──────────────�...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...──────────────
+                                                  
+? 
+)
 
 [20
 
-]
-<figs/Ic.png, id=605, 466.74374pt x 280.04625pt>
-File: figs/Ic.png Graphic file (type png)
-<use figs/Ic.png>
-Package pdftex.def Info: figs/Ic.png  used on input line 494.
-(pdftex.def)             Requested size: 340.6956pt x 204.42776pt.
-
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 
 [21
 
- <./figs/Ic.png>]
-\openout4 = `main.vrb'.
 
- (./main.vrb)
+]
 
 [22
 
-]
-\openout4 = `main.vrb'.
 
- (./main.vrb)
+]
 
 [23
 
+
 ]
-<figs/O.png, id=690, 521.69907pt x 286.82156pt>
-File: figs/O.png Graphic file (type png)
-<use figs/O.png>
-Package pdftex.def Info: figs/O.png  used on input line 545.
-(pdftex.def)             Requested size: 340.6956pt x 187.31148pt.
+<figs/rk4.png, id=682, 867.24pt x 289.08pt>
+File: figs/rk4.png Graphic file (type png)
+<use figs/rk4.png>
+Package pdftex.def Info: figs/rk4.png  used on input line 619.
+(pdftex.def)             Requested size: 340.6956pt x 113.5656pt.
 
 
 [24
 
- <./figs/O.png>]
+ <./figs/rk4.png>]
 \openout4 = `main.vrb'.
 
- (./main.vrb)
+ (./main.vrb
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 * RC Circuit Transient Analysis – 
+                                        EC 2007 Problem 1.1.16
+? 
+)
+Overfull \vbox (17.73314pt too high) detected at line 651
+ []
+
+
 
 [25
 
 ]
 \openout4 = `main.vrb'.
 
- (./main.vrb)
+ (./main.vrb
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 # ── 
+             1. Run NGSpice and capture output ─────────�...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 # ── 
+             1. Run NGSpice and capture output ─────────�...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ...�──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 # ── 
+              2. Parse NGSpice raw output (ASCII format) ──────�...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 # ── 
+              2. Parse NGSpice raw output (ASCII format) ──────�...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 # ── 
+              3. Exact theoretical curves ───────────�...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 # ── 
+              3. Exact theoretical curves ───────────�...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 # ── 
+              4. Plot ──────────────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 # ── 
+              4. Plot ──────────────────...
+
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+
+! LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�\lst@EC�).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...──────────────
+                                                  
+? 
+)
 
 [26
 
 ]
-<figs/PS.png, id=777, 578.16pt x 361.35pt>
-File: figs/PS.png Graphic file (type png)
-<use figs/PS.png>
-Package pdftex.def Info: figs/PS.png  used on input line 591.
-(pdftex.def)             Requested size: 340.6956pt x 212.9355pt.
-
-Overfull \vbox (6.16486pt too high) detected at line 591
- []
-
-
 
 [27
+
+
+]
+
+[28
+
+
+]
+<figs/spice.png, id=826, 1788.6825pt x 980.66376pt>
+File: figs/spice.png Graphic file (type png)
+<use figs/spice.png>
+Package pdftex.def Info: figs/spice.png  used on input line 721.
+(pdftex.def)             Requested size: 340.6956pt x 186.79192pt.
+
+
+[29
+
+ <./figs/spice.PNG>]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[30
+
+]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[31
+
+]
+<figs/Vc.png, id=912, 478.78876pt x 281.55188pt>
+File: figs/Vc.png Graphic file (type png)
+<use figs/Vc.png>
+Package pdftex.def Info: figs/Vc.png  used on input line 773.
+(pdftex.def)             Requested size: 340.6956pt x 200.34572pt.
+
+
+[32
+
+ <./figs/Vc.png>]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[33
+
+]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[34
+
+]
+<figs/Ic.png, id=998, 466.74374pt x 280.04625pt>
+File: figs/Ic.png Graphic file (type png)
+<use figs/Ic.png>
+Package pdftex.def Info: figs/Ic.png  used on input line 822.
+(pdftex.def)             Requested size: 340.6956pt x 204.42776pt.
+
+
+[35
+
+ <./figs/Ic.png>]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[36
+
+]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[37
+
+]
+<figs/O.png, id=1085, 521.69907pt x 286.82156pt>
+File: figs/O.png Graphic file (type png)
+<use figs/O.png>
+Package pdftex.def Info: figs/O.png  used on input line 873.
+(pdftex.def)             Requested size: 340.6956pt x 187.31148pt.
+
+
+[38
+
+ <./figs/O.png>]
+\openout4 = `main.vrb'.
+
+ (./main.vrb)
+
+[39
+
+]
+
+[40
+
+
+]
+<figs/PS.png, id=1169, 578.16pt x 361.35pt>
+File: figs/PS.png Graphic file (type png)
+<use figs/PS.png>
+Package pdftex.def Info: figs/PS.png  used on input line 922.
+(pdftex.def)             Requested size: 340.6956pt x 212.9355pt.
+
+
+[41
 
  <./figs/PS.png>]
 \openout4 = `main.vrb'.
 
  (./main.vrb)
-Overfull \vbox (4.02899pt too high) detected at line 620
- []
 
-
-
-[28
+[42
 
 ]
-<figs/PP.png, id=836, 505.89pt x 433.62pt>
+
+[43
+
+
+]
+<figs/PP.png, id=1252, 505.89pt x 433.62pt>
 File: figs/PP.png Graphic file (type png)
 <use figs/PP.png>
-Package pdftex.def Info: figs/PP.png  used on input line 628.
+Package pdftex.def Info: figs/PP.png  used on input line 966.
 (pdftex.def)             Requested size: 255.5217pt x 219.01938pt.
 
-pdfTeX warning (ext4): destination with the same identifier (name{fig:placehold
-er}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.628 \end{frame}
-                 
 
-[29
+[44
 
  <./figs/PP.png>]
 \tf@nav=\write6
@@ -1315,43 +5421,44 @@ L3 programming layer <2025-01-18>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 45184 strings out of 475178
- 1070455 string characters out of 5766539
- 1853510 words of memory out of 5000000
- 67507 multiletter control sequences out of 15000+600000
- 585494 words of font info for 130 fonts, out of 8000000 for 9000
+ 45394 strings out of 475178
+ 1073638 string characters out of 5766539
+ 2172510 words of memory out of 5000000
+ 67672 multiletter control sequences out of 15000+600000
+ 592453 words of font info for 155 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,15n,107p,396b,1134s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,15n,107p,396b,1383s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
-bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi17.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (29 pages, 661429 bytes).
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
+12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmssi17.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucr
+r8a.pfb>
+Output written on main.pdf (44 pages, 821388 bytes).
 PDF statistics:
- 963 PDF objects out of 1000 (max. 8388607)
- 820 compressed objects within 9 object streams
- 60 named destinations out of 1000 (max. 500000)
- 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1403 PDF objects out of 1440 (max. 8388607)
+ 1218 compressed objects within 13 object streams
+ 89 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

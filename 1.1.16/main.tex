@@ -60,7 +60,7 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
 
 \begin{columns}[c]
 
-    %% LEFT → OPTIONS
+    %% LEFT -> OPTIONS
     \begin{column}{0.45\textwidth}
         {\textbf{\textcolor{madblue}{Options:}}}\\[0.4em]
 
@@ -70,7 +70,7 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
         \myopt{d}{$0.25\,e^{-6.25t}\ \mathrm{mA}$}
     \end{column}
 
-    %% RIGHT → CIRCUIT
+    %% RIGHT -> CIRCUIT
     \begin{column}{0.55\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figs/C.png}
@@ -79,6 +79,10 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
 \end{columns}
 
 \end{frame}
+
+%% ══════════════════════════════════════════════════════════════════
+%%  PART I – THEORY & CALCULATIONS
+%% ══════════════════════════════════════════════════════════════════
 
 %% ── SOLUTION 1: Initial Condition ────────────────────────────────
 \begin{frame}{\textbf{Initial Condition}}
@@ -230,6 +234,9 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
 
     \vspace{1em}
     \LARGE\textbf{\textcolor{madblue}{$i_c(t) \;=\; 0.50\,e^{-25t}\,\mathrm{mA}$}}
+
+    \vspace{0.5em}
+    \normalsize\textbf{\textcolor{okgreen}{Answer: Option (a)}}
     \vfill
   \end{center}
 \end{frame}
@@ -254,12 +261,13 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
     \]
 
     \vspace{1em}
-    \Large\textbf{\textcolor{madblue}{$i_c(t) \;=\; 0.50\,e^{-25t}\,\mathrm{mA}$}}
+    \Large\textbf{\textcolor{madblue}{$i_c(t) \;=\; 0.50\,e^{-25t}\,\mathrm{mA}$}}\;
+    \textcolor{okgreen}{\checkmark}
     \vfill
   \end{center}
 \end{frame}
 
-%% ── ADVANCED: DIFFERENTIAL EQUATION ──────────────────────────────
+%% ── ADVANCED: ODE Formulation ────────────────────────────────────
 \begin{frame}{\textbf{Advanced: ODE Formulation}}
   \begin{center}
     \vfill
@@ -267,13 +275,14 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
     \[
       C\frac{dV_C(t)}{dt} \;+\; \frac{V_C(t)}{R_2} \;=\; \frac{V_s - V_C(t)}{R_1}
     \]
-    
+
     \vspace{1.5em}
     Rearranging into the standard first-order linear ODE form:
     \[
-      \frac{dV_C(t)}{dt} \;+\; \left( \frac{R_1 + R_2}{R_1 R_2 C} \right) V_C(t) \;=\; \frac{V_s}{R_1 C}
+      \frac{dV_C(t)}{dt} \;+\; \left( \frac{R_1 + R_2}{R_1 R_2 C} \right) V_C(t)
+                         \;=\; \frac{V_s}{R_1 C}
     \]
-    
+
     \vspace{1.5em}
     Substituting circuit values:
     \[
@@ -283,7 +292,7 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
   \end{center}
 \end{frame}
 
-%% ── ADVANCED: DIFFERENTIAL EQUATION SOLVED ───────────────────────
+%% ── ADVANCED: ODE Solution ───────────────────────────────────────
 \begin{frame}{\textbf{Advanced: ODE Solution}}
   \begin{center}
     \vfill
@@ -297,66 +306,70 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
     \[
       V_C(t) \;=\; K e^{-25t} \;+\; 5
     \]
-    
+
     \vspace{1.5em}
     Applying the initial condition $V_C(0^+) = 0$, we find $K = -5$.
-    
+
     \vspace{2em}
     \Large\textbf{\textcolor{madblue}{$V_C(t) \;=\; 5\bigl(1 - e^{-25t}\bigr)\,\mathrm{V}$}}
     \vfill
   \end{center}
 \end{frame}
 
-%% ── ADVANCED: FREQUENCY RESPONSE ─────────────────────────────────
+%% ── ADVANCED: Transfer Function ──────────────────────────────────
 \begin{frame}{\textbf{Advanced: Transfer Function $H(s)$}}
   \begin{center}
     \vfill
-    Analyzing the circuit as a system mapping $V_s(t) \to V_C(t)$ in the \textbf{$s$-domain}.
-    
+    Analyzing the circuit as a system mapping $V_s(t) \to V_C(t)$ in the $s$-domain.
+
     \vspace{1.5em}
-    The Transfer Function is found via \textbf{voltage division} with impedances:
+    The Transfer Function is found via voltage division with impedances:
     \[
-      H(s) \;=\; \frac{V_C(s)}{V_s(s)} \;=\; \frac{R_2 \parallel \frac{1}{sC}}{R_1 + \left( R_2 \parallel \frac{1}{sC} \right)}
+      H(s) \;=\; \frac{V_C(s)}{V_s(s)}
+             \;=\;
+             \frac{R_2 \,\|\, \frac{1}{sC}}
+                  {R_1 + \left(R_2 \,\|\, \frac{1}{sC}\right)}
     \]
-    
+
     \vspace{1.5em}
     Simplifying and substituting values yields:
     \[
       H(s) \;=\; \frac{12.5}{s + \mathbf{25}}
     \]
-    
+
     \vspace{1.5em}
     \normalsize
-    \textit{The pole is located at $s = -25\,\mathrm{rad/s}$, which defines the system's cutoff frequency.}
+    \textit{The pole is located at $s = -25\,\mathrm{rad/s}$, which defines the
+    system's cutoff frequency.}
     \vfill
   \end{center}
 \end{frame}
 
-%% ── ADVANCED: LAPLACE TRANSFORM ──────────────────────────────────
+%% ── ADVANCED: Laplace Transform ──────────────────────────────────
 \begin{frame}{\textbf{Advanced: Laplace Transform}}
   \begin{center}
     \vfill
-    In the \textbf{$s$-domain}, the input is a step: $V_s(s) = \frac{10}{s}$.
-    
+    In the \textbf{$s$-domain}, the input is a step: $V_s(s) = \dfrac{10}{s}$.
+
     \vspace{1.5em}
     Using Nodal Analysis and solving for $V_C(s)$:
     \[
       V_C(s) \;=\; \frac{125}{s(s + 25)}
     \]
-    
+
     \vspace{1.5em}
     Applying \textbf{Partial Fraction Expansion}:
     \[
       V_C(s) \;=\; \frac{5}{s} \;-\; \frac{5}{s + 25}
     \]
-    
+
     \vspace{2em}
-    \Large\textbf{\textcolor{madblue}{$V_C(t) \;=\; 5\bigl(1 - e^{-25t}\bigr) \, u(t) \;\mathrm{V}$}}
+    \Large\textbf{\textcolor{madblue}{$V_C(t) \;=\; 5\bigl(1 - e^{-25t}\bigr)\,u(t)\;\mathrm{V}$}}
     \vfill
   \end{center}
 \end{frame}
 
-%% ── ADVANCED: STATE-SPACE ────────────────────────────────────────
+%% ── ADVANCED: State-Space ────────────────────────────────────────
 \begin{frame}{\textbf{Advanced: State-Space Formulation}}
   \begin{center}
     \vfill
@@ -364,52 +377,355 @@ $\bm{i_c(t)}$ \textbf{(}$\bm{t}$ \textbf{in seconds) is:}
     \[
       \mathbf{\dot{x}(t) \;=\; Ax(t) + Bu(t)}
     \]
-    
+
     \vspace{1.5em}
     Let the state variable be $x(t) = V_C(t)$ and the input $u(t) = V_s(t)$.
-    
+
     \vspace{1.5em}
     From the earlier ODE, we directly extract the matrices:
     \[
-      \mathbf{\dot{x}(t) \;=\; \underbrace{-25}_{\mathbf{A}} \, x(t) \;+\; \underbrace{12.5}_{\mathbf{B}} \, u(t)}
+      \mathbf{\dot{x}(t) \;=\;
+        \underbrace{-25}_{\mathbf{A}} \, x(t) \;+\;
+        \underbrace{12.5}_{\mathbf{B}} \, u(t)}
     \]
-    
+
     \vspace{1.5em}
     \normalsize
-    \textit{The eigenvalue of $\mathbf{A}$ is $\lambda = -25$. \\ Since $\lambda < 0$, the system is strictly stable.}
+    \textit{The eigenvalue of $\mathbf{A}$ is $\lambda = -25$.\\
+    Since $\lambda < 0$, the system is \textbf{strictly stable}.}
     \vfill
   \end{center}
 \end{frame}
 
-%% ── ADVANCED: ENERGY DYNAMICS ────────────────────────────────────
+%% ── ADVANCED: Energy Dynamics ────────────────────────────────────
 \begin{frame}{\textbf{Advanced: Energy Dynamics}}
   \begin{center}
     \vfill
     \textbf{Steady-State Energy Stored ($t \to \infty$):}
     \[
-      E_C \;=\; \frac{1}{2} C V_\infty^2 \;=\; \frac{1}{2} (4\,\mu\mathrm{F}) (5\,\mathrm{V})^2 \;=\; \mathbf{50\,\mu\mathrm{J}}
+      E_C \;=\; \frac{1}{2} C V_\infty^2
+           \;=\; \frac{1}{2} (4\,\mu\mathrm{F})(5\,\mathrm{V})^2
+           \;=\; \mathbf{50\,\mu\mathrm{J}}
     \]
-    
+
     \vspace{2em}
     \textbf{Instantaneous Power Delivered:}
     \[
       p_C(t) \;=\; V_C(t) \cdot i_C(t)
     \]
-    
+
     \vspace{1em}
     \[
-      p_C(t) \;=\; 2.5 \bigl(e^{-25t} - e^{-50t}\bigr) \;\mathrm{mW}
+      p_C(t) \;=\; 2.5\bigl(e^{-25t} - e^{-50t}\bigr)\;\mathrm{mW}
     \]
-    
+
     \vspace{1.5em}
     \normalsize
-    \textit{Maximum power transfer occurs at $t = \frac{\ln(2)}{25} \approx \mathbf{27.7\,\mathrm{ms}}$.}
+    \textit{Maximum power transfer occurs at
+    $t = \dfrac{\ln 2}{25} \approx \mathbf{27.7\,\mathrm{ms}}$.}
     \vfill
   \end{center}
 \end{frame}
 
+%% ══════════════════════════════════════════════════════════════════
+%%  PART II – NUMERICAL VERIFICATION (RK4)
+%% ══════════════════════════════════════════════════════════════════
+
+%% ── RK4: Theory Part 1 ───────────────────────────────────────────
+\begin{frame}{\textbf{Numerical Verification: RK4 Method (1/3)}}
+  \begin{center}
+    \vfill
+    \textbf{Why Runge-Kutta 4 (RK4)?}\\
+    Analytical solutions are not always feasible for complex circuits. Numerical methods like RK4 provide highly accurate approximations with a global error of $\mathcal{O}(h^4)$.
+
+    \vspace{1.5em}
+    The governing \textbf{Ordinary Differential Equation (ODE)} for our circuit is:
+    \[
+      \frac{dV_C}{dt} \;=\; f(t,\,V_C) \;=\; 125 - 25\,V_C
+    \]
+
+    \vspace{1em}
+    We evaluate the voltage $V_C$ at discrete time steps $t_n$, such that:
+    \[
+      t_{n+1} = t_n + h
+    \]
+    where $h$ is the chosen \textbf{time step}.
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── RK4: Theory Part 2 ───────────────────────────────────────────
+\begin{frame}{\textbf{Numerical Verification: RK4 Method (2/3)}}
+  \begin{center}
+    \vfill
+    RK4 calculates four different \textbf{slopes} ($k_1, k_2, k_3, k_4$) across the interval $[t_n, t_{n+1}]$ to find a highly accurate weighted average.
+
+    \vspace{1em}
+    \begin{align*}
+      k_1 &= f(t_n,\;V_n) \\
+      &\small\textit{(Slope at the beginning of the interval)} \\[0.8em]
+      k_2 &= f\!\left(t_n+\tfrac{h}{2},\;V_n+\tfrac{h}{2}k_1\right) \\
+      &\small\textit{(Slope at the midpoint, estimated using $k_1$)} \\[0.8em]
+      k_3 &= f\!\left(t_n+\tfrac{h}{2},\;V_n+\tfrac{h}{2}k_2\right) \\
+      &\small\textit{(Slope at the midpoint, refined using $k_2$)} \\[0.8em]
+      k_4 &= f(t_n+h,\;V_n+h\,k_3) \\
+      &\small\textit{(Slope at the end of the interval, estimated using $k_3$)}
+    \end{align*}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── RK4: Theory Part 3 ───────────────────────────────────────────
+\begin{frame}{\textbf{Numerical Verification: RK4 Method (3/3)}}
+  \begin{center}
+    \vfill
+    \textbf{The Final Update Rule:}
+    The next voltage value $V_{n+1}$ is computed by adding a weighted average of the four slopes to the current value $V_n$:
+    \[
+      V_{n+1} \;=\; V_n \;+\; \frac{h}{6}\bigl(k_1 + 2k_2 + 2k_3 + k_4\bigr)
+    \]
+
+    \vspace{1.5em}
+    \textbf{Implementation Details for our Circuit:}
+    \begin{itemize}
+        \item \textbf{Initial Condition:} $t_0 = 0$, $V_C(0) = 0\,\mathrm{V}$
+        \item \textbf{Step Size:} $h = 0.5 \times 10^{-3}\,\mathrm{s}$ ($0.5\,\mathrm{ms}$)
+        \item \textbf{Simulation Time:} $t_{\text{end}} = 200\,\mathrm{ms}$
+    \end{itemize}
+
+    \vspace{1em}
+    \normalsize\textit{Greater weight is given to the midpoint slopes ($k_2, k_3$) as they better represent the function's average behavior over the given interval.}
+    \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{SPICE Simulation: Overview}}
+  \begin{center}
+    \vfill
+    \textbf{NGSpice} is used to simulate the exact same RC circuit
+    and independently verify both $V_C(t)$ and $i_c(t)$.
+
+    \vspace{1.5em}
+    \textbf{Circuit Netlist Elements:}
+
+    \vspace{0.8em}
+    \begin{tabular}{lll}
+      \textbf{Element} & \textbf{Value} & \textbf{Nodes} \\
+      \hline
+      $V_s$            & $10\,\mathrm{V}$ DC & 1 $\to$ GND \\
+      $R_1$            & $20\,\mathrm{k}\Omega$ & Node 1 $\to$ Node 2 \\
+      $R_2$            & $20\,\mathrm{k}\Omega$ & Node 2 $\to$ GND \\
+      $C$              & $4\,\mu\mathrm{F}$, IC = 0 & Node 2 $\to$ GND \\
+    \end{tabular}
+
+    \vspace{1.5em}
+    Transient analysis: step $= 0.5\,\mathrm{ms}$, stop $= 200\,\mathrm{ms}$
+
+    \vspace{0.8em}
+    \textit{Node 2 voltage $= V_C(t)$;\quad
+    current through $C$ $= i_c(t)$}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── RK4: Python Code ─────────────────────────────────────────────
+\begin{frame}[fragile,allowframebreaks]{\textbf{RK4 Verification -- Python Code}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ── Circuit parameters ──────────────────────────────────────────
+Vs  = 10.0       # Source voltage  (V)
+R1  = 20e3       # Series resistor (Ohm)
+R2  = 20e3       # Shunt  resistor (Ohm)
+C   = 4e-6       # Capacitance     (F)
+Rth = R1 * R2 / (R1 + R2)          # Thevenin resistance
+Vinf = Vs * R2 / (R1 + R2)         # Steady-state voltage
+
+# ODE:  dVc/dt = f(Vc)  =  125 - 25*Vc
+def f(Vc):
+    return (Vinf - Vc) / (Rth * C)  # = 125 - 25*Vc
+
+# ── RK4 solver ──────────────────────────────────────────────────
+h    = 0.5e-3      # step size (0.5 ms)
+t_end = 0.200      # end time  (200 ms)
+N    = int(t_end / h)
+
+t_rk = np.zeros(N + 1)
+Vc_rk = np.zeros(N + 1)
+Vc_rk[0] = 0.0    # initial condition
+
+for n in range(N):
+    k1 = f(Vc_rk[n])
+    k2 = f(Vc_rk[n] + h/2 * k1)
+    k3 = f(Vc_rk[n] + h/2 * k2)
+    k4 = f(Vc_rk[n] + h     * k3)
+    Vc_rk[n+1] = Vc_rk[n] + h/6 * (k1 + 2*k2 + 2*k3 + k4)
+    t_rk[n+1]  = t_rk[n] + h
+
+# ── Exact (theoretical) solution ────────────────────────────────
+t_ex  = np.linspace(0, t_end, 2000)
+Vc_ex = Vinf * (1 - np.exp(-25 * t_ex))
+ic_ex = (Vinf / Rth) * np.exp(-25 * t_ex) * 1000  # mA
+ic_rk = np.array([f(v) * C * 1000 for v in Vc_rk]) # mA
+
+# ── Plot: Vc comparison ─────────────────────────────────────────
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+
+ax = axes[0]
+ax.plot(t_ex*1000,  Vc_ex,  'b-',  lw=2,   label='Exact: $5(1-e^{-25t})$')
+ax.plot(t_rk*1000,  Vc_rk,  'r--', lw=1.5, label='RK4 (h=0.5 ms)')
+ax.axhline(5, color='gray', ls=':', lw=1)
+ax.set_xlabel('Time (ms)')
+ax.set_ylabel('$V_C$ (V)')
+ax.set_title('Capacitor Voltage')
+ax.legend()
+ax.grid(True, alpha=0.3)
+
+# ── Plot: ic comparison ─────────────────────────────────────────
+ax2 = axes[1]
+ax2.plot(t_ex*1000,  ic_ex,  'b-',  lw=2,   label='Exact: $0.5\,e^{-25t}$ mA')
+ax2.plot(t_rk*1000,  ic_rk,  'r--', lw=1.5, label='RK4 (h=0.5 ms)')
+ax2.axhline(0, color='gray', ls=':', lw=1)
+ax2.set_xlabel('Time (ms)')
+ax2.set_ylabel('$i_c$ (mA)')
+ax2.set_title('Capacitor Current')
+ax2.legend()
+ax2.grid(True, alpha=0.3)
+
+plt.suptitle('RK4 vs Exact Solution', fontsize=13, fontweight='bold')
+plt.tight_layout()
+plt.savefig('figs/rk4.png', dpi=150)
+plt.show()
+
+# ── Max absolute error ──────────────────────────────────────────
+Vc_ex_at_rk = Vinf * (1 - np.exp(-25 * t_rk))
+err = np.max(np.abs(Vc_rk - Vc_ex_at_rk))
+print(f"Max |error| in Vc: {err*1000:.4f} mV")
+\end{lstlisting}
+\end{frame}
+
+%% ── RK4: Plot ────────────────────────────────────────────────────
+\begin{frame}{\textbf{RK4 vs Exact Solution -- Plot}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figs/rk4.png}
+  \end{figure}
+  \begin{center}
+    \small RK4 result (dashed red) overlaps the exact theoretical curve (solid blue)
+    confirming $i_c(t) = 0.50\,e^{-25t}\,\mathrm{mA}$.\;
+    \textcolor{okgreen}{Max error $< 0.01\,\mathrm{mV}$ with $h = 0.5\,\mathrm{ms}$}
+  \end{center}
+\end{frame}
+
+%% ── SPICE: Netlist ───────────────────────────────────────────────
+\begin{frame}[fragile]{\textbf{NGSpice Netlist -- \texttt{rc\_circuit.cir}}}
+\begin{lstlisting}
+* RC Circuit Transient Analysis – EC 2007 Problem 1.1.16
+* Nodes: 1 = V_s positive terminal, 2 = capacitor node, 0 = GND
+
+Vs  1  0  DC  10V        ; 10 V DC voltage source
+
+R1  1  2  20k            ; Series   resistor  20 kOhm
+R2  2  0  20k            ; Shunt    resistor  20 kOhm
+C1  2  0  4u  IC=0       ; Capacitor 4 uF, initial voltage = 0 V
+
+* Transient analysis: step=0.5ms, end=200ms, use initial conditions
+.tran  0.5m  200m  UIC
+
+* Save node voltages and branch currents
+.save  v(2)  i(C1)
+
+* Print max voltage and current for quick check
+.measure tran Vc_init  FIND v(2)  AT=0
+.measure tran Vc_final FIND v(2)  AT=200m
+.measure tran ic_init  FIND i(C1) AT=0
+
+.end
+\end{lstlisting}
+
+\vspace{0.5em}
+\small
+Run with:\quad \texttt{ngspice -b rc\_circuit.cir -o out.raw}\\
+Then plot using the Python script on the next slide.
+\end{frame}
+
+%% ── SPICE: Python Plotting Script ────────────────────────────────
+\begin{frame}[fragile,allowframebreaks]{\textbf{NGSpice -- Plot Results with Python}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+import subprocess, os
+
+# ── 1. Run NGSpice and capture output ──────────────────────────
+spice_file = "rc_circuit.cir"
+result = subprocess.run(
+    ["ngspice", "-b", spice_file],
+    capture_output=True, text=True
+)
+
+# ── 2. Parse NGSpice raw output (ASCII format) ─────────────────
+#    Alternatively, write .print tran v(2) i(C1) to a .dat file
+#    and load with np.loadtxt.
+#
+#    For a portable approach, use the inline data from the
+#    .print statement by adding to the netlist:
+#    .print tran v(2) i(C1)
+#    and redirecting: ngspice -b rc_circuit.cir > spice_out.txt
+
+data = np.loadtxt("spice_out.txt", comments=('#', 'Index'))
+t_sp  = data[:, 1]          # time (s)
+Vc_sp = data[:, 2]          # v(2)  (V)
+ic_sp = data[:, 3] * 1000   # i(C1) converted to mA
+
+# ── 3. Exact theoretical curves ────────────────────────────────
+t_ex  = np.linspace(0, 0.2, 2000)
+Vc_ex = 5 * (1 - np.exp(-25 * t_ex))
+ic_ex = 0.5 * np.exp(-25 * t_ex)    # mA
+
+# ── 4. Plot ─────────────────────────────────────────────────────
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+ax1.plot(t_ex*1000,  Vc_ex,  'b-',  lw=2,   label='Exact theory')
+ax1.plot(t_sp*1000,  Vc_sp,  'r--', lw=1.5, label='NGSpice')
+ax1.set_xlabel('Time (ms)');  ax1.set_ylabel('$V_C$ (V)')
+ax1.set_title('Capacitor Voltage $V_C(t)$')
+ax1.legend();  ax1.grid(True, alpha=0.3)
+
+ax2.plot(t_ex*1000,  ic_ex,  'b-',  lw=2,   label='Exact theory')
+ax2.plot(t_sp*1000,  ic_sp,  'r--', lw=1.5, label='NGSpice')
+ax2.set_xlabel('Time (ms)');  ax2.set_ylabel('$i_c$ (mA)')
+ax2.set_title('Capacitor Current $i_c(t)$')
+ax2.legend();  ax2.grid(True, alpha=0.3)
+
+plt.suptitle('NGSpice Simulation vs Exact Solution',
+             fontsize=13, fontweight='bold')
+plt.tight_layout()
+plt.savefig('figs/spice.png', dpi=150)
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+%% ── SPICE: Plot ──────────────────────────────────────────────────
+\begin{frame}{\textbf{NGSpice Simulation -- Results}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figs/spice.png}
+  \end{figure}
+  \begin{center}
+    \small
+    NGSpice transient simulation (dashed red) matches the exact solution
+    (solid blue) confirming $i_c(0^+) = 0.50\,\mathrm{mA}$ and
+    $V_C(\infty) = 5\,\mathrm{V}$.\quad
+  \end{center}
+\end{frame}
+
+%% ══════════════════════════════════════════════════════════════════
+%%  PART IV – ADDITIONAL CODES & PLOTS
+%% ══════════════════════════════════════════════════════════════════
+
 %% ── VOLTAGE: PYTHON ─────────────────────────────────────────────
-\begin{frame}[fragile,allowframebreaks]{Capacitor Voltage -- Python}
+\begin{frame}[fragile,allowframebreaks]{\textbf{Capacitor Voltage -- Python Code}}
 \begin{lstlisting}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -420,14 +736,21 @@ tau = 0.04
 
 Vc = V*(1 - np.exp(-t/tau))
 
-plt.plot(t*1000, Vc)
-plt.axhline(5, linestyle='--')
+plt.figure(figsize=(8, 4))
+plt.plot(t*1000, Vc, 'b-', lw=2, label='$V_C(t) = 5(1-e^{-25t})$ V')
+plt.axhline(5, linestyle='--', color='gray', label='$V_\infty = 5$ V')
+plt.xlabel('Time (ms)')
+plt.ylabel('$V_C$ (V)')
+plt.title('Capacitor Voltage $V_C(t)$')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.savefig('figs/Vc.png', dpi=150)
 plt.show()
 \end{lstlisting}
 \end{frame}
 
 %% ── VOLTAGE: C CODE ─────────────────────────────────────────────
-\begin{frame}[fragile,allowframebreaks]{Capacitor Voltage -- C Code}
+\begin{frame}[fragile,allowframebreaks]{\textbf{Capacitor Voltage -- C Code}}
 \begin{lstlisting}
 #include <stdio.h>
 #include <math.h>
@@ -438,7 +761,6 @@ int main(){
     for(int i=0;i<=200;i++){
         t = i/1000.0;
         double Vc = V*(1-exp(-t/tau));
-
         printf("%lf %lf\n", t*1000, Vc);
     }
     return 0;
@@ -446,12 +768,12 @@ int main(){
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{Capacitor Voltage Plot}
-\includegraphics[width=\linewidth]{figs/Vc.png}
+\begin{frame}{\textbf{Capacitor Voltage Plot}}
+  \includegraphics[width=\linewidth]{figs/Vc.png}
 \end{frame}
 
 %% ── CURRENT: PYTHON ─────────────────────────────────────────────
-\begin{frame}[fragile,allowframebreaks]{Capacitor Current -- Python}
+\begin{frame}[fragile,allowframebreaks]{\textbf{Capacitor Current -- Python Code}}
 \begin{lstlisting}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -463,14 +785,21 @@ tau = 0.04
 
 ic = (V/R)*np.exp(-t/tau)*1000
 
-plt.plot(t*1000, ic)
-plt.axhline(0, linestyle='--')
+plt.figure(figsize=(8, 4))
+plt.plot(t*1000, ic, 'r-', lw=2, label='$i_c(t) = 0.50\,e^{-25t}$ mA')
+plt.axhline(0, linestyle='--', color='gray')
+plt.xlabel('Time (ms)')
+plt.ylabel('$i_c$ (mA)')
+plt.title('Capacitor Current $i_c(t)$')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.savefig('figs/Ic.png', dpi=150)
 plt.show()
 \end{lstlisting}
 \end{frame}
 
 %% ── CURRENT: C CODE ─────────────────────────────────────────────
-\begin{frame}[fragile,allowframebreaks]{Capacitor Current -- C Code}
+\begin{frame}[fragile,allowframebreaks]{\textbf{Capacitor Current -- C Code}}
 \begin{lstlisting}
 #include <stdio.h>
 #include <math.h>
@@ -481,7 +810,6 @@ int main(){
     for(int i=0;i<=200;i++){
         t = i/1000.0;
         double ic = (V/R)*exp(-t/tau)*1000;
-
         printf("%lf %lf\n", t*1000, ic);
     }
     return 0;
@@ -489,12 +817,12 @@ int main(){
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{Capacitor Voltage Plot}
-\includegraphics[width=\linewidth]{figs/Ic.png}
+\begin{frame}{\textbf{Capacitor Current Plot}}
+  \includegraphics[width=\linewidth]{figs/Ic.png}
 \end{frame}
 
 %% ── OVERLAY: PYTHON ─────────────────────────────────────────────
-\begin{frame}[fragile,allowframebreaks]{Overlay Plot -- Python Code}
+\begin{frame}[fragile,allowframebreaks]{\textbf{Overlay Plot -- Python Code}}
 \begin{lstlisting}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -502,26 +830,26 @@ import matplotlib.pyplot as plt
 t = np.linspace(0, 0.2, 1000)
 V = 5
 tau = 0.04
-
 Vc = V * (1 - np.exp(-t/tau))
 ic = (V/10000) * np.exp(-t/tau) * 1000
 
-fig, ax1 = plt.subplots()
-
-ax1.plot(t*1000, Vc)
+fig, ax1 = plt.subplots(figsize=(8, 4))
+ax1.plot(t*1000, Vc, 'b-', lw=2, label='$V_C(t)$ (V)')
 ax1.set_xlabel("Time (ms)")
-ax1.set_ylabel("Vc (V)")
-
+ax1.set_ylabel("$V_C$ (V)", color='blue')
 ax2 = ax1.twinx()
-ax2.plot(t*1000, ic, linestyle='--')
-ax2.set_ylabel("ic (mA)")
+ax2.plot(t*1000, ic, 'r--', lw=2, label='$i_c(t)$ (mA)')
+ax2.set_ylabel("$i_c$ (mA)", color='red')
 
+fig.legend(loc='center right', bbox_to_anchor=(0.88, 0.5))
+plt.title('Overlay: $V_C(t)$ and $i_c(t)$')
+plt.savefig('figs/O.png', dpi=150)
 plt.show()
 \end{lstlisting}
 \end{frame}
 
 %% ── OVERLAY: C CODE ─────────────────────────────────────────────
-\begin{frame}[fragile,allowframebreaks]{Overlay Plot -- C Code}
+\begin{frame}[fragile,allowframebreaks]{\textbf{Overlay Plot -- C Code}}
 \begin{lstlisting}
 #include <stdio.h>
 #include <math.h>
@@ -533,19 +861,19 @@ int main() {
         t = i/1000.0;
         double Vc = V*(1-exp(-t/tau));
         double ic = (V/10000.0)*exp(-t/tau)*1000;
-
         printf("%lf %lf %lf\n", t*1000, Vc, ic);
     }
     return 0;
 }
 \end{lstlisting}
 \end{frame}
-\begin{frame}{Capacitor Voltage Plot}
-\includegraphics[width=\linewidth]{figs/O.png}
+
+\begin{frame}{\textbf{Overlay Plot}}
+  \includegraphics[width=\linewidth]{figs/O.png}
 \end{frame}
 
-\begin{frame}[fragile]{\textbf{Python Code: Power \& Energy (Themed)}}
-\scriptsize
+%% ── POWER & ENERGY: PYTHON ───────────────────────────────────────
+\begin{frame}[fragile,allowframebreaks]{\textbf{Power \& Energy -- Python Code}}
 \begin{lstlisting}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -558,40 +886,43 @@ C = 4e-6
 Vc = V * (1 - np.exp(-t/tau))
 ic = (V / 10000) * np.exp(-t/tau)
 
-power_mW = (Vc * ic) * 1000 
-energy_uJ = (0.5 * C * Vc**2) * 1e6 
+power_mW  = (Vc * ic) * 1000
+energy_uJ = (0.5 * C * Vc**2) * 1e6
 
-bg = '#0b1220'
-power_color = '#8fd3d1'
+bg           = '#0b1220'
+power_color  = '#8fd3d1'
 energy_color = '#f5e6a8'
-\end{lstlisting}
-\end{frame}
 
-\begin{frame}[fragile]{\textbf{Python Code: Power \& Energy (Themed)}}
-\scriptsize
-\begin{lstlisting}
-fig, ax1 = plt.subplots()
+fig, ax1 = plt.subplots(figsize=(9, 4))
 fig.patch.set_facecolor(bg)
 ax1.set_facecolor(bg)
+ax1.plot(t*1000, power_mW, color=power_color, lw=2, label='Power (mW)')
+ax1.set_xlabel("Time (ms)", color='white')
+ax1.set_ylabel("Power (mW)", color=power_color)
+ax1.tick_params(colors='white')
 
-ax1.plot(t*1000, power_mW, color=power_color)
 ax2 = ax1.twinx()
-ax2.plot(t*1000, energy_uJ, color=energy_color)
+ax2.plot(t*1000, energy_uJ, color=energy_color, lw=2,
+         linestyle='--', label='Energy (uJ)')
+ax2.set_ylabel("Stored Energy ($\\mu$J)", color=energy_color)
+ax2.tick_params(colors='white')
 
+plt.title('Capacitor Power and Stored Energy Dynamics',
+          color='white')
+plt.savefig('figs/PS.png', dpi=150, facecolor=bg)
 plt.show()
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{\textbf{Plot - Power \& Energy}}
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\linewidth]{figs/PS.png}
-        \label{fig:placeholder}
-    \end{figure}
+\begin{frame}{\textbf{Plot -- Power \& Energy}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figs/PS.png}
+  \end{figure}
 \end{frame}
 
-\begin{frame}[fragile]{\textbf{Python Code: Phase Portrait (Themed)}}
-\scriptsize
+%% ── PHASE PORTRAIT: PYTHON ───────────────────────────────────────
+\begin{frame}[fragile,allowframebreaks]{\textbf{Phase Portrait -- Python Code}}
 \begin{lstlisting}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -600,31 +931,38 @@ t = np.linspace(0, 0.2, 1000)
 V = 5
 tau = 0.04
 
-Vc = V * (1 - np.exp(-t/tau))
+Vc     = V * (1 - np.exp(-t/tau))
 dVc_dt = (V / tau) * np.exp(-t/tau)
 
-bg = '#0b1220'
-curve = '#8fd3d1'
+bg     = '#0b1220'
+curve  = '#8fd3d1'
 accent = '#f5e6a8'
-fig, ax = plt.subplots()
+
+fig, ax = plt.subplots(figsize=(7, 5))
 fig.patch.set_facecolor(bg)
 ax.set_facecolor(bg)
-
-ax.plot(Vc, dVc_dt, color=curve)
-ax.fill_between(Vc, dVc_dt, alpha=0.12)
-ax.scatter([0], [125], color=accent)
-ax.scatter([5], [0], color=accent)
-
+ax.plot(Vc, dVc_dt, color=curve, lw=2)
+ax.fill_between(Vc, dVc_dt, alpha=0.12, color=curve)
+ax.scatter([0], [125], color=accent, zorder=5, s=60,
+           label='Initial ($V_C=0$, $dV/dt=125$)')
+ax.scatter([5], [0],   color=accent, zorder=5, s=60,
+           label='Equilibrium ($V_C=5$ V)')
+ax.set_xlabel('Capacitor Voltage $V_C$ (V)', color='white')
+ax.set_ylabel('Rate of Change $dV_C/dt$ (V/s)', color='white')
+ax.set_title('Phase Portrait: $dV_C/dt$ vs $V_C$', color='white')
+ax.tick_params(colors='white')
+ax.legend(facecolor=bg, labelcolor='white')
+ax.grid(True, alpha=0.2)
+plt.savefig('figs/PP.png', dpi=150, facecolor=bg)
 plt.show()
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{Frame Title}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.75\linewidth]{figs/PP.png}
-        \label{fig:placeholder}
-    \end{figure}
+\begin{frame}{\textbf{Phase Portrait}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figs/PP.png}
+  \end{figure}
 \end{frame}
 
 \end{document}

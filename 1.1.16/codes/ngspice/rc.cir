@@ -1,0 +1,17 @@
+* RC Circuit Transient Analysis – EC 2007 Problem 1.1.16
+
+Vs  1  0  DC  10
+
+R1  1  2  20k
+R2  2  0  20k
+C1  2  0  4u  IC=0
+
+.tran  0.5m  200m  UIC
+
+.save all
+
+.measure tran Vc_init  FIND v(2)  AT=0
+.measure tran Vc_final FIND v(2)  AT=200m
+.measure tran ic_init  FIND i(C1) AT=0
+
+.end
