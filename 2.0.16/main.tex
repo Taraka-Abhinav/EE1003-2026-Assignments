@@ -1,295 +1,296 @@
-\documentclass[12pt]{beamer}
-\usetheme{Madrid}
+\documentclass[12pt, aspectratio=169]{beamer}
 
-\usepackage{amsmath, amssymb}
-\usepackage{mathtools}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta, decorations.pathreplacing, shapes.geometric}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% ───────────────── COLOR SETUP (ORANGE THEME) ─────────────────
 \usepackage{xcolor}
+
+\definecolor{mainorange}{RGB}{255, 140, 0}    % Dark Orange
+\definecolor{softorange}{RGB}{255, 185, 80}   % Medium Orange
+\definecolor{lightorange}{RGB}{255, 235, 205} % Blanched Almond
+
+% Apply orange everywhere
+\setbeamercolor{structure}{fg=mainorange}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{title}{fg=white}
+
+% Fix Madrid blue bars → orange
+\setbeamercolor{palette primary}{bg=mainorange, fg=white}
+\setbeamercolor{palette secondary}{bg=mainorange!85!black, fg=white}
+\setbeamercolor{palette tertiary}{bg=mainorange!70!black, fg=white}
+
+% Blocks
+\setbeamercolor{block title}{bg=softorange, fg=black}
+\setbeamercolor{block body}{bg=lightorange, fg=black}
+
+% Bullets
+\setbeamercolor{item}{fg=mainorange}
+
+% Optional: remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% ───────────────── PACKAGES ─────────────────
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
 \usepackage{bm}
+\usepackage{booktabs}
 \usepackage{listings}
-\usepackage{pgfplots}
-\usepackage{courier}
-\pgfplotsset{compat=1.17}
-\usepackage{circuitikz}
+
+% ───────────────── LISTINGS CONFIGURATION ─────────────────
 \lstset{
   basicstyle=\ttfamily\scriptsize,
   breaklines=true,
   frame=single,
   columns=fullflexible
 }
+
+% ───────────────── CUSTOM COLORS ─────────────────
+\definecolor{highlightcol}{RGB}{220, 80, 0} % deep orange-red for emphasis
+\definecolor{okgreen}{RGB}{0,130,60}
+
+% ───────────────── FONTS ─────────────────
 \setbeamerfont{frametitle}{series=\bfseries, size=\large}
 \setbeamerfont{title}{series=\bfseries, size=\Large}
 \setbeamerfont{subtitle}{series=\bfseries}
 
-\definecolor{madblue}{RGB}{0,62,126}
-\definecolor{okgreen}{RGB}{0,130,60}
-\definecolor{darkred}{RGB}{160,20,20}
+% ───────────────── CUSTOM COMMAND ─────────────────
+% Changed \bm to \textbf to fix Overleaf table line-break swallowing issues
+\newcommand{\res}[1]{\textcolor{highlightcol}{\textbf{#1}}}
 
-%% ── TOC-style circled option ────────────────────────────
-\newcommand{\myopt}[2]{%
-  \vspace{5pt}\noindent
-  \begin{tikzpicture}[baseline=(ch.base)]
-    \node[circle, fill=madblue, text=white,
-          font=\bfseries\small, minimum size=17pt, inner sep=0pt] (ch) {#1};
-  \end{tikzpicture}
-  \hspace{5pt}\textbf{#2}\par
-}
-
-%% ── Inline math result ──────────────────────────────────
-\newcommand{\res}[1]{\textcolor{madblue}{\bm{#1}}}
-\newcommand{\rarrow}{\Rightarrow}
-
-\title{\bfseries Job Scheduling Optimization}
-\subtitle{\textbf{Problem 1.2.16 \;|\; EC 2007}}
-\author{}
-\institute{\textbf{CH Taraka Abhinav - EE25BTECH11016}}
+\title{Single Machine Scheduling}
+\subtitle{Minimizing Maximum Tardiness}
+\author{CH. Taraka Abhinav - EE25BTECH11016}
 \date{}
 
 \begin{document}
 
-%% ── TITLE ────────────────────────────────────────────────
+% --- SLIDE 1 ---
 \begin{frame}
-  \titlepage
+    \titlepage
 \end{frame}
 
-%% ── QUESTION SLIDE ───────────────────────────────────────
-\begin{frame}{Problem Statement}
-Four jobs have to be sequenced on a single facility, with the objective of minimizing
-the maximum tardiness
-\begin{center}
-    \[(\max_i |Completion Time_i - Due Date_i|)\]
-\end{center}
-The jobs have due dates and processing times as follows:
-\begin{table}[]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Job} & \textbf{Due Date ($d_i$)} & \textbf{Processing Time ($p_i$)} \\
-\hline
-P & 5 & 2 \\
-Q & 6 & 10 \\
-R & 3 & 3 \\
-S & 7 & 4 \\
-\hline
-\end{tabular}
-\end{table}
+% --- SLIDE 2 ---
+\begin{frame}{1. The Problem Statement}
+    \begin{block}{Question (2007 PI)}
+        Four jobs have to be sequenced on a single facility, with the objective of minimizing the maximum tardiness: $\max_i |\text{Completion time}_i - \text{Due date}_i|$.
+        
+        \vspace{2mm}
+        The jobs have due dates and processing times as follows:
+        \begin{center}
+            \small
+            \begin{tabular}{c c c}
+                \toprule
+                \textbf{Job} & \textbf{Due date (days)} & \textbf{Processing time (days)} \tabularnewline
+                \midrule
+                P & 5 & 2 \tabularnewline
+                Q & 6 & 10 \tabularnewline
+                R & 3 & 3 \tabularnewline
+                S & 7 & 4 \tabularnewline
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        The last job that should be taken up is:
 
-\vspace{0.3cm}
-The \textbf{last} job that should be taken up is
-\begin{columns}[T]
-\begin{column}{0.48\textwidth}
-\begin{itemize}
-    \item[(A)] P
-    \item[(B)] Q
-\end{itemize}
-\end{column}
-\begin{column}{0.48\textwidth}
-\begin{itemize}
-    \item[(C)] R
-    \item[(D)] S
-\end{itemize}
-\end{column}
-\end{columns}
+    
+    \vspace{2mm}
+    \begin{columns}
+        \begin{column}{0.24\textwidth} \centering a) P \end{column}
+        \begin{column}{0.24\textwidth} \centering b) Q \end{column}
+        \begin{column}{0.24\textwidth} \centering c) R \end{column}
+        \begin{column}{0.24\textwidth} \centering d) S \end{column}
+    \end{columns}
+    \end{block}
 \end{frame}
 
-%% ── UNDERSTANDING THE OBJECTIVE ──────────────────────────
-\begin{frame}{Understanding the Objective}
-We need to minimize the maximum absolute deviation from due dates:
-\[
-\min \left( \max_i |C_i - d_i| \right)
-\]
 
-\textbf{Key Definitions:}
-\begin{itemize}
-\item \textbf{Completion time ($C_i$):} Time at which job $i$ finishes processing.
-\item \textbf{Lateness ($L_i$):} $L_i = C_i - d_i$
-\item \textbf{Absolute Lateness:} $|L_i| = |C_i - d_i|$
-\end{itemize}
-
-\vspace{0.2cm}
-\textbf{Observations:}
-\begin{itemize}
-\item If $C_i > d_i \Rightarrow$ job is \textcolor{darkred}{Late}
-\item If $C_i < d_i \Rightarrow$ job is \textcolor{okgreen}{Early}
-\item The objective behaves exactly like minimizing the \textbf{Maximum Lateness} ($L_{\max}$).
-\end{itemize}
-\end{frame}
-
-%% ── OTHER HEURISTICS (NEW SLIDE) ─────────────────────────
-\begin{frame}{Alternative Scheduling Methods}
-In operations research, several heuristic rules are taught for single-machine scheduling. Why don't we use them here?
-
-\vspace{0.2cm}
-\begin{itemize}
-    \item \textbf{SPT (Shortest Processing Time):} Sort by increasing $p_i$.
+% --- SLIDE 3 ---
+\begin{frame}{2. Understanding the Concepts}
+    \textbf{What are the variables?}
     \begin{itemize}
-        \item \textit{Pros:} Minimizes average completion time (mean flow time).
-        \item \textit{Cons:} Ignores due dates entirely. Bad for lateness.
+        \item \textbf{Processing Time ($p_i$):} How long it takes to finish the job.
+        \item \textbf{Due Date ($d_i$):} The deadline promised to the customer.
+        \item \textbf{Completion Time ($C_i$):} The actual day the job finishes.
     \end{itemize}
+    
+    \vspace{0.3cm}
+    \begin{block}{What is Tardiness / Lateness?}
+        Lateness is simply: $\text{Completion Time} - \text{Due Date}$ \quad ($C_i - d_i$). \\
+        \vspace{0.1cm}
+        If a job finishes \textit{after} its due date, it generates a penalty. Our goal is to arrange these jobs so that the \textbf{single worst delay} (Maximum Tardiness) is as small as physically possible.
+    \end{block}
+\end{frame}
+
+% --- SLIDE 4 ---
+\begin{frame}{3. Common Scheduling Rules}
+    To sequence jobs on a single machine, we use standard dispatching rules:
+    
+    \vspace{0.3cm}
+    \begin{itemize}
+        \item \textbf{SPT (Shortest Processing Time):} Sort by smallest $p_i$. \\
+        \textit{Objective:} Minimizes average completion time / flow time.
+        \vspace{0.1cm}
+        \item \textbf{LST (Least Slack Time):} Sort by smallest $(d_i - p_i)$. \\
+        \textit{Objective:} Prioritizes jobs with the least buffer time.
+        \vspace{0.1cm}
+        \item \textbf{EDD (Earliest Due Date):} Sort by smallest $d_i$. \\
+        \textit{Objective:} \res{Minimizes Maximum Tardiness ($T_{\max}$)}.
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \begin{block}{Which rule to choose?}
+        Since our problem explicitly asks to minimize the \textbf{maximum tardiness}, we must use the \textbf{EDD Rule}.
+    \end{block}
+\end{frame}
+
+% --- SLIDE 5 ---
+\begin{frame}{4. Applying the EDD Rule}
+    Let's extract the due dates from our original table and sort them from smallest (earliest) to largest (latest).
+    
+    \vspace{0.3cm}
+    \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{c c c c}
+        \toprule
+        \textbf{Original Job} & \textbf{Due Date ($d_i$)} & $\rightarrow$ & \textbf{Sorted Order (EDD)} \tabularnewline
+        \midrule
+        P & 5 & & \res{2nd} \tabularnewline
+        Q & 6 & & \res{3rd} \tabularnewline
+        R & \textbf{3} (Earliest) & & \res{1st} \tabularnewline
+        S & 7 (Latest) & & \res{4th} \tabularnewline
+        \bottomrule
+    \end{tabular}
+    \end{center}
+    
+    \vspace{0.3cm}
+    Based purely on the EDD rule, the optimal processing sequence is: \\
+    \begin{center}
+        \Large \textbf{R $\rightarrow$ P $\rightarrow$ Q $\rightarrow$ S}
+    \end{center}
+\end{frame}
+
+% --- SLIDE 6 ---
+\begin{frame}{5. Verifying the Schedule (Proof)}
+    Let's calculate the exact completion times to prove this works:
+    
     \vspace{0.2cm}
-    \item \textbf{LST (Least Slack Time):} Sort by increasing $(d_i - p_i)$.
-    \begin{itemize}
-        \item \textit{Pros:} Good for minimizing maximum tardiness in some scenarios.
-        \item \textit{Cons:} Does not guarantee optimal $L_{\max}$.
-    \end{itemize}
+    \begin{center}
+    \renewcommand{\arraystretch}{1.2}
+    \small
+    \begin{tabular}{c c c c c}
+        \toprule
+        \textbf{Sequence} & \textbf{Proc. Time ($p_i$)} & \textbf{Completion Time ($C_i$)} & \textbf{Due Date} & \textbf{Tardiness ($|C_i - d_i|$)} \tabularnewline
+        \midrule
+        \textbf{1. Job R} & 3 & $0 + 3 = \textbf{3}$ & 3 & $\max(0, 3 - 3) = \res{0}$ \tabularnewline
+        \textbf{2. Job P} & 2 & $3 + 2 = \textbf{5}$ & 5 & $\max(0, 5 - 5) = \res{0}$ \tabularnewline
+        \textbf{3. Job Q} & 10 & $5 + 10 = \textbf{15}$ & 6 & $\max(0, 15 - 6) = \res{9}$ \tabularnewline
+        \textbf{4. Job S} & 4 & $15 + 4 = \textbf{19}$ & 7 & $\max(0, 19 - 7) = \res{12}$ \tabularnewline
+        \bottomrule
+    \end{tabular}
+    \end{center}
+    
     \vspace{0.2cm}
-    \item \textbf{EDD (Earliest Due Date):} Sort by increasing $d_i$.
     \begin{itemize}
-        \item \textit{Pros:} Mathematically proven to minimize maximum lateness ($L_{\max}$).
+        \item The maximum tardiness in this optimal sequence is 12 days.
+        \item \textit{Note: If we placed Job Q last, Job Q would finish on Day 19 (Due Day 6), creating a worse maximum penalty of 13!}
     \end{itemize}
-\end{itemize}
 \end{frame}
 
-%% ── SPT COMPARISON (NEW SLIDE) ───────────────────────────
-\begin{frame}{Comparison: Why SPT Fails Here}
-Let's try the \textbf{SPT (Shortest Processing Time)} rule:
-Sequence by smallest $p_i$: \textbf{P(2) $\rightarrow$ R(3) $\rightarrow$ S(4) $\rightarrow$ Q(10)}
-
-\vspace{0.3cm}
-\begin{table}[]
-\centering
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Job} & \textbf{$C_i$ (Cumulative)} & \textbf{$d_i$} & \textbf{Absolute ($|C_i - d_i|$)} \\
-\hline
-P & 2 & 5 & $|2 - 5| = 3$ \\
-R & 2+3 = 5 & 3 & $|5 - 3| = 2$ \\
-S & 5+4 = 9 & 7 & $|9 - 7| = 2$ \\
-Q & 9+10 = 19 & 6 & $|19 - 6| = \res{13}$ \\
-\hline
-\end{tabular}
-\end{table}
-
-\vspace{0.3cm}
-\[
-\text{Maximum Deviation using SPT} = \res{13}
-\]
-
-Because Q takes 10 units but is due at 6, pushing it to the end creates a massive delay. We need a rule that respects due dates!
+% --- SLIDE 7 ---
+\begin{frame}{6. Numerical Proof: What if we used SPT?}
+    Let's test the \textbf{SPT (Shortest Processing Time)} rule, an intuitive alternative. We sort jobs by smallest $p_i$:
+    
+    \vspace{0.2cm}
+    \textbf{SPT Sequence:} P (2) $\rightarrow$ R (3) $\rightarrow$ S (4) $\rightarrow$ Q (10)
+    
+    \vspace{0.2cm}
+    \begin{center}
+    \renewcommand{\arraystretch}{1.2}
+    \small
+    \begin{tabular}{c c c c c}
+        \toprule
+        \textbf{Sequence (SPT)} & \textbf{Proc. Time} & \textbf{Completion Time} & \textbf{Due Date} & \textbf{Tardiness} \tabularnewline
+        \midrule
+        \textbf{1. Job P} & 2 & $0 + 2 = \textbf{2}$ & 5 & $\max(0, 2 - 5) = \res{0}$ \tabularnewline
+        \textbf{2. Job R} & 3 & $2 + 3 = \textbf{5}$ & 3 & $\max(0, 5 - 3) = \res{2}$ \tabularnewline
+        \textbf{3. Job S} & 4 & $5 + 4 = \textbf{9}$ & 7 & $\max(0, 9 - 7) = \res{2}$ \tabularnewline
+        \textbf{4. Job Q} & 10 & $9 + 10 = \textbf{19}$ & 6 & $\max(0, 19 - 6) = \res{13}$ \tabularnewline
+        \bottomrule
+    \end{tabular}
+    \end{center}
+    
+    \vspace{0.2cm}
+    \textbf{Result:} The maximum tardiness under SPT is \textbf{13 days} (caused by Job Q).
 \end{frame}
 
-%% ── THEORY RULE (EDD) ────────────────────────────────────
-\begin{frame}{The Optimal Rule: EDD}
-For minimizing maximum absolute deviation ($L_{\max}$), we must use Jackson's Theorem:
-
-\vspace{0.2cm}
-\begin{center}
-\textbf{EDD Rule (Earliest Due Date First)}
-\end{center}
-
-\vspace{0.4cm}
-\textbf{Algorithm Idea:}
-\begin{itemize}
-\item \textbf{Sorting:} Jobs are sequenced in increasing order of their due dates ($d_i$).
-\item \textbf{Complexity:} Runs in $\mathcal{O}(n \log n)$ time.
-\end{itemize}
-
-\vspace{0.2cm}
-\textbf{Important Result:}
-\[
-\boxed{\text{EDD guarantees the minimum possible } L_{\max}}
-\]
+% --- SLIDE 8 ---
+\begin{frame}{7. Numerical Proof: What if we used LST?}
+    Let's test the \textbf{LST (Least Slack Time)} rule. Slack = Due Date - Processing Time ($d_i - p_i$).
+    
+    \vspace{0.2cm}
+    \textbf{Slack Calc:} P(5-2=3), Q(6-10=-4), R(3-3=0), S(7-4=3) \\
+    \textbf{LST Sequence:} Q (-4) $\rightarrow$ R (0) $\rightarrow$ P (3) $\rightarrow$ S (3)
+    
+    \vspace{0.2cm}
+    \begin{center}
+    \renewcommand{\arraystretch}{1.2}
+    \small
+    \begin{tabular}{c c c c c}
+        \toprule
+        \textbf{Sequence (LST)} & \textbf{Proc. Time} & \textbf{Completion Time} & \textbf{Due Date} & \textbf{Tardiness} \tabularnewline
+        \midrule
+        \textbf{1. Job Q} & 10 & $0 + 10 = \textbf{10}$ & 6 & $\max(0, 10 - 6) = \res{4}$ \tabularnewline
+        \textbf{2. Job R} & 3 & $10 + 3 = \textbf{13}$ & 3 & $\max(0, 13 - 3) = \res{10}$ \tabularnewline
+        \textbf{3. Job P} & 2 & $13 + 2 = \textbf{15}$ & 5 & $\max(0, 15 - 5) = \res{10}$ \tabularnewline
+        \textbf{4. Job S} & 4 & $15 + 4 = \textbf{19}$ & 7 & $\max(0, 19 - 7) = \res{12}$ \tabularnewline
+        \bottomrule
+    \end{tabular}
+    \end{center}
+    
+    \vspace{0.2cm}
+    \textbf{Result:} The maximum tardiness is \textbf{12 days}, but notice that \textit{every single job} is penalized!
 \end{frame}
 
-%% ── STEP 1 ───────────────────────────────────────────────
-\begin{frame}{Step 1: Apply EDD to Given Data}
-Let's look at the given jobs and their due dates:
-
-\vspace{0.2cm}
-\begin{table}[]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Job} & \textbf{Due Date ($d_i$)} & \textbf{Processing Time ($p_i$)} \\
-\hline
-P & 5 & 2 \\
-Q & 6 & 10 \\
-R & 3 & 3 \\
-S & 7 & 4 \\
-\hline
-\end{tabular}
-\end{table}
-
-\vspace{0.3cm}
-Sort by increasing due date ($d_i$):
-\[
-R \,(d_R=3), \quad P \,(d_P=5), \quad Q \,(d_Q=6), \quad S \,(d_S=7)
-\]
-
-\vspace{0.2cm}
-\[
-\Rightarrow \text{Optimal Sequence: } R \rightarrow P \rightarrow Q \rightarrow S
-\]
+% --- SLIDE 9 ---
+\begin{frame}{8. Comparison: EDD vs SPT vs LST}
+    \begin{table}[]
+        \centering
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{l c c}
+            \toprule
+            \textbf{Rule \& Sequence} & \textbf{Tardiness Profile} & \textbf{Max Tardiness ($T_{\max}$)} \tabularnewline
+            \midrule
+            \textbf{EDD} (R-P-Q-S) & \{0, 0, 9, \res{12}\} & \textbf{12} (Optimal) \tabularnewline
+            \textbf{SPT} (P-R-S-Q) & \{0, 2, 2, \res{13}\} & \textbf{13} \tabularnewline
+            \textbf{LST} (Q-R-P-S) & \{4, 10, 10, \res{12}\} & \textbf{12} \tabularnewline
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    
+    \vspace{0.3cm}
+    \textbf{Conclusion:} 
+    \begin{itemize}
+        \item \textbf{SPT} pushes the long job (Q) to the end, causing a peak penalty spike of 13.
+        \item \textbf{LST} ties the peak penalty of 12, but creates a \textit{cascading delay} where all jobs are severely late (Sum of penalties = 36 vs EDD's 21).
+        \item \textbf{EDD} mathematically guarantees the lowest possible maximum penalty while ensuring early jobs finish on time!
+    \end{itemize}
 \end{frame}
 
-%% ── STEP 2 ───────────────────────────────────────────────
-\begin{frame}{Step 2: Compute Completion Times}
-\textbf{Cumulative Calculation:}
-
-Since jobs are processed one after another without idle time, the completion time ($C_i$) is the sum of processing times.
-
-\vspace{0.3cm}
-\[
-\begin{aligned}
-C_R &= p_R = \res{3} \\
-C_P &= C_R + p_P = 3 + 2 = \res{5} \\
-C_Q &= C_P + p_Q = 5 + 10 = \res{15} \\
-C_S &= C_Q + p_S = 15 + 4 = \res{19}
-\end{aligned}
-\]
-
-\vspace{0.3cm}
-\textbf{Note:} Total time taken to finish all jobs (Makespan) is 19 units.
-\end{frame}
-
-%% ── STEP 3 ───────────────────────────────────────────────
-\begin{frame}{Step 3: Compute Lateness and Absolute Values}
-Using the formula: $L_i = C_i - d_i$
-
-\vspace{0.2cm}
-\begin{table}[]
-\centering
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-\textbf{Job} & \textbf{$C_i$} & \textbf{$d_i$} & \textbf{Lateness ($L_i$)} & \textbf{Absolute ($|C_i - d_i|$)} \\
-\hline
-R & 3 & 3 & 0 & \res{0} \\
-P & 5 & 5 & 0 & \res{0} \\
-Q & 15 & 6 & +9 & \res{9} \\
-S & 19 & 7 & +12 & \res{12} \\
-\hline
-\end{tabular}
-\end{table}
-
-\vspace{0.4cm}
-Evaluating the Maximum Deviation:
-\[
-\max_i |C_i - d_i| = \max(0, 0, 9, 12) = \res{12}
-\]
-The maximum lateness in this optimal sequence is 12 (Better than SPT's 13).
-\end{frame}
-
-%% ── FINAL CONCLUSION ─────────────────────────────────────
+% --- SLIDE 10 ---
 \begin{frame}{Final Conclusion}
-The optimal sequence using Earliest Due Date (EDD) is:
-\[
-R \rightarrow P \rightarrow Q \rightarrow S
-\]
-
-\vspace{0.4cm}
-The question asks for the \textbf{last job} executed in the optimal schedule.
-\[
-\text{Last Job } = \boxed{\text{Job } S}
-\]
-
-\vspace{0.4cm}
-\textbf{Final Answer:}
-\[
-\boxed{\textbf{(D) S}}
-\]
+    The problem asks for the \textbf{last job} that should be taken up in the optimal sequence.
+    
+    \vspace{0.5cm}
+    \begin{block}{Optimal Sequence Result}
+        \centering
+        \Large \textbf{R $\rightarrow$ P $\rightarrow$ Q $\rightarrow$ \res{S}}
+    \end{block}
+    
+    \vspace{0.5cm}
+    The last job in the sequence is \textbf{Job S}.
+    
+    \vspace{0.5cm}
+    \textbf{Correct Option:} \textcolor{okgreen}{\textbf{(d) S}}
 \end{frame}
 
 \begin{frame}[fragile]{Python: Data Setup \& Analysis}
@@ -361,7 +362,7 @@ plt.savefig("G.png")
 
 \begin{frame}{Gantt Chart Comparison}
 \centering
-\includegraphics[width=0.95\linewidth]{figs/G.png}
+\includegraphics[width=0.75\linewidth]{figs/G.png}
 
 \vspace{0.3cm}
 \textbf{Observation:}
