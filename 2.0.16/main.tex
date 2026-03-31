@@ -293,6 +293,166 @@
     \textbf{Correct Option:} \textcolor{okgreen}{\textbf{(d) S}}
 \end{frame}
 
+\begin{frame}{Decision Variables}
+
+\textbf{We need to determine:}
+
+\vspace{0.5em}
+
+\begin{itemize}
+
+\item \textbf{Completion times}
+\[
+C = \begin{bmatrix}C_1\\C_2\\C_3\\C_4\end{bmatrix}
+\]
+
+\item \textbf{Order of jobs}
+\[
+X_{ij} =
+\begin{cases}
+1 & \text{if job } i \text{ is before } j \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+\item \textbf{Maximum tardiness}
+\[
+T_{\max}
+\]
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Modeling Idea}
+
+\textbf{Core idea:}
+
+\vspace{0.5em}
+
+\begin{itemize}
+
+\item Use binary variables $X_{ij}$ to represent ordering
+\item Enforce \textbf{no overlap} using Big-M constraints
+\item Compute completion times automatically
+\item Minimize the worst delay ($T_{\max}$)
+
+\end{itemize}
+
+\vspace{0.7em}
+
+\textbf{Why this works:}
+\begin{itemize}
+\item The solver tries all feasible sequences implicitly
+\item Returns the optimal schedule directly
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Mathematical Formulation}
+
+\textbf{Objective:}
+\[
+\min \; T_{\max}
+\]
+
+\vspace{0.5em}
+
+\textbf{Basic constraints:}
+\[
+C \ge p
+\]
+
+\[
+X + X^T = \mathbf{1}\mathbf{1}^T - I
+\]
+
+\[
+\mathrm{diag}(X) = 0
+\]
+
+\end{frame}
+
+\begin{frame}{Sequencing and Tardiness Constraints}
+
+\textbf{No-overlap (Big-M):}
+\[
+C_i + p_j \le C_j + M(1 - X_{ij}), \quad i \ne j
+\]
+
+\vspace{0.5em}
+
+\textbf{Tardiness definition:}
+\[
+T_{\max} \ge C - d
+\]
+
+\[
+T_{\max} \ge 0
+\]
+
+\vspace{0.5em}
+
+\textbf{Meaning:}
+\begin{itemize}
+\item Ensures correct job order
+\item Captures maximum delay among all jobs
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Optimal Solution}
+
+\textbf{Solver Output:}
+
+\vspace{0.5em}
+
+\[
+C = [5,\;15,\;3,\;19]
+\]
+
+\[
+T_{\max} = 12
+\]
+
+\vspace{0.5em}
+
+\textbf{Ordering matrix (interpreted):}
+
+\begin{itemize}
+\item $R$ precedes all jobs
+\item $P$ precedes $Q, S$
+\item $Q$ precedes $S$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Final Schedule}
+
+\textbf{Optimal job sequence:}
+\[
+R \rightarrow P \rightarrow Q \rightarrow S
+\]
+
+\vspace{0.5em}
+
+\textbf{Key observation:}
+\begin{itemize}
+\item Sequence is obtained directly from optimization
+\item No heuristic or rule required
+\end{itemize}
+
+\vspace{0.5em}
+
+\textbf{Conclusion:}
+\begin{itemize}
+\item MILP model guarantees optimal solution
+\item CVXPY computes it efficiently
+\end{itemize}
+
+\end{frame}
+
 \begin{frame}[fragile]{Python: Data Setup \& Analysis}
 \begin{lstlisting}
 import matplotlib.pyplot as plt
@@ -421,6 +581,51 @@ plt.savefig("T.png")
 \begin{frame}{Completion Time Trajectory}
 \centering
 \includegraphics[width=0.85\linewidth]{figs/T.png}
+\end{frame}
+
+\begin{frame}[fragile]{CVXPY Implementation}
+\begin{lstlisting}
+import cvxpy as cp
+import numpy as np
+
+p = np.array([2,10,3,4])
+d = np.array([5,6,3,7])
+n = 4
+M = 100
+
+C = cp.Variable(n)
+Tmax = cp.Variable()
+X = cp.Variable((n,n), boolean=True)
+
+constraints = [
+    cp.diag(X) == 0,
+    X + X.T == np.ones((n,n)) - np.eye(n),
+    C >= p,
+    Tmax >= C - d,
+    Tmax >= 0
+]
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]{CVXPY Implementation}
+\begin{lstlisting}
+
+for i in range(n):
+    for j in range(n):
+        if i != j:
+            constraints += [
+                C[i] + p[j] <= C[j] + M*(1 - X[i,j])
+            ]
+
+prob = cp.Problem(cp.Minimize(Tmax), constraints)
+prob.solve(solver=cp.ECOS_BB)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{CVXPY Solver[ECOS] Output}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\linewidth]{figs/CVXPY.png}
+    \end{figure}
 \end{frame}
 
 \end{document}
