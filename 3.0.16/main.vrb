@@ -1,0 +1,23 @@
+\frametitle{Master Script: Generate All Plots}
+\begin{lstlisting}[caption=generate\_all\_plots.py]
+"""
+Master script to generate all visualizations
+for Problem 3.0.16
+"""
+import subprocess
+import sys
+
+scripts = [
+    'surface_plot.py',
+    'contour_plot.py',
+    'polar_visualization.py',
+    'separation_variables.py',
+    'error_function.py',
+    'monte_carlo_convergence.py'
+]
+
+for script in scripts:
+    print(f"Running {script}...")
+    subprocess.run([sys.executable, script])
+    print(f"Completed {script}\n")
+\end{lstlisting}
