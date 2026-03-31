@@ -1,99 +1,373 @@
 \documentclass[12pt, aspectratio=169]{beamer}
-
 \usetheme{Madrid}
-\usecolortheme{default}
 
-% ───────────────── COLOR SETUP (ORANGE THEME) ─────────────────
-\usepackage{xcolor}
-
-\definecolor{mainorange}{RGB}{255, 140, 0}    % Dark Orange
-\definecolor{softorange}{RGB}{255, 185, 80}   % Medium Orange
-\definecolor{lightorange}{RGB}{255, 235, 205} % Blanched Almond
-
-% Apply orange everywhere
-\setbeamercolor{structure}{fg=mainorange}
-\setbeamercolor{frametitle}{fg=white}
-\setbeamercolor{title}{fg=white}
-
-% Fix Madrid blue bars → orange
-\setbeamercolor{palette primary}{bg=mainorange, fg=white}
-\setbeamercolor{palette secondary}{bg=mainorange!85!black, fg=white}
-\setbeamercolor{palette tertiary}{bg=mainorange!70!black, fg=white}
-
-% Blocks
-\setbeamercolor{block title}{bg=softorange, fg=black}
-\setbeamercolor{block body}{bg=lightorange, fg=black}
-
-% Bullets
-\setbeamercolor{item}{fg=mainorange}
-
-% Optional: remove navigation symbols
-\setbeamertemplate{navigation symbols}{}
-
-% ───────────────── PACKAGES ─────────────────
 \usepackage{amsmath, amssymb}
 \usepackage{tikz}
+\usepackage{xcolor}
 \usepackage{bm}
-\usepackage{booktabs}
-\usepackage{listings}
 
-% ───────────────── LISTINGS CONFIGURATION ─────────────────
-\lstset{
-  basicstyle=\ttfamily\scriptsize,
-  breaklines=true,
-  frame=single,
-  columns=fullflexible
-}
-
-% ───────────────── CUSTOM COLORS ─────────────────
-\definecolor{highlightcol}{RGB}{220, 80, 0} % deep orange-red for emphasis
+% Define custom colors for pedagogical emphasis
+\definecolor{madblue}{RGB}{0,62,126}
 \definecolor{okgreen}{RGB}{0,130,60}
+\definecolor{darkred}{RGB}{160,20,20}
 
-% ───────────────── FONTS ─────────────────
 \setbeamerfont{frametitle}{series=\bfseries, size=\large}
 \setbeamerfont{title}{series=\bfseries, size=\Large}
 \setbeamerfont{subtitle}{series=\bfseries}
 
-% ───────────────── CUSTOM COMMAND ─────────────────
-% Changed \bm to \textbf to fix Overleaf table line-break swallowing issues
-\newcommand{\res}[1]{\textcolor{highlightcol}{\textbf{#1}}}
+% Custom highlight command
+\newcommand{\res}[1]{\textcolor{madblue}{\bm{#1}}}
 
-\title{Problem 3.0.16}
-\subtitle{[Add Problem Title Here]}
-\author{CH. Taraka Abhinav - EE25BTECH11016}
+\title{\bfseries Masterclass: Evaluating the Gaussian Double Integral}
+\subtitle{Comprehensive Step-by-Step Analysis \\ (Problem 3.0.16 | IN 2007)}
+\author{EE25BTECH11016 - CH. Taraka Abhinav}
+\institute{Mathematics and Engineering Optimization}
 \date{}
 
 \begin{document}
 
-% --- SLIDE 1 ---
+% ── SLIDE 1: TITLE ────────────────────────────────────────────────
 \begin{frame}
-    \titlepage
+  \titlepage
 \end{frame}
 
-% --- SLIDE 2 ---
-\begin{frame}{Problem Statement}
-    \begin{block}{Question}
-        % Add problem statement here
+% ── SLIDE 2: THE PROBLEM ──────────────────────────────────────────
+\begin{frame}{1. The Problem Statement}
+\[
+I = \int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
+\]
 
-    \end{block}
+\begin{itemize}
+    \item Evaluate the given Gaussian double integral.
+    \item Region of integration: \textbf{First Quadrant}
+    \item Integrand is always \textbf{positive and symmetric}
+\end{itemize}
 \end{frame}
 
-% --- SLIDE 3 ---
-\begin{frame}{Solution Approach}
-    \textbf{Methodology:}
-    \begin{itemize}
-        \item Step 1
-        \item Step 2
-        \item Step 3
-    \end{itemize}
+% ── SLIDE 3: MATRIX FORMULATION ───────────────────────────────────
+\begin{frame}{2. Matrix Representation}
+\[
+x^2 + y^2 =
+\begin{bmatrix} x & y \end{bmatrix}
+\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+\begin{bmatrix} x \\ y \end{bmatrix}
+= \bm{x}^T A \bm{x}
+\]
+
+\begin{itemize}
+    \item \( A = I \) (Identity matrix)
+    \item Symmetric and Positive Definite
+\end{itemize}
+
+\[
+I = \int_{x \ge 0, y \ge 0} e^{-\bm{x}^T A \bm{x}} \, d\bm{x}
+\]
 \end{frame}
 
-% --- SLIDE 4 ---
-\begin{frame}{Conclusion}
-    \textbf{Final Answer:}
-    \begin{itemize}
-        \item Result here
-    \end{itemize}
+% ── SLIDE 4: STANDARD RESULT ──────────────────────────────────────
+\begin{frame}{3. Standard Gaussian Result}
+\[
+\int_{\mathbb{R}^n} e^{-\bm{x}^T A \bm{x}} d\bm{x}
+= \sqrt{\frac{\pi^n}{\det(A)}}
+\]
+
+For this case:
+\[
+n = 2, \quad A = I, \quad \det(A) = 1
+\]
+
+\[
+\Rightarrow \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
+e^{-(x^2 + y^2)} dx\,dy = \res{\pi}
+\]
+\end{frame}
+
+% ── SLIDE 5: REGION ARGUMENT ──────────────────────────────────────
+\begin{frame}{4. Restricting the Region}
+\begin{itemize}
+    \item Given region: \( x \ge 0, y \ge 0 \)
+    \item This is \textbf{one-fourth} of the full plane
+    \item Function is symmetric in all quadrants
+\end{itemize}
+
+\[
+I = \frac{1}{4} \times \pi = \res{\frac{\pi}{4}}
+\]
+\end{frame}
+
+% ── SLIDE 6: FINAL RESULT ─────────────────────────────────────────
+\begin{frame}{5. Final Answer}
+\[
+\boxed{
+\int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
+= \res{\frac{\pi}{4}}
+}
+\]
+
+\vspace{0.5cm}
+
+\begin{itemize}
+    \item Exact value: \( \frac{\pi}{4} \)
+    \item Approximate value: \( 0.7854 \)
+\end{itemize}
+\end{frame}
+
+% ── SLIDE 7: VISUAL INTERPRETATION ────────────────────────────────
+\begin{frame}{6. Geometric Interpretation}
+\begin{itemize}
+    \item Surface: \( z = e^{-x^2 - y^2} \)
+    \item Region: First quadrant in \(xy\)-plane
+    \item Integral represents:
+\end{itemize}
+
+\[
+\text{Volume under the surface}
+\]
+
+\vspace{0.3cm}
+
+\begin{center}
+\textit{Volume} = \res{\frac{\pi}{4}}
+\end{center}
+\end{frame}
+
+% ── SLIDE 8: INSERT YOUR PLOT ─────────────────────────────────────
+\begin{frame}{7. Visualization}
+\begin{center}
+\includegraphics[width=0.85\linewidth]{figs/surface_plot.png}
+\end{center}
+
+\begin{center}
+\textbf{Volume under surface = } \res{\frac{\pi}{4}}
+\end{center}
+\end{frame}
+
+% ── NEW: METHOD 1 - POLAR COORDINATES ─────────────────────────────
+\begin{frame}{Method 1: Polar Coordinates (Classical Approach)}
+\textbf{Key Idea:} Convert Cartesian to polar coordinates using symmetry
+
+\vspace{0.3cm}
+
+\textbf{Transformation:}
+\[
+x = r\cos\theta, \quad y = r\sin\theta, \quad dA = r\,dr\,d\theta
+\]
+
+\[
+x^2 + y^2 = r^2
+\]
+
+\textbf{Integral becomes:}
+\[
+I = \int_0^{\pi/2} \int_0^\infty e^{-r^2} r \, dr\,d\theta
+\]
+\end{frame}
+
+\begin{frame}{Method 1: Polar Coordinates (Solution)}
+\textbf{Step 1: Separate the integrals}
+\[
+I = \left(\int_0^{\pi/2} d\theta\right) \left(\int_0^\infty r e^{-r^2} dr\right)
+\]
+
+\textbf{Step 2: Evaluate angular part}
+\[
+\int_0^{\pi/2} d\theta = \frac{\pi}{2}
+\]
+
+\textbf{Step 3: Evaluate radial part (substitution: $u = r^2$)}
+\[
+\int_0^\infty r e^{-r^2} dr = \frac{1}{2}\int_0^\infty e^{-u} du = \frac{1}{2}
+\]
+
+\textbf{Result:}
+\[
+I = \frac{\pi}{2} \times \frac{1}{2} = \res{\frac{\pi}{4}}
+\]
+\end{frame}
+
+\begin{frame}{Method 1: Visualization}
+\begin{center}
+\includegraphics[width=0.85\linewidth]{figs/polar_visualization.png}
+\end{center}
+
+\begin{center}
+\textbf{Polar coordinate transformation in first quadrant}
+\end{center}
+\end{frame}
+
+% ── NEW: METHOD 2 - SEPARATION OF VARIABLES ───────────────────────
+\begin{frame}{Method 2: Separation of Variables}
+\textbf{Key Idea:} Express as product of independent integrals
+
+\vspace{0.3cm}
+
+\textbf{Observation:}
+\[
+e^{-x^2 - y^2} = e^{-x^2} \cdot e^{-y^2}
+\]
+
+\textbf{Factorization:}
+\[
+I = \int_0^\infty \int_0^\infty e^{-x^2} e^{-y^2} \, dx\,dy = \left(\int_0^\infty e^{-x^2} dx\right) \left(\int_0^\infty e^{-y^2} dy\right)
+\]
+
+\textbf{Since both integrals are identical:}
+\[
+I = \left(\int_0^\infty e^{-x^2} dx\right)^2
+\]
+\end{frame}
+
+\begin{frame}{Method 2: Gaussian Integral Evaluation}
+\textbf{Standard Gaussian Integral:}
+\[
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+\]
+
+\textbf{Derivation uses polar trick:} Let $I_1 = \int_0^\infty e^{-x^2} dx$
+\[
+I_1^2 = \left(\int_0^\infty e^{-x^2} dx\right)\left(\int_0^\infty e^{-y^2} dy\right) = \int_0^\infty \int_0^\infty e^{-(x^2+y^2)} dx\,dy
+\]
+
+Converting to polar: $I_1^2 = \frac{\pi}{4}$, thus $I_1 = \frac{\sqrt{\pi}}{2}$
+
+\vspace{0.3cm}
+
+\textbf{Final Result:}
+\[
+I = \left(\frac{\sqrt{\pi}}{2}\right)^2 = \res{\frac{\pi}{4}}
+\]
+\end{frame}
+
+\begin{frame}{Method 2: Visualization}
+\begin{center}
+\includegraphics[width=0.85\linewidth]{figs/separation_variables.png}
+\end{center}
+
+\begin{center}
+\textbf{Product of 1D Gaussian functions}
+\end{center}
+\end{frame}
+
+% ── NEW: METHOD 3 - ERROR FUNCTION APPROACH ───────────────────────
+\begin{frame}{Method 3: Error Function Approach}
+\textbf{Error Function Definition:}
+\[
+\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
+\]
+
+\textbf{Key Property:}
+\[
+\lim_{x \to \infty} \text{erf}(x) = 1 \quad \Rightarrow \quad \int_0^\infty e^{-t^2} dt = \frac{\sqrt{\pi}}{2}
+\]
+
+\textbf{Express integral using erf:}
+\[
+I = \lim_{a,b \to \infty} \int_0^a \int_0^b e^{-x^2-y^2} dx\,dy
+\]
+\[
+= \lim_{a,b \to \infty} \left(\int_0^a e^{-x^2} dx\right)\left(\int_0^b e^{-y^2} dy\right)
+\]
+\[
+= \lim_{a,b \to \infty} \frac{\sqrt{\pi}}{2}\text{erf}(a) \cdot \frac{\sqrt{\pi}}{2}\text{erf}(b) = \res{\frac{\pi}{4}}
+\]
+\end{frame}
+
+\begin{frame}{Method 3: Visualization}
+\begin{center}
+\includegraphics[width=0.85\linewidth]{figs/error_function.png}
+\end{center}
+
+\begin{center}
+\textbf{Error function convergence to limit}
+\end{center}
+\end{frame}
+
+% ── NEW: METHOD 4 - NUMERICAL INTEGRATION (MONTE CARLO) ───────────
+\begin{frame}{Method 4: Numerical Integration (Monte Carlo)}
+\textbf{Key Idea:} Use random sampling to approximate the integral
+
+\vspace{0.3cm}
+
+\textbf{Monte Carlo Method:}
+\begin{itemize}
+    \item Generate random points $(x_i, y_i)$ in region $[0, L] \times [0, L]$
+    \item Evaluate $f(x_i, y_i) = e^{-x_i^2 - y_i^2}$ at each point
+    \item Average the function values and multiply by area
+\end{itemize}
+
+\textbf{Formula:}
+\[
+I \approx L^2 \times \frac{1}{N} \sum_{i=1}^N e^{-x_i^2 - y_i^2}
+\]
+
+For large $L$ and $N \to \infty$:
+\[
+I \approx \res{\frac{\pi}{4}} \approx 0.7854
+\]
+\end{frame}
+
+\begin{frame}{Method 4: Convergence Analysis}
+\begin{center}
+\includegraphics[width=0.85\linewidth]{figs/monte_carlo_convergence.png}
+\end{center}
+
+\begin{center}
+\textbf{Monte Carlo convergence to } $\pi/4$
+\end{center}
+\end{frame}
+
+% ── CONTOUR PLOT ──────────────────────────────────────────────────
+\begin{frame}{Contour Plot of Integrand}
+\begin{center}
+\includegraphics[width=0.85\linewidth]{figs/contour_plot.png}
+\end{center}
+
+\begin{center}
+\textbf{Level curves of } $e^{-x^2-y^2}$
+\end{center}
+\end{frame}
+
+% ── COMPARISON TABLE ──────────────────────────────────────────────
+\begin{frame}{Methods Comparison}
+\begin{table}
+\centering
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Method} & \textbf{Key Technique} & \textbf{Difficulty} \\
+\hline
+Matrix Formulation & Gaussian integral theorem & Easy \\
+\hline
+Polar Coordinates & Change of variables & Medium \\
+\hline
+Separation of Variables & Product factorization & Easy \\
+\hline
+Error Function & Special function limits & Medium \\
+\hline
+Monte Carlo & Numerical simulation & Easy (coding) \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+
+\textbf{All methods converge to: } \res{$\frac{\pi}{4}$}
+\end{frame}
+
+% ── SLIDE 9: CONCLUSION ───────────────────────────────────────────
+\begin{frame}{8. Conclusion}
+\begin{itemize}
+    \item Used \textbf{matrix formulation} of quadratic form
+    \item Applied \textbf{Gaussian integral result}
+    \item Used \textbf{symmetry argument} for region
+    \item Verified with \textbf{4 alternative methods}
+\end{itemize}
+
+\vspace{0.4cm}
+
+\begin{center}
+\textbf{Final Result: } \res{\frac{\pi}{4}}
+\end{center}
 \end{frame}
 
 \end{document}
