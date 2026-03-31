@@ -5,11 +5,13 @@
 \usepackage{tikz}
 \usepackage{xcolor}
 \usepackage{bm}
+\usepackage{listings}
 
 % Define custom colors for pedagogical emphasis
 \definecolor{madblue}{RGB}{0,62,126}
 \definecolor{okgreen}{RGB}{0,130,60}
 \definecolor{darkred}{RGB}{160,20,20}
+\definecolor{codebg}{RGB}{245,245,245}
 
 \setbeamerfont{frametitle}{series=\bfseries, size=\large}
 \setbeamerfont{title}{series=\bfseries, size=\Large}
@@ -18,8 +20,24 @@
 % Custom highlight command
 \newcommand{\res}[1]{\textcolor{madblue}{\bm{#1}}}
 
-\title{\bfseries Masterclass: Evaluating the Gaussian Double Integral}
-\subtitle{Comprehensive Step-by-Step Analysis \\ (Problem 3.0.16 | IN 2007)}
+% Python code listing style
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{codebg},
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{okgreen},
+    stringstyle=\color{darkred},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    captionpos=b
+}
+
+\title{\bfseries Problem 3.0.16: Evaluating the Gaussian Double Integral}
+\subtitle{Question, Solution (All Methods), Python Code \& Plots \\ IN 2007}
 \author{EE25BTECH11016 - CH. Taraka Abhinav}
 \institute{Mathematics and Engineering Optimization}
 \date{}
@@ -31,21 +49,42 @@
   \titlepage
 \end{frame}
 
-% ── SLIDE 2: THE PROBLEM ──────────────────────────────────────────
-\begin{frame}{1. The Problem Statement}
+% ══════════════════════════════════════════════════════════════════
+% SECTION 1: QUESTION
+% ══════════════════════════════════════════════════════════════════
+
+\section{Question}
+
+\begin{frame}{Question: The Problem Statement}
+\textbf{Evaluate the double integral:}
+
 \[
 I = \int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
 \]
 
+\vspace{0.5cm}
+
+\textbf{Given:}
 \begin{itemize}
-    \item Evaluate the given Gaussian double integral.
-    \item Region of integration: \textbf{First Quadrant}
-    \item Integrand is always \textbf{positive and symmetric}
+    \item Region of integration: \textbf{First Quadrant} $(x \ge 0, y \ge 0)$
+    \item Integrand: $e^{-x^2 - y^2}$ (always positive and symmetric)
+    \item Find the exact value of this integral
 \end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Source:} IN 2007, Problem 3.0.16
 \end{frame}
 
-% ── SLIDE 3: MATRIX FORMULATION ───────────────────────────────────
-\begin{frame}{2. Matrix Representation}
+% ══════════════════════════════════════════════════════════════════
+% SECTION 2: SOLUTION (ALL METHODS)
+% ══════════════════════════════════════════════════════════════════
+
+\section{Solution}
+
+% ── METHOD 0: MATRIX FORMULATION ──────────────────────────────────
+\begin{frame}{Solution - Method 0: Matrix Formulation}
+\textbf{Step 1: Matrix Representation}
 \[
 x^2 + y^2 =
 \begin{bmatrix} x & y \end{bmatrix}
@@ -54,105 +93,48 @@ x^2 + y^2 =
 = \bm{x}^T A \bm{x}
 \]
 
-\begin{itemize}
-    \item \( A = I \) (Identity matrix)
-    \item Symmetric and Positive Definite
-\end{itemize}
+where $A = I$ (Identity matrix), symmetric and positive definite.
 
-\[
-I = \int_{x \ge 0, y \ge 0} e^{-\bm{x}^T A \bm{x}} \, d\bm{x}
-\]
-\end{frame}
+\vspace{0.3cm}
 
-% ── SLIDE 4: STANDARD RESULT ──────────────────────────────────────
-\begin{frame}{3. Standard Gaussian Result}
+\textbf{Step 2: Standard Gaussian Result}
 \[
 \int_{\mathbb{R}^n} e^{-\bm{x}^T A \bm{x}} d\bm{x}
 = \sqrt{\frac{\pi^n}{\det(A)}}
 \]
 
-For this case:
+For $n = 2$, $A = I$, $\det(A) = 1$:
 \[
-n = 2, \quad A = I, \quad \det(A) = 1
-\]
-
-\[
-\Rightarrow \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
-e^{-(x^2 + y^2)} dx\,dy = \res{\pi}
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
+e^{-(x^2 + y^2)} dx\,dy = \pi
 \]
 \end{frame}
 
-% ── SLIDE 5: REGION ARGUMENT ──────────────────────────────────────
-\begin{frame}{4. Restricting the Region}
+\begin{frame}{Solution - Method 0: Matrix Formulation (cont.)}
+\textbf{Step 3: Restricting to First Quadrant}
+
 \begin{itemize}
-    \item Given region: \( x \ge 0, y \ge 0 \)
-    \item This is \textbf{one-fourth} of the full plane
+    \item Given region: $(x \ge 0, y \ge 0)$ is \textbf{one-fourth} of full plane
     \item Function is symmetric in all quadrants
 \end{itemize}
 
 \[
 I = \frac{1}{4} \times \pi = \res{\frac{\pi}{4}}
 \]
-\end{frame}
-
-% ── SLIDE 6: FINAL RESULT ─────────────────────────────────────────
-\begin{frame}{5. Final Answer}
-\[
-\boxed{
-\int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
-= \res{\frac{\pi}{4}}
-}
-\]
 
 \vspace{0.5cm}
 
-\begin{itemize}
-    \item Exact value: \( \frac{\pi}{4} \)
-    \item Approximate value: \( 0.7854 \)
-\end{itemize}
+\textbf{Result:} $\boxed{I = \frac{\pi}{4} \approx 0.7854}$
 \end{frame}
 
-% ── SLIDE 7: VISUAL INTERPRETATION ────────────────────────────────
-\begin{frame}{6. Geometric Interpretation}
-\begin{itemize}
-    \item Surface: \( z = e^{-x^2 - y^2} \)
-    \item Region: First quadrant in \(xy\)-plane
-    \item Integral represents:
-\end{itemize}
-
-\[
-\text{Volume under the surface}
-\]
-
-\vspace{0.3cm}
-
-\begin{center}
-\textit{Volume} = \res{\frac{\pi}{4}}
-\end{center}
-\end{frame}
-
-% ── SLIDE 8: INSERT YOUR PLOT ─────────────────────────────────────
-\begin{frame}{7. Visualization}
-\begin{center}
-\includegraphics[width=0.85\linewidth]{figs/surface_plot.png}
-\end{center}
-
-\begin{center}
-\textbf{Volume under surface = } \res{\frac{\pi}{4}}
-\end{center}
-\end{frame}
-
-% ── NEW: METHOD 1 - POLAR COORDINATES ─────────────────────────────
-\begin{frame}{Method 1: Polar Coordinates (Classical Approach)}
-\textbf{Key Idea:} Convert Cartesian to polar coordinates using symmetry
-
-\vspace{0.3cm}
+% ── METHOD 1: POLAR COORDINATES ───────────────────────────────────
+\begin{frame}{Solution - Method 1: Polar Coordinates}
+\textbf{Key Idea:} Convert Cartesian to polar coordinates
 
 \textbf{Transformation:}
 \[
 x = r\cos\theta, \quad y = r\sin\theta, \quad dA = r\,dr\,d\theta
 \]
-
 \[
 x^2 + y^2 = r^2
 \]
@@ -161,20 +143,22 @@ x^2 + y^2 = r^2
 \[
 I = \int_0^{\pi/2} \int_0^\infty e^{-r^2} r \, dr\,d\theta
 \]
-\end{frame}
 
-\begin{frame}{Method 1: Polar Coordinates (Solution)}
 \textbf{Step 1: Separate the integrals}
 \[
 I = \left(\int_0^{\pi/2} d\theta\right) \left(\int_0^\infty r e^{-r^2} dr\right)
 \]
+\end{frame}
 
+\begin{frame}{Solution - Method 1: Polar Coordinates (cont.)}
 \textbf{Step 2: Evaluate angular part}
 \[
 \int_0^{\pi/2} d\theta = \frac{\pi}{2}
 \]
 
-\textbf{Step 3: Evaluate radial part (substitution: $u = r^2$)}
+\textbf{Step 3: Evaluate radial part}
+
+Substitution: $u = r^2$, $du = 2r\,dr$
 \[
 \int_0^\infty r e^{-r^2} dr = \frac{1}{2}\int_0^\infty e^{-u} du = \frac{1}{2}
 \]
@@ -185,21 +169,9 @@ I = \frac{\pi}{2} \times \frac{1}{2} = \res{\frac{\pi}{4}}
 \]
 \end{frame}
 
-\begin{frame}{Method 1: Visualization}
-\begin{center}
-\includegraphics[width=0.85\linewidth]{figs/polar_visualization.png}
-\end{center}
-
-\begin{center}
-\textbf{Polar coordinate transformation in first quadrant}
-\end{center}
-\end{frame}
-
-% ── NEW: METHOD 2 - SEPARATION OF VARIABLES ───────────────────────
-\begin{frame}{Method 2: Separation of Variables}
+% ── METHOD 2: SEPARATION OF VARIABLES ─────────────────────────────
+\begin{frame}{Solution - Method 2: Separation of Variables}
 \textbf{Key Idea:} Express as product of independent integrals
-
-\vspace{0.3cm}
 
 \textbf{Observation:}
 \[
@@ -208,22 +180,25 @@ e^{-x^2 - y^2} = e^{-x^2} \cdot e^{-y^2}
 
 \textbf{Factorization:}
 \[
-I = \int_0^\infty \int_0^\infty e^{-x^2} e^{-y^2} \, dx\,dy = \left(\int_0^\infty e^{-x^2} dx\right) \left(\int_0^\infty e^{-y^2} dy\right)
+I = \int_0^\infty \int_0^\infty e^{-x^2} e^{-y^2} \, dx\,dy
+\]
+\[
+= \left(\int_0^\infty e^{-x^2} dx\right) \left(\int_0^\infty e^{-y^2} dy\right)
 \]
 
-\textbf{Since both integrals are identical:}
+Since both integrals are identical:
 \[
 I = \left(\int_0^\infty e^{-x^2} dx\right)^2
 \]
 \end{frame}
 
-\begin{frame}{Method 2: Gaussian Integral Evaluation}
+\begin{frame}{Solution - Method 2: Separation of Variables (cont.)}
 \textbf{Standard Gaussian Integral:}
 \[
 \int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
 \]
 
-\textbf{Derivation uses polar trick:} Let $I_1 = \int_0^\infty e^{-x^2} dx$
+\textbf{Derivation:} Let $I_1 = \int_0^\infty e^{-x^2} dx$
 \[
 I_1^2 = \left(\int_0^\infty e^{-x^2} dx\right)\left(\int_0^\infty e^{-y^2} dy\right) = \int_0^\infty \int_0^\infty e^{-(x^2+y^2)} dx\,dy
 \]
@@ -238,18 +213,8 @@ I = \left(\frac{\sqrt{\pi}}{2}\right)^2 = \res{\frac{\pi}{4}}
 \]
 \end{frame}
 
-\begin{frame}{Method 2: Visualization}
-\begin{center}
-\includegraphics[width=0.85\linewidth]{figs/separation_variables.png}
-\end{center}
-
-\begin{center}
-\textbf{Product of 1D Gaussian functions}
-\end{center}
-\end{frame}
-
-% ── NEW: METHOD 3 - ERROR FUNCTION APPROACH ───────────────────────
-\begin{frame}{Method 3: Error Function Approach}
+% ── METHOD 3: ERROR FUNCTION ──────────────────────────────────────
+\begin{frame}{Solution - Method 3: Error Function Approach}
 \textbf{Error Function Definition:}
 \[
 \text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
@@ -272,21 +237,9 @@ I = \lim_{a,b \to \infty} \int_0^a \int_0^b e^{-x^2-y^2} dx\,dy
 \]
 \end{frame}
 
-\begin{frame}{Method 3: Visualization}
-\begin{center}
-\includegraphics[width=0.85\linewidth]{figs/error_function.png}
-\end{center}
-
-\begin{center}
-\textbf{Error function convergence to limit}
-\end{center}
-\end{frame}
-
-% ── NEW: METHOD 4 - NUMERICAL INTEGRATION (MONTE CARLO) ───────────
-\begin{frame}{Method 4: Numerical Integration (Monte Carlo)}
+% ── METHOD 4: MONTE CARLO ─────────────────────────────────────────
+\begin{frame}{Solution - Method 4: Monte Carlo Numerical Integration}
 \textbf{Key Idea:} Use random sampling to approximate the integral
-
-\vspace{0.3cm}
 
 \textbf{Monte Carlo Method:}
 \begin{itemize}
@@ -306,29 +259,8 @@ I \approx \res{\frac{\pi}{4}} \approx 0.7854
 \]
 \end{frame}
 
-\begin{frame}{Method 4: Convergence Analysis}
-\begin{center}
-\includegraphics[width=0.85\linewidth]{figs/monte_carlo_convergence.png}
-\end{center}
-
-\begin{center}
-\textbf{Monte Carlo convergence to } $\pi/4$
-\end{center}
-\end{frame}
-
-% ── CONTOUR PLOT ──────────────────────────────────────────────────
-\begin{frame}{Contour Plot of Integrand}
-\begin{center}
-\includegraphics[width=0.85\linewidth]{figs/contour_plot.png}
-\end{center}
-
-\begin{center}
-\textbf{Level curves of } $e^{-x^2-y^2}$
-\end{center}
-\end{frame}
-
 % ── COMPARISON TABLE ──────────────────────────────────────────────
-\begin{frame}{Methods Comparison}
+\begin{frame}{Solution Summary: All Methods Comparison}
 \begin{table}
 \centering
 \small
@@ -349,24 +281,302 @@ Monte Carlo & Numerical simulation & Easy (coding) \\
 \end{tabular}
 \end{table}
 
-\vspace{0.3cm}
+\vspace{0.5cm}
 
-\textbf{All methods converge to: } \res{$\frac{\pi}{4}$}
+\begin{center}
+\textbf{All methods converge to: } \res{$\displaystyle \boxed{\frac{\pi}{4}}$}
+\end{center}
 \end{frame}
 
-% ── SLIDE 9: CONCLUSION ───────────────────────────────────────────
-\begin{frame}{8. Conclusion}
+% ══════════════════════════════════════════════════════════════════
+% SECTION 3: PYTHON CODE + PLOTS
+% ══════════════════════════════════════════════════════════════════
+
+\section{Python Code \& Plots}
+
+% ── VISUALIZATION 1: SURFACE PLOT ─────────────────────────────────
+\begin{frame}{Visualization 1: 3D Surface Plot}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/surface_plot.png}
+\end{center}
+
+\begin{center}
+\textbf{Surface: } $z = e^{-x^2-y^2}$ in first quadrant \\
+\textbf{Volume under surface = } \res{$\frac{\pi}{4}$}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Python Code: Surface Plot}
+\begin{lstlisting}[caption=surface\_plot.py]
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Create mesh grid
+x = np.linspace(0, 3, 100)
+y = np.linspace(0, 3, 100)
+X, Y = np.meshgrid(x, y)
+
+# Gaussian function
+Z = np.exp(-X**2 - Y**2)
+
+# Create 3D plot
+fig = plt.figure(figsize=(12, 9))
+ax = fig.add_subplot(111, projection='3d')
+surf = ax.plot_surface(X, Y, Z, cmap='viridis',
+                       alpha=0.8)
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel(r'$e^{-x^2-y^2}$')
+plt.savefig('../figs/surface_plot.png', dpi=300)
+\end{lstlisting}
+\end{frame}
+
+% ── VISUALIZATION 2: POLAR COORDINATES ────────────────────────────
+\begin{frame}{Visualization 2: Polar Coordinates Transformation}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/polar_visualization.png}
+\end{center}
+
+\begin{center}
+\textbf{Method 1: } Polar coordinate transformation in first quadrant
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Python Code: Polar Visualization}
+\begin{lstlisting}[caption=polar\_visualization.py (excerpt)]
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Polar grid
+theta = np.linspace(0, np.pi/2, 50)
+r = np.linspace(0, 3, 50)
+
+# Create subplots showing transformation
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+# Plot 1: Cartesian grid
+# Plot 2: Polar grid overlay
+# Plot 3: Pure polar representation
+
+for ax in axes:
+    ax.set_aspect('equal')
+    ax.grid(True, alpha=0.3)
+
+plt.savefig('../figs/polar_visualization.png',
+            dpi=300, bbox_inches='tight')
+\end{lstlisting}
+\end{frame}
+
+% ── VISUALIZATION 3: SEPARATION OF VARIABLES ──────────────────────
+\begin{frame}{Visualization 3: Separation of Variables}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/separation_variables.png}
+\end{center}
+
+\begin{center}
+\textbf{Method 2: } Product of two 1D Gaussian functions
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Python Code: Separation of Variables}
+\begin{lstlisting}[caption=separation\_variables.py (excerpt)]
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 3, 1000)
+gaussian_1d = np.exp(-x**2)
+
+# Create visualization
+fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+
+# Plot 1D Gaussians and their product
+axes[0, 0].plot(x, gaussian_1d, 'b-', linewidth=2)
+axes[0, 0].set_title(r'$e^{-x^2}$')
+
+axes[0, 1].plot(x, gaussian_1d, 'r-', linewidth=2)
+axes[0, 1].set_title(r'$e^{-y^2}$')
+
+# 2D product visualization
+# ...
+
+plt.savefig('../figs/separation_variables.png', dpi=300)
+\end{lstlisting}
+\end{frame}
+
+% ── VISUALIZATION 4: ERROR FUNCTION ───────────────────────────────
+\begin{frame}{Visualization 4: Error Function Convergence}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/error_function.png}
+\end{center}
+
+\begin{center}
+\textbf{Method 3: } Error function convergence to limit
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Python Code: Error Function}
+\begin{lstlisting}[caption=error\_function.py (excerpt)]
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.special import erf
+
+x = np.linspace(0, 5, 1000)
+erf_values = erf(x)
+
+fig, axes = plt.subplots(2, 1, figsize=(12, 10))
+
+# Plot error function
+axes[0].plot(x, erf_values, 'b-', linewidth=2)
+axes[0].axhline(y=1, color='r', linestyle='--',
+                label=r'$\lim_{x\to\infty} erf(x) = 1$')
+axes[0].set_title('Error Function')
+
+# Plot integral approximation
+# ...
+
+plt.savefig('../figs/error_function.png', dpi=300)
+\end{lstlisting}
+\end{frame}
+
+% ── VISUALIZATION 5: MONTE CARLO ──────────────────────────────────
+\begin{frame}{Visualization 5: Monte Carlo Convergence}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/monte_carlo_convergence.png}
+\end{center}
+
+\begin{center}
+\textbf{Method 4: } Monte Carlo simulation converging to $\pi/4$
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Python Code: Monte Carlo Integration}
+\begin{lstlisting}[caption=monte\_carlo\_convergence.py (excerpt)]
+import numpy as np
+import matplotlib.pyplot as plt
+
+def monte_carlo_integral(N, L=10):
+    x = np.random.uniform(0, L, N)
+    y = np.random.uniform(0, L, N)
+    f_values = np.exp(-x**2 - y**2)
+    return L**2 * np.mean(f_values)
+
+# Convergence analysis
+sample_sizes = np.logspace(2, 6, 50, dtype=int)
+estimates = [monte_carlo_integral(N) for N in sample_sizes]
+
+plt.plot(sample_sizes, estimates, 'b-', linewidth=2)
+plt.axhline(y=np.pi/4, color='r', linestyle='--',
+            label=r'True value: $\pi/4$')
+plt.xscale('log')
+plt.savefig('../figs/monte_carlo_convergence.png', dpi=300)
+\end{lstlisting}
+\end{frame}
+
+% ── VISUALIZATION 6: CONTOUR PLOT ─────────────────────────────────
+\begin{frame}{Visualization 6: Contour Plot}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/contour_plot.png}
+\end{center}
+
+\begin{center}
+\textbf{Level curves of } $e^{-x^2-y^2}$ showing circular symmetry
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Python Code: Contour Plot}
+\begin{lstlisting}[caption=contour\_plot.py (excerpt)]
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 3, 200)
+y = np.linspace(0, 3, 200)
+X, Y = np.meshgrid(x, y)
+Z = np.exp(-X**2 - Y**2)
+
+fig, ax = plt.subplots(figsize=(10, 8))
+contour = ax.contour(X, Y, Z, levels=15, cmap='viridis')
+contourf = ax.contourf(X, Y, Z, levels=15,
+                        cmap='viridis', alpha=0.6)
+plt.colorbar(contourf)
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_title(r'Contour Plot: $e^{-x^2-y^2}$')
+plt.savefig('../figs/contour_plot.png', dpi=300)
+\end{lstlisting}
+\end{frame}
+
+% ── GENERATE ALL PLOTS ────────────────────────────────────────────
+\begin{frame}[fragile]{Master Script: Generate All Plots}
+\begin{lstlisting}[caption=generate\_all\_plots.py]
+"""
+Master script to generate all visualizations
+for Problem 3.0.16
+"""
+import subprocess
+import sys
+
+scripts = [
+    'surface_plot.py',
+    'contour_plot.py',
+    'polar_visualization.py',
+    'separation_variables.py',
+    'error_function.py',
+    'monte_carlo_convergence.py'
+]
+
+for script in scripts:
+    print(f"Running {script}...")
+    subprocess.run([sys.executable, script])
+    print(f"Completed {script}\n")
+\end{lstlisting}
+\end{frame}
+
+% ── FINAL ANSWER ──────────────────────────────────────────────────
+\begin{frame}{Final Answer}
+\begin{center}
+\LARGE
+\[
+\boxed{
+\int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
+= \res{\frac{\pi}{4}}
+}
+\]
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{itemize}
+    \item \textbf{Exact value:} $\pi/4$
+    \item \textbf{Approximate value:} $0.785398...$
+    \item \textbf{Methods verified:} 5 (Matrix, Polar, Separation, Error Function, Monte Carlo)
+    \item \textbf{Python visualizations:} 6 plots generated
+\end{itemize}
+\end{frame}
+
+% ── CONCLUSION ────────────────────────────────────────────────────
+\begin{frame}{Conclusion}
+\textbf{Key Takeaways:}
 \begin{itemize}
     \item Used \textbf{matrix formulation} of quadratic form
     \item Applied \textbf{Gaussian integral result}
-    \item Used \textbf{symmetry argument} for region
-    \item Verified with \textbf{4 alternative methods}
+    \item Explored \textbf{4 analytical methods} + 1 numerical method
+    \item Used \textbf{symmetry argument} for region restriction
+    \item Verified with \textbf{Python visualizations}
 \end{itemize}
 
 \vspace{0.4cm}
 
 \begin{center}
-\textbf{Final Result: } \res{\frac{\pi}{4}}
+\textbf{Final Result: } \res{$\displaystyle \frac{\pi}{4}$}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{center}
+\small
+\textbf{Author:} CH. Taraka Abhinav (EE25BTECH11016) \\
+\textbf{Date:} March 31, 2026
 \end{center}
 \end{frame}
 
