@@ -1,0 +1,99 @@
+\documentclass[12pt, aspectratio=169]{beamer}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% ───────────────── COLOR SETUP (ORANGE THEME) ─────────────────
+\usepackage{xcolor}
+
+\definecolor{mainorange}{RGB}{255, 140, 0}    % Dark Orange
+\definecolor{softorange}{RGB}{255, 185, 80}   % Medium Orange
+\definecolor{lightorange}{RGB}{255, 235, 205} % Blanched Almond
+
+% Apply orange everywhere
+\setbeamercolor{structure}{fg=mainorange}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{title}{fg=white}
+
+% Fix Madrid blue bars → orange
+\setbeamercolor{palette primary}{bg=mainorange, fg=white}
+\setbeamercolor{palette secondary}{bg=mainorange!85!black, fg=white}
+\setbeamercolor{palette tertiary}{bg=mainorange!70!black, fg=white}
+
+% Blocks
+\setbeamercolor{block title}{bg=softorange, fg=black}
+\setbeamercolor{block body}{bg=lightorange, fg=black}
+
+% Bullets
+\setbeamercolor{item}{fg=mainorange}
+
+% Optional: remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% ───────────────── PACKAGES ─────────────────
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{listings}
+
+% ───────────────── LISTINGS CONFIGURATION ─────────────────
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  columns=fullflexible
+}
+
+% ───────────────── CUSTOM COLORS ─────────────────
+\definecolor{highlightcol}{RGB}{220, 80, 0} % deep orange-red for emphasis
+\definecolor{okgreen}{RGB}{0,130,60}
+
+% ───────────────── FONTS ─────────────────
+\setbeamerfont{frametitle}{series=\bfseries, size=\large}
+\setbeamerfont{title}{series=\bfseries, size=\Large}
+\setbeamerfont{subtitle}{series=\bfseries}
+
+% ───────────────── CUSTOM COMMAND ─────────────────
+% Changed \bm to \textbf to fix Overleaf table line-break swallowing issues
+\newcommand{\res}[1]{\textcolor{highlightcol}{\textbf{#1}}}
+
+\title{Problem 3.0.16}
+\subtitle{[Add Problem Title Here]}
+\author{CH. Taraka Abhinav - EE25BTECH11016}
+\date{}
+
+\begin{document}
+
+% --- SLIDE 1 ---
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% --- SLIDE 2 ---
+\begin{frame}{Problem Statement}
+    \begin{block}{Question}
+        % Add problem statement here
+
+    \end{block}
+\end{frame}
+
+% --- SLIDE 3 ---
+\begin{frame}{Solution Approach}
+    \textbf{Methodology:}
+    \begin{itemize}
+        \item Step 1
+        \item Step 2
+        \item Step 3
+    \end{itemize}
+\end{frame}
+
+% --- SLIDE 4 ---
+\begin{frame}{Conclusion}
+    \textbf{Final Answer:}
+    \begin{itemize}
+        \item Result here
+    \end{itemize}
+\end{frame}
+
+\end{document}
