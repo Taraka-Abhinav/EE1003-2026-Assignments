@@ -288,6 +288,54 @@ Monte Carlo & Numerical simulation & Easy (coding) \\
 \end{center}
 \end{frame}
 
+% ── FINAL ANSWER ──────────────────────────────────────────────────
+\begin{frame}{Final Answer}
+\begin{center}
+\LARGE
+\[
+\boxed{
+\int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
+= \res{\frac{\pi}{4}}
+}
+\]
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{itemize}
+    \item \textbf{Exact value:} $\pi/4$
+    \item \textbf{Approximate value:} $0.785398...$
+    \item \textbf{Methods verified:} 5 (Matrix, Polar, Separation, Error Function, Monte Carlo)
+    \item \textbf{Python visualizations:} 6 plots generated
+\end{itemize}
+\end{frame}
+
+% ── CONCLUSION ────────────────────────────────────────────────────
+\begin{frame}{Conclusion}
+\textbf{Key Takeaways:}
+\begin{itemize}
+    \item Used \textbf{matrix formulation} of quadratic form
+    \item Applied \textbf{Gaussian integral result}
+    \item Explored \textbf{4 analytical methods} + 1 numerical method
+    \item Used \textbf{symmetry argument} for region restriction
+    \item Verified with \textbf{Python visualizations}
+\end{itemize}
+
+\vspace{0.4cm}
+
+\begin{center}
+\textbf{Final Result: } \res{$\displaystyle \frac{\pi}{4}$}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{center}
+\small
+\textbf{Author:} CH. Taraka Abhinav (EE25BTECH11016) \\
+\textbf{Date:} March 31, 2026
+\end{center}
+\end{frame}
+
 % ══════════════════════════════════════════════════════════════════
 % SECTION 3: PYTHON CODE + PLOTS
 % ══════════════════════════════════════════════════════════════════
@@ -306,6 +354,62 @@ Monte Carlo & Numerical simulation & Easy (coding) \\
 \end{center}
 \end{frame}
 
+% ── VISUALIZATION 2: POLAR COORDINATES ────────────────────────────
+\begin{frame}{Visualization 2: Polar Coordinates Transformation}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/polar_visualization.png}
+\end{center}
+
+\begin{center}
+\textbf{Method 1: } Polar coordinate transformation in first quadrant
+\end{center}
+\end{frame}
+
+% ── VISUALIZATION 3: SEPARATION OF VARIABLES ──────────────────────
+\begin{frame}{Visualization 3: Separation of Variables}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/separation_variables.png}
+\end{center}
+
+\begin{center}
+\textbf{Method 2: } Product of two 1D Gaussian functions
+\end{center}
+\end{frame}
+
+% ── VISUALIZATION 4: ERROR FUNCTION ───────────────────────────────
+\begin{frame}{Visualization 4: Error Function Convergence}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/error_function.png}
+\end{center}
+
+\begin{center}
+\textbf{Method 3: } Error function convergence to limit
+\end{center}
+\end{frame}
+
+% ── VISUALIZATION 5: MONTE CARLO ──────────────────────────────────
+\begin{frame}{Visualization 5: Monte Carlo Convergence}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/monte_carlo_convergence.png}
+\end{center}
+
+\begin{center}
+\textbf{Method 4: } Monte Carlo simulation converging to $\pi/4$
+\end{center}
+\end{frame}
+
+% ── VISUALIZATION 6: CONTOUR PLOT ─────────────────────────────────
+\begin{frame}{Visualization 6: Contour Plot}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{figs/contour_plot.png}
+\end{center}
+
+\begin{center}
+\textbf{Level curves of } $e^{-x^2-y^2}$ showing circular symmetry
+\end{center}
+\end{frame}
+
+% ── PYTHON CODE: SURFACE PLOT ─────────────────────────────────────
 \begin{frame}[fragile]{Python Code: Surface Plot}
 \begin{lstlisting}[caption=surface\_plot.py]
 import numpy as np
@@ -332,17 +436,7 @@ plt.savefig('../figs/surface_plot.png', dpi=300)
 \end{lstlisting}
 \end{frame}
 
-% ── VISUALIZATION 2: POLAR COORDINATES ────────────────────────────
-\begin{frame}{Visualization 2: Polar Coordinates Transformation}
-\begin{center}
-\includegraphics[width=0.75\linewidth]{figs/polar_visualization.png}
-\end{center}
-
-\begin{center}
-\textbf{Method 1: } Polar coordinate transformation in first quadrant
-\end{center}
-\end{frame}
-
+% ── PYTHON CODE: POLAR VISUALIZATION ──────────────────────────────
 \begin{frame}[fragile]{Python Code: Polar Visualization}
 \begin{lstlisting}[caption=polar\_visualization.py (excerpt)]
 import numpy as np
@@ -368,17 +462,7 @@ plt.savefig('../figs/polar_visualization.png',
 \end{lstlisting}
 \end{frame}
 
-% ── VISUALIZATION 3: SEPARATION OF VARIABLES ──────────────────────
-\begin{frame}{Visualization 3: Separation of Variables}
-\begin{center}
-\includegraphics[width=0.75\linewidth]{figs/separation_variables.png}
-\end{center}
-
-\begin{center}
-\textbf{Method 2: } Product of two 1D Gaussian functions
-\end{center}
-\end{frame}
-
+% ── PYTHON CODE: SEPARATION OF VARIABLES ──────────────────────────
 \begin{frame}[fragile]{Python Code: Separation of Variables}
 \begin{lstlisting}[caption=separation\_variables.py (excerpt)]
 import numpy as np
@@ -404,17 +488,7 @@ plt.savefig('../figs/separation_variables.png', dpi=300)
 \end{lstlisting}
 \end{frame}
 
-% ── VISUALIZATION 4: ERROR FUNCTION ───────────────────────────────
-\begin{frame}{Visualization 4: Error Function Convergence}
-\begin{center}
-\includegraphics[width=0.75\linewidth]{figs/error_function.png}
-\end{center}
-
-\begin{center}
-\textbf{Method 3: } Error function convergence to limit
-\end{center}
-\end{frame}
-
+% ── PYTHON CODE: ERROR FUNCTION ───────────────────────────────────
 \begin{frame}[fragile]{Python Code: Error Function}
 \begin{lstlisting}[caption=error\_function.py (excerpt)]
 import numpy as np
@@ -439,17 +513,7 @@ plt.savefig('../figs/error_function.png', dpi=300)
 \end{lstlisting}
 \end{frame}
 
-% ── VISUALIZATION 5: MONTE CARLO ──────────────────────────────────
-\begin{frame}{Visualization 5: Monte Carlo Convergence}
-\begin{center}
-\includegraphics[width=0.75\linewidth]{figs/monte_carlo_convergence.png}
-\end{center}
-
-\begin{center}
-\textbf{Method 4: } Monte Carlo simulation converging to $\pi/4$
-\end{center}
-\end{frame}
-
+% ── PYTHON CODE: MONTE CARLO INTEGRATION ──────────────────────────
 \begin{frame}[fragile]{Python Code: Monte Carlo Integration}
 \begin{lstlisting}[caption=monte\_carlo\_convergence.py (excerpt)]
 import numpy as np
@@ -471,17 +535,6 @@ plt.axhline(y=np.pi/4, color='r', linestyle='--',
 plt.xscale('log')
 plt.savefig('../figs/monte_carlo_convergence.png', dpi=300)
 \end{lstlisting}
-\end{frame}
-
-% ── VISUALIZATION 6: CONTOUR PLOT ─────────────────────────────────
-\begin{frame}{Visualization 6: Contour Plot}
-\begin{center}
-\includegraphics[width=0.75\linewidth]{figs/contour_plot.png}
-\end{center}
-
-\begin{center}
-\textbf{Level curves of } $e^{-x^2-y^2}$ showing circular symmetry
-\end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Python Code: Contour Plot}
@@ -532,51 +585,10 @@ for script in scripts:
 \end{lstlisting}
 \end{frame}
 
-% ── FINAL ANSWER ──────────────────────────────────────────────────
-\begin{frame}{Final Answer}
+% ── FINAL VISUAL: END WITH IMAGE ONLY ─────────────────────────────
+\begin{frame}[plain]
 \begin{center}
-\LARGE
-\[
-\boxed{
-\int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
-= \res{\frac{\pi}{4}}
-}
-\]
-\end{center}
-
-\vspace{0.5cm}
-
-\begin{itemize}
-    \item \textbf{Exact value:} $\pi/4$
-    \item \textbf{Approximate value:} $0.785398...$
-    \item \textbf{Methods verified:} 5 (Matrix, Polar, Separation, Error Function, Monte Carlo)
-    \item \textbf{Python visualizations:} 6 plots generated
-\end{itemize}
-\end{frame}
-
-% ── CONCLUSION ────────────────────────────────────────────────────
-\begin{frame}{Conclusion}
-\textbf{Key Takeaways:}
-\begin{itemize}
-    \item Used \textbf{matrix formulation} of quadratic form
-    \item Applied \textbf{Gaussian integral result}
-    \item Explored \textbf{4 analytical methods} + 1 numerical method
-    \item Used \textbf{symmetry argument} for region restriction
-    \item Verified with \textbf{Python visualizations}
-\end{itemize}
-
-\vspace{0.4cm}
-
-\begin{center}
-\textbf{Final Result: } \res{$\displaystyle \frac{\pi}{4}$}
-\end{center}
-
-\vspace{0.3cm}
-
-\begin{center}
-\small
-\textbf{Author:} CH. Taraka Abhinav (EE25BTECH11016) \\
-\textbf{Date:} March 31, 2026
+\includegraphics[width=0.9\linewidth]{figs/contour_plot.png}
 \end{center}
 \end{frame}
 
