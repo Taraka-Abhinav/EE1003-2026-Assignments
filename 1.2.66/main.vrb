@@ -1,0 +1,33 @@
+\frametitle{\textbf {Adams--Bashforth 4-Step -- C Code}}
+\begin{lstlisting}
+#include <stdio.h>
+#include <math.h>
+
+double f(double x, double y) {
+    return 2.0 * x * y;
+}
+
+int main() {
+    double h = 0.2;
+    double x[] = {0.0, 0.2, 0.4, 0.6};
+    double y[] = {1.0, 1.0408, 1.1735, 1.4333};
+    double fv[4];
+
+    for (int i = 0; i < 4; i++)
+        fv[i] = f(x[i], y[i]);
+
+    // AB4 predictor
+    double y_pred = y[3] + (h / 24.0) * (
+        55*fv[3] - 59*fv[2]
+        + 37*fv[1] - 9*fv[0]
+    );
+
+    printf("AB4 predicted y(0.8) = %lf\n",
+           y_pred);
+    printf("Exact y(0.8) = %lf\n",
+           exp(0.64));
+    printf("Error = %e\n",
+           fabs(y_pred - exp(0.64)));
+    return 0;
+}
+\end{lstlisting}

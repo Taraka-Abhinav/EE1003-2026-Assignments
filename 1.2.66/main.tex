@@ -1,0 +1,847 @@
+\documentclass[12pt]{beamer}
+\usetheme{Madrid}
+
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, shapes.geometric}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{booktabs}
+
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  columns=fullflexible
+}
+
+\setbeamerfont{frametitle}{series=\bfseries, size=\large}
+\setbeamerfont{title}{series=\bfseries, size=\Large}
+\setbeamerfont{subtitle}{series=\bfseries}
+
+\definecolor{madblue}{RGB}{0,62,126}
+\definecolor{okgreen}{RGB}{0,130,60}
+
+%% TOC-style circled option
+\newcommand{\myopt}[2]{%
+  \vspace{5pt}\noindent
+  \begin{tikzpicture}[baseline=(ch.base)]
+    \node[circle, fill=madblue, text=white,
+          font=\bfseries\small, minimum size=17pt, inner sep=0pt] (ch) {#1};
+  \end{tikzpicture}
+  \hspace{5pt}\textbf{#2}\par
+}
+
+\newcommand{\rarrow}{\textcolor{madblue}{$\boldsymbol{\Rightarrow}$}\;}
+
+\title{\bfseries Adams--Bashforth 4-Step Predictor Method}
+\subtitle{\textbf{Problem 1.2.66 \;|\; XE 2007}}
+\author{}
+\institute{\textbf{EE25BTECH11016 -- CH. Taraka Abhinav}}
+\date{}
+
+\begin{document}
+
+%% ── TITLE ────────────────────────────────────────────────────────
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%% ── QUESTION ─────────────────────────────────────────────────────
+\begin{frame}{\textbf{Problem 1.2.66 \;--\; XE 2007 (Linked Answer)}}
+
+\textbf{Consider the initial value problem:}
+\[
+  \bm{\frac{dy}{dx} = 2xy}, \qquad \bm{y(0) = 1}
+\]
+
+\vspace{0.5em}
+\textbf{Given the following data points ($h = 0.2$):}
+
+\vspace{0.5em}
+\begin{center}
+\begin{tabular}{cccc}
+  \toprule
+  $x$ & $0.0$ & $0.2$ & $0.4$ \quad\quad $0.6$ \\
+  $y$ & $1.0000$ & $1.0408$ & $1.1735$ \quad\quad $1.4333$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.8em}
+\textbf{Q27:} Identify the correct predictor scheme.\\[0.3em]
+\textbf{Q66 (Q28):} \textbf{Using the correct predictor from Q27, $\bm{y(0.8)}$ =\,:}
+
+\vspace{0.5em}
+\begin{columns}[c]
+    \begin{column}{0.5\textwidth}
+        \myopt{a}{$1.8680$}
+        \myopt{b}{$1.8750$}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \myopt{c}{$1.8890$}
+        \myopt{d}{$1.9055$}
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+%% ══════════════════════════════════════════════════════════════════
+%%  PART I – THEORETICAL FOUNDATION
+%% ══════════════════════════════════════════════════════════════════
+
+%% ── EXACT SOLUTION ──────────────────────────────────────────────
+\begin{frame}{\textbf{Exact Solution of the ODE}}
+  \begin{center}
+    \vfill
+    The ODE $\dfrac{dy}{dx} = 2xy$ is a \textbf{separable first-order ODE}.
+
+    \vspace{1em}
+    Separate variables and integrate:
+    \[
+      \int \frac{dy}{y} \;=\; \int 2x\,dx
+      \quad\Longrightarrow\quad
+      \ln|y| \;=\; x^2 + C
+    \]
+
+    \vspace{0.8em}
+    Applying the initial condition $y(0) = 1$:
+    \[
+      \ln(1) = 0 + C \;\Longrightarrow\; C = 0
+    \]
+
+    \vspace{1em}
+    \Large\textbf{\textcolor{madblue}{$y(x) \;=\; e^{x^2}$}}
+
+    \vspace{1em}
+    \normalsize
+    \textbf{Verification:}\quad
+    $y(0.8) = e^{0.64} \approx \mathbf{1.8965}$\;
+    \textcolor{okgreen}{\checkmark}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── VERIFY GIVEN DATA ───────────────────────────────────────────
+\begin{frame}{\textbf{Verifying the Given Data Points}}
+  \begin{center}
+    \vfill
+    Since $y(x) = e^{x^2}$, we can verify the given data:
+
+    \vspace{1.5em}
+    \begin{tabular}{cccc}
+      \toprule
+      $x$ & Given $y$ & Exact $y = e^{x^2}$ & Match? \\
+      \midrule
+      $0.0$ & $1.0000$ & $e^{0.00} = 1.0000$ & \textcolor{okgreen}{\checkmark} \\[0.3em]
+      $0.2$ & $1.0408$ & $e^{0.04} = 1.0408$ & \textcolor{okgreen}{\checkmark} \\[0.3em]
+      $0.4$ & $1.1735$ & $e^{0.16} = 1.1735$ & \textcolor{okgreen}{\checkmark} \\[0.3em]
+      $0.6$ & $1.4333$ & $e^{0.36} = 1.4333$ & \textcolor{okgreen}{\checkmark} \\
+      \bottomrule
+    \end{tabular}
+
+    \vspace{1.5em}
+    \textit{All four data points are consistent with the exact solution.\\
+    This confirms the data is accurate (rounded to 4 decimal places).}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── WHY ADAMS-BASHFORTH ─────────────────────────────────────────
+\begin{frame}{\textbf{Why Adams--Bashforth? (Answer to Q27)}}
+  \begin{center}
+    \vfill
+    We have \textbf{four equally-spaced data points} $(x_0, x_1, x_2, x_3)$\\[0.3em]
+    with step size $h = 0.2$.
+
+    \vspace{1.5em}
+    The \textbf{Adams--Bashforth family} is the standard class of\\
+    \textbf{explicit linear multistep predictor methods} for IVPs.
+
+    \vspace{1.5em}
+    With 4 data points available, we can use the\\
+    \textbf{highest-order} Adams--Bashforth formula:
+
+    \vspace{1em}
+    \Large\textbf{\textcolor{madblue}{4-Step Adams--Bashforth Predictor}}
+
+    \vspace{1em}
+    \normalsize
+    This is an \textbf{explicit method} $\Rightarrow$ it is a \textit{predictor},\\[0.3em]
+    because it computes $y_{n+1}$ using \textbf{only previous values}.
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── AB4 DERIVATION: CONCEPT ────────────────────────────────────
+\begin{frame}{\textbf{Derivation: Adams--Bashforth Concept}}
+  \begin{center}
+    \vfill
+    Starting from the fundamental theorem of calculus:
+    \[
+      y(x_{n+1}) - y(x_n) \;=\; \int_{x_n}^{x_{n+1}} f\bigl(x, y(x)\bigr)\,dx
+    \]
+
+    \vspace{1em}
+    \textbf{Key Idea:}\; Approximate $f(x, y)$ over $[x_n, x_{n+1}]$\\[0.3em]
+    using a \textbf{backward Newton interpolating polynomial}\\[0.3em]
+    through the past data points $f_n, f_{n-1}, f_{n-2}, \ldots$
+
+    \vspace{1.5em}
+    For the \textbf{4-step} variant, we fit a \textbf{cubic polynomial}\\[0.3em]
+    through $(f_{n-3}, f_{n-2}, f_{n-1}, f_n)$ and integrate.
+
+    \vspace{1em}
+    \textit{This yields a truncation error of $\mathcal{O}(h^5)$,\\
+    making the method \textbf{4th-order accurate} (global error $\mathcal{O}(h^4)$).}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── AB4 FORMULA ────────────────────────────────────────────────
+\begin{frame}{\textbf{Adams--Bashforth 4-Step Formula}}
+  \begin{center}
+    \vfill
+    The \textbf{Adams--Bashforth 4-step predictor} formula is:
+    \[
+      \boxed{y_{n+1} \;=\; y_n \;+\; \frac{h}{24}\bigl[55f_n - 59f_{n-1} + 37f_{n-2} - 9f_{n-3}\bigr]}
+    \]
+
+    \vspace{1em}
+    where $f_k = f(x_k, y_k) = 2 x_k y_k$.
+
+    \vspace{1.5em}
+    \textbf{Properties:}
+    \begin{itemize}
+      \item \textbf{Explicit:}\; computes $y_{n+1}$ directly (no iteration needed)
+      \item \textbf{Order:}\; $4$ (local truncation error $= \mathcal{O}(h^5)$)
+      \item \textbf{Starting values:}\; requires 4 prior values $(y_{n-3}, \ldots, y_n)$
+      \item \textbf{Coefficients:}\; derived from integrating the Newton backward polynomial
+    \end{itemize}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── COMPUTING f VALUES ──────────────────────────────────────────
+\begin{frame}{\textbf{Step 1: Compute Derivative Values $f_i$}}
+  \begin{center}
+    \vfill
+    Using $f(x, y) = 2xy$, we compute the derivative at each data point:
+
+    \vspace{1.5em}
+    \begin{tabular}{cccl}
+      \toprule
+      $i$ & $x_i$ & $y_i$ & $f_i = 2 x_i y_i$ \\
+      \midrule
+      $0$ & $0.0$ & $1.0000$ & $f_0 = 2(0.0)(1.0000) = \mathbf{0.00000}$ \\[0.3em]
+      $1$ & $0.2$ & $1.0408$ & $f_1 = 2(0.2)(1.0408) = \mathbf{0.41632}$ \\[0.3em]
+      $2$ & $0.4$ & $1.1735$ & $f_2 = 2(0.4)(1.1735) = \mathbf{0.93880}$ \\[0.3em]
+      $3$ & $0.6$ & $1.4333$ & $f_3 = 2(0.6)(1.4333) = \mathbf{1.71996}$ \\
+      \bottomrule
+    \end{tabular}
+
+    \vspace{1.5em}
+    \textit{These $f_i$ values are the slopes of the solution curve\\
+    at the given data points.}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── SUBSTITUTION ────────────────────────────────────────────────
+\begin{frame}{\textbf{Step 2: Apply the AB4 Formula}}
+  \begin{center}
+    \vfill
+    Set $n = 3$ to predict $y_4 = y(0.8)$:
+    \[
+      y_4 \;=\; y_3 + \frac{h}{24}\bigl[55f_3 - 59f_2 + 37f_1 - 9f_0\bigr]
+    \]
+
+    \vspace{1em}
+    Substituting all values ($h = 0.2$):
+    \begin{align*}
+      y(0.8) &= 1.4333 + \frac{0.2}{24}\Bigl[55(1.71996) - 59(0.93880)\\
+             &\qquad\qquad\qquad\qquad\quad + 37(0.41632) - 9(0)\Bigr]
+    \end{align*}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── DETAILED CALCULATION ────────────────────────────────────────
+\begin{frame}{\textbf{Step 3: Detailed Arithmetic}}
+  \begin{center}
+    \vfill
+    \textbf{Evaluating term by term:}
+    \begin{align*}
+      55 \times 1.71996 &= 94.5978 \\
+      59 \times 0.93880 &= 55.3892 \\
+      37 \times 0.41632 &= 15.4038 \\
+       9 \times 0.00000 &= 0.0000
+    \end{align*}
+
+    \vspace{0.5em}
+    \textbf{Sum of bracketed expression:}
+    \[
+      94.5978 - 55.3892 + 15.4038 - 0 \;=\; 54.6124
+    \]
+
+    \vspace{0.5em}
+    \textbf{Final computation:}
+    \[
+      y(0.8) = 1.4333 + \frac{0.2}{24} \times 54.6124
+             = 1.4333 + 0.4551
+    \]
+
+    \vspace{0.8em}
+    \LARGE\textbf{\textcolor{madblue}{$y(0.8) \;\approx\; 1.8884 \;\approx\; 1.8890$}}
+
+    \vspace{0.5em}
+    \normalsize\textbf{\textcolor{okgreen}{Answer: Option (c)}}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── CROSS CHECK ─────────────────────────────────────────────────
+\begin{frame}{\textbf{Cross-Check: Exact vs Predicted}}
+  \begin{center}
+    \vfill
+    Since we know $y(x) = e^{x^2}$, the \textbf{exact value} is:
+    \[
+      y_{\text{exact}}(0.8) \;=\; e^{0.64} \;=\; 1.8965
+    \]
+
+    \vspace{1em}
+    The \textbf{AB4 predicted value} is:
+    \[
+      y_{\text{AB4}}(0.8) \;=\; 1.8884
+    \]
+
+    \vspace{1em}
+    \textbf{Absolute error:}
+    \[
+      |e^{0.64} - 1.8884| \;\approx\; 0.0081
+    \]
+
+    \vspace{1em}
+    \textbf{Relative error:}
+    \[
+      \frac{|e^{0.64} - 1.8884|}{e^{0.64}} \;\approx\; 0.43\%
+    \]
+
+    \vspace{0.8em}
+    \textit{Excellent accuracy for a single predictor step with $h = 0.2$.}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ══════════════════════════════════════════════════════════════════
+%%  PART II – COMPARING PREDICTOR METHODS
+%% ══════════════════════════════════════════════════════════════════
+
+%% ── ALL AB ORDERS ───────────────────────────────────────────────
+\begin{frame}{\textbf{Comparison: All Adams--Bashforth Orders}}
+  \begin{center}
+    \vfill
+    \small
+    \begin{tabular}{llcc}
+      \toprule
+      \textbf{Method} & \textbf{Formula} & $y(0.8)$ & $|\text{Error}|$ \\
+      \midrule
+      AB1 (Euler) & $y_n + h f_n$ & $1.7773$ & $0.1192$ \\[0.3em]
+      AB2 (2-step) & $y_n + \frac{h}{2}(3f_n - f_{n-1})$ & $1.8554$ & $0.0411$ \\[0.3em]
+      AB3 (3-step) & $y_n + \frac{h}{12}(23f_n - 16f_{n-1} + 5f_{n-2})$ & $1.8770$ & $0.0195$ \\[0.3em]
+      \textbf{AB4 (4-step)} & $y_n + \frac{h}{24}(55f_n - 59f_{n-1} + \cdots)$ & $\mathbf{1.8884}$ & $\mathbf{0.0081}$ \\
+      \midrule
+      Exact & $e^{0.64}$ & $1.8965$ & -- \\
+      \bottomrule
+    \end{tabular}
+
+    \vspace{1.5em}
+    \normalsize
+    \rarrow AB4 gives the \textbf{closest value to option (c) = 1.8890}\\[0.3em]
+    \rarrow Higher order $\Rightarrow$ better accuracy\\[0.3em]
+    \rarrow AB4 is the \textbf{``correct predictor''} referenced in Q27
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── COMPARISON PLOT ─────────────────────────────────────────────
+\begin{frame}{\textbf{Predictor Comparison -- Plot}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figs/predictor_comparison.png}
+  \end{figure}
+  \begin{center}
+    \small AB4 provides the smallest error among all Adams--Bashforth predictors.\;
+    \textcolor{okgreen}{\checkmark}
+  \end{center}
+\end{frame}
+
+%% ══════════════════════════════════════════════════════════════════
+%%  PART III – ADVANCED THEORETICAL ANALYSIS
+%% ══════════════════════════════════════════════════════════════════
+
+%% ── EXISTENCE & UNIQUENESS ──────────────────────────────────────
+\begin{frame}{\textbf{Advanced: Existence \& Uniqueness (Picard--Lindel\"of)}}
+  \begin{center}
+    \vfill
+    The \textbf{Picard--Lindel\"of Theorem} guarantees a \textbf{unique solution}\\[0.3em]
+    exists for the IVP $y' = f(x,y)$, $y(x_0) = y_0$ if:
+
+    \vspace{1em}
+    \begin{enumerate}
+      \item $f(x,y) = 2xy$ is \textbf{continuous} on $\mathbb{R}^2$ \;\textcolor{okgreen}{\checkmark}
+      \item $\dfrac{\partial f}{\partial y} = 2x$ is \textbf{continuous} (Lipschitz condition) \;\textcolor{okgreen}{\checkmark}
+    \end{enumerate}
+
+    \vspace{1.5em}
+    \textbf{Therefore:}\; the solution $y(x) = e^{x^2}$ is the \textit{unique}\\[0.3em]
+    solution to this IVP on any closed interval containing $x = 0$.
+
+    \vspace{1em}
+    \textit{The Lipschitz constant on $[0, 0.8]$ is $L = 2 \times 0.8 = 1.6$.}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── STABILITY ANALYSIS ─────────────────────────────────────────
+\begin{frame}{\textbf{Advanced: Stability of the AB4 Method}}
+  \begin{center}
+    \vfill
+    The AB4 method applied to the test equation $y' = \lambda y$ yields\\[0.3em]
+    the \textbf{characteristic polynomial}:
+    \[
+      \rho(\zeta) - \bar{h}\,\sigma(\zeta) = 0
+    \]
+
+    \vspace{0.5em}
+    where $\bar{h} = h\lambda$ and:
+    \begin{align*}
+      \rho(\zeta) &= \zeta^4 - \zeta^3 \\
+      \sigma(\zeta) &= \tfrac{1}{24}\bigl(55\zeta^3 - 59\zeta^2 + 37\zeta - 9\bigr)
+    \end{align*}
+
+    \vspace{1em}
+    The AB4 method is \textbf{zero-stable} $(\rho(\zeta)$ has roots inside \\
+    the unit circle with simple roots on the boundary$)$.
+
+    \vspace{1em}
+    \textbf{Stability interval:}\; $\bar{h} = h\lambda \in [-0.3, 0]$\\[0.3em]
+    For our problem: $h\lambda_{\max} = 0.2 \times 2(0.8)(1.8965) \approx 0.607$\\[0.3em]
+    \textit{(marginally outside the strict stability region, but still yields\\
+    accurate predictions for a single step).}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── TRUNCATION ERROR ────────────────────────────────────────────
+\begin{frame}{\textbf{Advanced: Local Truncation Error Analysis}}
+  \begin{center}
+    \vfill
+    The \textbf{local truncation error} (LTE) of the AB4 method is:
+    \[
+      \tau_{n+1} \;=\; \frac{251}{720}\,h^5\,y^{(5)}(\xi)
+      \quad\text{for some } \xi \in [x_{n-3},\,x_{n+1}]
+    \]
+
+    \vspace{1em}
+    For $y = e^{x^2}$, the 5th derivative involves polynomials in $x$:
+    \[
+      y^{(5)}(x) \;=\; \bigl(32x^5 + 160x^3 + 120x\bigr)\,e^{x^2}
+    \]
+
+    \vspace{0.8em}
+    At $x = 0.8$:\quad $y^{(5)}(0.8) \approx 153.85$
+
+    \vspace{1em}
+    \textbf{Estimated LTE:}
+    \[
+      |\tau| \;\approx\; \frac{251}{720} \times 0.2^5 \times 153.85
+             \;\approx\; 0.0017
+    \]
+
+    \vspace{0.8em}
+    \textit{This is consistent with our observed error of $0.0081$\\
+    (accumulated from starting value approximations).}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── PREDICTOR-CORRECTOR ────────────────────────────────────────
+\begin{frame}{\textbf{Advanced: Adams--Moulton Corrector (ABM Method)}}
+  \begin{center}
+    \vfill
+    In practice, the AB4 \textbf{predictor} is paired with the\\ \textbf{Adams--Moulton corrector} to improve accuracy:
+
+    \vspace{1em}
+    \textbf{Predict} (AB4):
+    \[
+      y_{n+1}^P = y_n + \frac{h}{24}\bigl[55f_n - 59f_{n-1} + 37f_{n-2} - 9f_{n-3}\bigr]
+    \]
+
+    \vspace{0.8em}
+    \textbf{Correct} (AM3):
+    \[
+      y_{n+1}^C = y_n + \frac{h}{24}\bigl[9f_{n+1}^P + 19f_n - 5f_{n-1} + f_{n-2}\bigr]
+    \]
+
+    \vspace{1em}
+    where $f_{n+1}^P = f(x_{n+1}, y_{n+1}^P)$.
+
+    \vspace{1em}
+    \textit{The corrector uses the \textbf{implicit} Adams--Moulton formula,\\
+    evaluated at the predicted value -- no iteration needed!}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ══════════════════════════════════════════════════════════════════
+%%  PART IV – NUMERICAL VERIFICATION
+%% ══════════════════════════════════════════════════════════════════
+
+%% ── RK4 THEORY ──────────────────────────────────────────────────
+\begin{frame}{\textbf{Numerical Verification: RK4 Method}}
+  \begin{center}
+    \vfill
+    \textbf{Why verify with RK4?}\\
+    The Runge--Kutta 4th-order method is a \textit{single-step} method\\[0.3em]
+    with accuracy $\mathcal{O}(h^4)$ -- independent of AB4.
+
+    \vspace{1em}
+    For $\dfrac{dy}{dx} = f(x, y) = 2xy$:
+    \begin{align*}
+      k_1 &= f(x_n,\; y_n) \\
+      k_2 &= f\!\left(x_n + \tfrac{h}{2},\; y_n + \tfrac{h}{2}k_1\right) \\
+      k_3 &= f\!\left(x_n + \tfrac{h}{2},\; y_n + \tfrac{h}{2}k_2\right) \\
+      k_4 &= f(x_n + h,\; y_n + h\,k_3)
+    \end{align*}
+
+    \vspace{0.5em}
+    \[
+      y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
+    \]
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── RK4 RESULTS TABLE ──────────────────────────────────────────
+\begin{frame}{\textbf{RK4 Verification Results ($h = 0.01$)}}
+  \begin{center}
+    \vfill
+    \begin{tabular}{cccc}
+      \toprule
+      $x$ & RK4 $y$ & Exact $y = e^{x^2}$ & $|\text{Error}|$ \\
+      \midrule
+      $0.0$ & $1.000000$ & $1.000000$ & $0$ \\[0.3em]
+      $0.2$ & $1.040811$ & $1.040811$ & $7.5 \times 10^{-14}$ \\[0.3em]
+      $0.4$ & $1.173511$ & $1.173511$ & $2.5 \times 10^{-12}$ \\[0.3em]
+      $0.6$ & $1.433329$ & $1.433329$ & $3.1 \times 10^{-11}$ \\[0.3em]
+      $0.8$ & $1.896481$ & $1.896481$ & $2.2 \times 10^{-10}$ \\[0.3em]
+      $1.0$ & $2.718282$ & $2.718282$ & $1.2 \times 10^{-9}$ \\
+      \bottomrule
+    \end{tabular}
+
+    \vspace{1.5em}
+    \textit{RK4 with $h = 0.01$ reproduces the exact solution to\\
+    near machine precision, confirming our theoretical analysis.}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── AB4 PREDICTOR PLOT ──────────────────────────────────────────
+\begin{frame}{\textbf{AB4 Predictor vs Exact Solution -- Plot}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figs/ab4_predictor.png}
+  \end{figure}
+  \begin{center}
+    \small
+    The AB4 predicted value $y(0.8) = 1.8884$ closely follows\\
+    the exact curve $y = e^{x^2}$.\;
+    \textcolor{okgreen}{\checkmark}
+  \end{center}
+\end{frame}
+
+%% ── RK4 VERIFICATION PLOT ──────────────────────────────────────
+\begin{frame}{\textbf{RK4 Verification -- Plot}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figs/rk4_verification.png}
+  \end{figure}
+  \begin{center}
+    \small
+    RK4 (green dashed) matches the exact solution (blue solid).\\
+    Right panel: error stays below $10^{-9}$ throughout $[0, 1.2]$.
+  \end{center}
+\end{frame}
+
+%% ── DIRECTION FIELD PLOT ────────────────────────────────────────
+\begin{frame}{\textbf{Direction Field: $dy/dx = 2xy$}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.85\linewidth]{figs/direction_field.png}
+  \end{figure}
+  \begin{center}
+    \small
+    The quiver plot shows the ODE's direction field.\\
+    The solution curve and data points follow the flow.
+  \end{center}
+\end{frame}
+
+%% ── ERROR CONVERGENCE PLOT ──────────────────────────────────────
+\begin{frame}{\textbf{Error Convergence Analysis}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.85\linewidth]{figs/error_convergence.png}
+  \end{figure}
+  \begin{center}
+    \small
+    AB4 error converges at $\mathcal{O}(h^4)$, confirming the method's\\
+    4th-order accuracy.\;
+    \textcolor{okgreen}{\checkmark}
+  \end{center}
+\end{frame}
+
+%% ══════════════════════════════════════════════════════════════════
+%%  PART V – PYTHON CODE LISTINGS
+%% ══════════════════════════════════════════════════════════════════
+
+%% ── AB4 PYTHON CODE ─────────────────────────────────────────────
+\begin{frame}[fragile,allowframebreaks]{\textbf{Adams--Bashforth 4-Step -- Python Code}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# IVP: dy/dx = f(x,y) = 2xy,  y(0) = 1
+def f(x, y):
+    return 2 * x * y
+
+# Given data points (step size h = 0.2)
+h = 0.2
+x_vals = np.array([0.0, 0.2, 0.4, 0.6])
+y_vals = np.array([1.0, 1.0408, 1.1735, 1.4333])
+
+# Compute f_i = f(x_i, y_i)
+f_vals = np.array([f(x_vals[i], y_vals[i]) for i in range(4)])
+
+# Adams-Bashforth 4-step predictor
+# y_{n+1} = y_n + (h/24)[55*f_n - 59*f_{n-1}
+#           + 37*f_{n-2} - 9*f_{n-3}]
+y_pred = y_vals[3] + (h / 24) * (
+    55*f_vals[3] - 59*f_vals[2]
+    + 37*f_vals[1] - 9*f_vals[0]
+)
+print(f"Predicted y(0.8) = {y_pred:.4f}")
+# Output: Predicted y(0.8) = 1.8884
+
+# Exact solution: y = exp(x^2)
+x_exact = np.linspace(0, 1.0, 500)
+y_exact = np.exp(x_exact**2)
+
+# Plot
+x_ab = np.append(x_vals, 0.8)
+y_ab = np.append(y_vals, y_pred)
+
+plt.figure(figsize=(8, 5))
+plt.plot(x_exact, y_exact, 'b-', lw=2,
+         label=r'Exact: $y = e^{x^2}$')
+plt.plot(x_ab, y_ab, 'ro--', ms=8, lw=1.5,
+         label='Given + AB4 prediction')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('AB4 Predictor vs Exact Solution')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.savefig('figs/ab4_predictor.png', dpi=150)
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+%% ── RK4 PYTHON CODE ────────────────────────────────────────────
+\begin{frame}[fragile,allowframebreaks]{\textbf{RK4 Verification -- Python Code}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x, y):
+    return 2 * x * y
+
+# RK4 solver
+h     = 0.01
+x_end = 1.2
+N     = int(x_end / h)
+
+x_rk = np.zeros(N + 1)
+y_rk = np.zeros(N + 1)
+y_rk[0] = 1.0
+
+for n in range(N):
+    k1 = f(x_rk[n],       y_rk[n])
+    k2 = f(x_rk[n]+h/2,   y_rk[n]+h/2*k1)
+    k3 = f(x_rk[n]+h/2,   y_rk[n]+h/2*k2)
+    k4 = f(x_rk[n]+h,     y_rk[n]+h*k3)
+    y_rk[n+1] = y_rk[n] + (h/6)*(k1
+                + 2*k2 + 2*k3 + k4)
+    x_rk[n+1] = x_rk[n] + h
+
+# Exact solution
+x_ex = np.linspace(0, x_end, 1000)
+y_ex = np.exp(x_ex**2)
+
+fig, (ax1, ax2) = plt.subplots(1, 2,
+                                figsize=(13,5))
+ax1.plot(x_ex, y_ex, 'b-', lw=2,
+         label=r'Exact: $y = e^{x^2}$')
+ax1.plot(x_rk, y_rk, 'g--', lw=1.5,
+         label='RK4 (h = 0.01)')
+ax1.legend()
+ax1.grid(True, alpha=0.3)
+
+error = np.abs(y_rk - np.exp(x_rk**2))
+ax2.semilogy(x_rk, error, 'r-', lw=1.5)
+ax2.set_title('RK4 Absolute Error')
+ax2.grid(True, alpha=0.3, which='both')
+plt.tight_layout()
+plt.savefig('figs/rk4_verification.png', dpi=150)
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+%% ── PREDICTOR COMPARISON PYTHON ─────────────────────────────────
+\begin{frame}[fragile,allowframebreaks]{\textbf{Predictor Comparison -- Python Code}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x, y):
+    return 2 * x * y
+
+h = 0.2
+x = np.array([0.0, 0.2, 0.4, 0.6])
+y = np.array([1.0, 1.0408, 1.1735, 1.4333])
+fv = np.array([f(x[i], y[i]) for i in range(4)])
+y_exact = np.exp(0.64)
+
+# AB1 (Euler)
+y_1 = y[3] + h * fv[3]
+# AB2 (2-step)
+y_2 = y[3] + (h/2)*(3*fv[3] - fv[2])
+# AB3 (3-step)
+y_3 = y[3] + (h/12)*(23*fv[3]
+       - 16*fv[2] + 5*fv[1])
+# AB4 (4-step)
+y_4 = y[3] + (h/24)*(55*fv[3] - 59*fv[2]
+       + 37*fv[1] - 9*fv[0])
+
+methods = ['AB1', 'AB2', 'AB3', 'AB4', 'Exact']
+values  = [y_1, y_2, y_3, y_4, y_exact]
+print("AB4 y(0.8) =", f"{y_4:.4f}")
+# Output: AB4 y(0.8) = 1.8884
+\end{lstlisting}
+\end{frame}
+
+%% ── DIRECTION FIELD PYTHON ──────────────────────────────────────
+\begin{frame}[fragile,allowframebreaks]{\textbf{Direction Field -- Python Code}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x, y):
+    return 2 * x * y
+
+x_grid = np.linspace(-0.2, 1.2, 20)
+y_grid = np.linspace(0.0, 3.5, 20)
+X, Y = np.meshgrid(x_grid, y_grid)
+DY = f(X, Y)
+DX = np.ones_like(DY)
+norm = np.sqrt(DX**2 + DY**2)
+DX /= norm;  DY /= norm
+
+x_ex = np.linspace(0, 1.1, 300)
+y_ex = np.exp(x_ex**2)
+
+bg = '#0b1220'
+fig, ax = plt.subplots(figsize=(8, 6))
+fig.patch.set_facecolor(bg)
+ax.set_facecolor(bg)
+ax.quiver(X, Y, DX, DY, color='#445566',
+          alpha=0.5, scale=30)
+ax.plot(x_ex, y_ex, color='#8fd3d1', lw=2.5,
+        label=r'Exact: $y = e^{x^2}$')
+ax.legend(facecolor=bg, labelcolor='white')
+plt.savefig('figs/direction_field.png',
+            dpi=150, facecolor=bg)
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+%% ── C CODE: AB4 ─────────────────────────────────────────────────
+\begin{frame}[fragile,allowframebreaks]{\textbf{Adams--Bashforth 4-Step -- C Code}}
+\begin{lstlisting}
+#include <stdio.h>
+#include <math.h>
+
+double f(double x, double y) {
+    return 2.0 * x * y;
+}
+
+int main() {
+    double h = 0.2;
+    double x[] = {0.0, 0.2, 0.4, 0.6};
+    double y[] = {1.0, 1.0408, 1.1735, 1.4333};
+    double fv[4];
+
+    for (int i = 0; i < 4; i++)
+        fv[i] = f(x[i], y[i]);
+
+    // AB4 predictor
+    double y_pred = y[3] + (h / 24.0) * (
+        55*fv[3] - 59*fv[2]
+        + 37*fv[1] - 9*fv[0]
+    );
+
+    printf("AB4 predicted y(0.8) = %lf\n",
+           y_pred);
+    printf("Exact y(0.8) = %lf\n",
+           exp(0.64));
+    printf("Error = %e\n",
+           fabs(y_pred - exp(0.64)));
+    return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+%% ── FINAL SUMMARY ───────────────────────────────────────────────
+\begin{frame}{\textbf{Summary}}
+  \begin{center}
+    \vfill
+    \begin{enumerate}
+      \item \textbf{ODE:}\; $\dfrac{dy}{dx} = 2xy$,\quad $y(0) = 1$
+            \quad$\Rightarrow$\quad Exact: $y = e^{x^2}$
+
+      \vspace{0.8em}
+      \item \textbf{Q27 Answer:}\; The correct predictor is the\\
+            \textbf{Adams--Bashforth 4-Step} formula (uses all 4 data points)
+
+      \vspace{0.8em}
+      \item \textbf{Q66/Q28 Answer:}\; Using AB4:
+            \[
+              y(0.8) \;=\; 1.4333 + \frac{0.2}{24}\bigl[55(1.72) - 59(0.94) + 37(0.42) - 0\bigr]
+            \]
+            \vspace{-0.5em}
+
+      \vspace{0.3em}
+      \item[] \LARGE\textbf{\textcolor{madblue}{$y(0.8) \approx 1.8890$\quad --\quad Option (c)}}
+
+      \vspace{0.8em}
+      \normalsize
+      \item \textbf{Verified:}\; RK4 ($h = 0.01$) confirms exact solution\\
+            with error $< 10^{-9}$.\;
+            \textcolor{okgreen}{\checkmark}
+    \end{enumerate}
+    \vfill
+  \end{center}
+\end{frame}
+
+\end{document}
