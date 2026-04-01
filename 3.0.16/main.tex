@@ -37,7 +37,7 @@
 }
 
 \title{\bfseries Problem 3.0.16: Evaluating the Gaussian Double Integral}
-\subtitle{Final Result, Python Code \& Plots, Then Solution Methods \\ IN 2007}
+\subtitle{Solution Methods, Final Answer, Conclusion, Python Code \& Plots \\ IN 2007}
 \author{EE25BTECH11016 - CH. Taraka Abhinav}
 \institute{Mathematics and Engineering Optimization}
 \date{}
@@ -77,12 +77,223 @@ I = \int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
 \end{frame}
 
 % ══════════════════════════════════════════════════════════════════
-% SECTION 2: FINAL RESULT
+% SECTION 2: SOLUTION METHODS (DETAILED)
 % ══════════════════════════════════════════════════════════════════
 
-\section{Final Result}
+\section{Solution}
 
-% ── FINAL ANSWER ──────────────────────────────────────────────────
+% ── METHOD 0: MATRIX FORMULATION ──────────────────────────────────
+\begin{frame}{Solution - Method 0: Matrix Formulation}
+\textbf{Step 1: Matrix Representation}
+\[
+x^2 + y^2 =
+\begin{bmatrix} x & y \end{bmatrix}
+\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+\begin{bmatrix} x \\ y \end{bmatrix}
+= \bm{x}^T A \bm{x}
+\]
+
+where $A = I$ (Identity matrix), symmetric and positive definite.
+
+\vspace{0.3cm}
+
+\textbf{Step 2: Standard Gaussian Result}
+\[
+\int_{\mathbb{R}^n} e^{-\bm{x}^T A \bm{x}} d\bm{x}
+= \sqrt{\frac{\pi^n}{\det(A)}}
+\]
+
+For $n = 2$, $A = I$, $\det(A) = 1$:
+\[
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
+e^{-(x^2 + y^2)} dx\,dy = \pi
+\]
+\end{frame}
+
+\begin{frame}{Solution - Method 0: Matrix Formulation (cont.)}
+\textbf{Step 3: Restricting to First Quadrant}
+
+\begin{itemize}
+    \item Given region: $(x \ge 0, y \ge 0)$ is \textbf{one-fourth} of full plane
+    \item Function is symmetric in all quadrants
+\end{itemize}
+
+\[
+I = \frac{1}{4} \times \pi = \res{\frac{\pi}{4}}
+\]
+
+\vspace{0.5cm}
+
+\textbf{Result:} $\boxed{I = \frac{\pi}{4} \approx 0.7854}$
+\end{frame}
+
+% ── METHOD 1: POLAR COORDINATES ───────────────────────────────────
+\begin{frame}{Solution - Method 1: Polar Coordinates}
+\textbf{Key Idea:} Convert Cartesian to polar coordinates
+
+\textbf{Transformation:}
+\[
+x = r\cos\theta, \quad y = r\sin\theta, \quad dA = r\,dr\,d\theta
+\]
+\[
+x^2 + y^2 = r^2
+\]
+
+\textbf{Integral becomes:}
+\[
+I = \int_0^{\pi/2} \int_0^\infty e^{-r^2} r \, dr\,d\theta
+\]
+
+\textbf{Step 1: Separate the integrals}
+\[
+I = \left(\int_0^{\pi/2} d\theta\right) \left(\int_0^\infty r e^{-r^2} dr\right)
+\]
+\end{frame}
+
+\begin{frame}{Solution - Method 1: Polar Coordinates (cont.)}
+\textbf{Step 2: Evaluate angular part}
+\[
+\int_0^{\pi/2} d\theta = \frac{\pi}{2}
+\]
+
+\textbf{Step 3: Evaluate radial part}
+
+Substitution: $u = r^2$, $du = 2r\,dr$
+\[
+\int_0^\infty r e^{-r^2} dr = \frac{1}{2}\int_0^\infty e^{-u} du = \frac{1}{2}
+\]
+
+\textbf{Result:}
+\[
+I = \frac{\pi}{2} \times \frac{1}{2} = \res{\frac{\pi}{4}}
+\]
+\end{frame}
+
+% ── METHOD 2: SEPARATION OF VARIABLES ─────────────────────────────
+\begin{frame}{Solution - Method 2: Separation of Variables}
+\textbf{Key Idea:} Express as product of independent integrals
+
+\textbf{Observation:}
+\[
+e^{-x^2 - y^2} = e^{-x^2} \cdot e^{-y^2}
+\]
+
+\textbf{Factorization:}
+\[
+I = \int_0^\infty \int_0^\infty e^{-x^2} e^{-y^2} \, dx\,dy
+\]
+\[
+= \left(\int_0^\infty e^{-x^2} dx\right) \left(\int_0^\infty e^{-y^2} dy\right)
+\]
+
+Since both integrals are identical:
+\[
+I = \left(\int_0^\infty e^{-x^2} dx\right)^2
+\]
+\end{frame}
+
+\begin{frame}{Solution - Method 2: Separation of Variables (cont.)}
+\textbf{Standard Gaussian Integral:}
+\[
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+\]
+
+\textbf{Derivation:} Let $I_1 = \int_0^\infty e^{-x^2} dx$
+\[
+I_1^2 = \left(\int_0^\infty e^{-x^2} dx\right)\left(\int_0^\infty e^{-y^2} dy\right) = \int_0^\infty \int_0^\infty e^{-(x^2+y^2)} dx\,dy
+\]
+
+Converting to polar: $I_1^2 = \frac{\pi}{4}$, thus $I_1 = \frac{\sqrt{\pi}}{2}$
+
+\vspace{0.3cm}
+
+\textbf{Final Result:}
+\[
+I = \left(\frac{\sqrt{\pi}}{2}\right)^2 = \res{\frac{\pi}{4}}
+\]
+\end{frame}
+
+% ── METHOD 3: ERROR FUNCTION ──────────────────────────────────────
+\begin{frame}{Solution - Method 3: Error Function Approach}
+\textbf{Error Function Definition:}
+\[
+\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
+\]
+
+\textbf{Key Property:}
+\[
+\lim_{x \to \infty} \text{erf}(x) = 1 \quad \Rightarrow \quad \int_0^\infty e^{-t^2} dt = \frac{\sqrt{\pi}}{2}
+\]
+
+\textbf{Express integral using erf:}
+\[
+I = \lim_{a,b \to \infty} \int_0^a \int_0^b e^{-x^2-y^2} dx\,dy
+\]
+\[
+= \lim_{a,b \to \infty} \left(\int_0^a e^{-x^2} dx\right)\left(\int_0^b e^{-y^2} dy\right)
+\]
+\[
+= \lim_{a,b \to \infty} \frac{\sqrt{\pi}}{2}\text{erf}(a) \cdot \frac{\sqrt{\pi}}{2}\text{erf}(b) = \res{\frac{\pi}{4}}
+\]
+\end{frame}
+
+% ── METHOD 4: MONTE CARLO ─────────────────────────────────────────
+\begin{frame}{Solution - Method 4: Monte Carlo Numerical Integration}
+\textbf{Key Idea:} Use random sampling to approximate the integral
+
+\textbf{Monte Carlo Method:}
+\begin{itemize}
+    \item Generate random points $(x_i, y_i)$ in region $[0, L] \times [0, L]$
+    \item Evaluate $f(x_i, y_i) = e^{-x_i^2 - y_i^2}$ at each point
+    \item Average the function values and multiply by area
+\end{itemize}
+
+\textbf{Formula:}
+\[
+I \approx L^2 \times \frac{1}{N} \sum_{i=1}^N e^{-x_i^2 - y_i^2}
+\]
+
+For large $L$ and $N \to \infty$:
+\[
+I \approx \res{\frac{\pi}{4}} \approx 0.7854
+\]
+\end{frame}
+
+% ── COMPARISON TABLE ──────────────────────────────────────────────
+\begin{frame}{Solution Summary: All Methods Comparison}
+\begin{table}
+\centering
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Method} & \textbf{Key Technique} & \textbf{Difficulty} \\
+\hline
+Matrix Formulation & Gaussian integral theorem & Easy \\
+\hline
+Polar Coordinates & Change of variables & Medium \\
+\hline
+Separation of Variables & Product factorization & Easy \\
+\hline
+Error Function & Special function limits & Medium \\
+\hline
+Monte Carlo & Numerical simulation & Easy (coding) \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{All methods converge to: } \res{$\displaystyle \boxed{\frac{\pi}{4}}$}
+\end{center}
+\end{frame}
+
+% ══════════════════════════════════════════════════════════════════
+% SECTION 3: FINAL ANSWER
+% ══════════════════════════════════════════════════════════════════
+
+\section{Final Answer}
+
 \begin{frame}{Final Answer}
 \begin{center}
 \LARGE
@@ -105,7 +316,38 @@ I = \int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
 \end{frame}
 
 % ══════════════════════════════════════════════════════════════════
-% SECTION 3: PYTHON CODE + PLOTS (INTERLEAVED)
+% SECTION 4: CONCLUSION
+% ══════════════════════════════════════════════════════════════════
+
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+\textbf{Key Takeaways:}
+\begin{itemize}
+    \item Used \textbf{matrix formulation} of quadratic form
+    \item Applied \textbf{Gaussian integral result}
+    \item Explored \textbf{4 analytical methods} + 1 numerical method
+    \item Used \textbf{symmetry argument} for region restriction
+    \item Verified with \textbf{Python visualizations}
+\end{itemize}
+
+\vspace{0.4cm}
+
+\begin{center}
+\textbf{Final Result: } \res{$\displaystyle \frac{\pi}{4}$}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{center}
+\small
+\textbf{Author:} CH. Taraka Abhinav (EE25BTECH11016) \\
+\textbf{Date:} March 31, 2026
+\end{center}
+\end{frame}
+
+% ══════════════════════════════════════════════════════════════════
+% SECTION 5: PYTHON CODE + PLOTS (INTERLEAVED)
 % ══════════════════════════════════════════════════════════════════
 
 \section{Python Code \& Plots}
@@ -352,244 +594,6 @@ for script in scripts:
     subprocess.run([sys.executable, script])
     print(f"Completed {script}\n")
 \end{lstlisting}
-\end{frame}
-
-% ══════════════════════════════════════════════════════════════════
-% SECTION 4: SOLUTION METHODS (DETAILED)
-% ══════════════════════════════════════════════════════════════════
-
-\section{Solution Methods}
-
-% ── METHOD 0: MATRIX FORMULATION ──────────────────────────────────
-\begin{frame}{Solution - Method 0: Matrix Formulation}
-\textbf{Step 1: Matrix Representation}
-\[
-x^2 + y^2 =
-\begin{bmatrix} x & y \end{bmatrix}
-\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
-\begin{bmatrix} x \\ y \end{bmatrix}
-= \bm{x}^T A \bm{x}
-\]
-
-where $A = I$ (Identity matrix), symmetric and positive definite.
-
-\vspace{0.3cm}
-
-\textbf{Step 2: Standard Gaussian Result}
-\[
-\int_{\mathbb{R}^n} e^{-\bm{x}^T A \bm{x}} d\bm{x}
-= \sqrt{\frac{\pi^n}{\det(A)}}
-\]
-
-For $n = 2$, $A = I$, $\det(A) = 1$:
-\[
-\int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
-e^{-(x^2 + y^2)} dx\,dy = \pi
-\]
-\end{frame}
-
-\begin{frame}{Solution - Method 0: Matrix Formulation (cont.)}
-\textbf{Step 3: Restricting to First Quadrant}
-
-\begin{itemize}
-    \item Given region: $(x \ge 0, y \ge 0)$ is \textbf{one-fourth} of full plane
-    \item Function is symmetric in all quadrants
-\end{itemize}
-
-\[
-I = \frac{1}{4} \times \pi = \res{\frac{\pi}{4}}
-\]
-
-\vspace{0.5cm}
-
-\textbf{Result:} $\boxed{I = \frac{\pi}{4} \approx 0.7854}$
-\end{frame}
-
-% ── METHOD 1: POLAR COORDINATES ───────────────────────────────────
-\begin{frame}{Solution - Method 1: Polar Coordinates}
-\textbf{Key Idea:} Convert Cartesian to polar coordinates
-
-\textbf{Transformation:}
-\[
-x = r\cos\theta, \quad y = r\sin\theta, \quad dA = r\,dr\,d\theta
-\]
-\[
-x^2 + y^2 = r^2
-\]
-
-\textbf{Integral becomes:}
-\[
-I = \int_0^{\pi/2} \int_0^\infty e^{-r^2} r \, dr\,d\theta
-\]
-
-\textbf{Step 1: Separate the integrals}
-\[
-I = \left(\int_0^{\pi/2} d\theta\right) \left(\int_0^\infty r e^{-r^2} dr\right)
-\]
-\end{frame}
-
-\begin{frame}{Solution - Method 1: Polar Coordinates (cont.)}
-\textbf{Step 2: Evaluate angular part}
-\[
-\int_0^{\pi/2} d\theta = \frac{\pi}{2}
-\]
-
-\textbf{Step 3: Evaluate radial part}
-
-Substitution: $u = r^2$, $du = 2r\,dr$
-\[
-\int_0^\infty r e^{-r^2} dr = \frac{1}{2}\int_0^\infty e^{-u} du = \frac{1}{2}
-\]
-
-\textbf{Result:}
-\[
-I = \frac{\pi}{2} \times \frac{1}{2} = \res{\frac{\pi}{4}}
-\]
-\end{frame}
-
-% ── METHOD 2: SEPARATION OF VARIABLES ─────────────────────────────
-\begin{frame}{Solution - Method 2: Separation of Variables}
-\textbf{Key Idea:} Express as product of independent integrals
-
-\textbf{Observation:}
-\[
-e^{-x^2 - y^2} = e^{-x^2} \cdot e^{-y^2}
-\]
-
-\textbf{Factorization:}
-\[
-I = \int_0^\infty \int_0^\infty e^{-x^2} e^{-y^2} \, dx\,dy
-\]
-\[
-= \left(\int_0^\infty e^{-x^2} dx\right) \left(\int_0^\infty e^{-y^2} dy\right)
-\]
-
-Since both integrals are identical:
-\[
-I = \left(\int_0^\infty e^{-x^2} dx\right)^2
-\]
-\end{frame}
-
-\begin{frame}{Solution - Method 2: Separation of Variables (cont.)}
-\textbf{Standard Gaussian Integral:}
-\[
-\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
-\]
-
-\textbf{Derivation:} Let $I_1 = \int_0^\infty e^{-x^2} dx$
-\[
-I_1^2 = \left(\int_0^\infty e^{-x^2} dx\right)\left(\int_0^\infty e^{-y^2} dy\right) = \int_0^\infty \int_0^\infty e^{-(x^2+y^2)} dx\,dy
-\]
-
-Converting to polar: $I_1^2 = \frac{\pi}{4}$, thus $I_1 = \frac{\sqrt{\pi}}{2}$
-
-\vspace{0.3cm}
-
-\textbf{Final Result:}
-\[
-I = \left(\frac{\sqrt{\pi}}{2}\right)^2 = \res{\frac{\pi}{4}}
-\]
-\end{frame}
-
-% ── METHOD 3: ERROR FUNCTION ──────────────────────────────────────
-\begin{frame}{Solution - Method 3: Error Function Approach}
-\textbf{Error Function Definition:}
-\[
-\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
-\]
-
-\textbf{Key Property:}
-\[
-\lim_{x \to \infty} \text{erf}(x) = 1 \quad \Rightarrow \quad \int_0^\infty e^{-t^2} dt = \frac{\sqrt{\pi}}{2}
-\]
-
-\textbf{Express integral using erf:}
-\[
-I = \lim_{a,b \to \infty} \int_0^a \int_0^b e^{-x^2-y^2} dx\,dy
-\]
-\[
-= \lim_{a,b \to \infty} \left(\int_0^a e^{-x^2} dx\right)\left(\int_0^b e^{-y^2} dy\right)
-\]
-\[
-= \lim_{a,b \to \infty} \frac{\sqrt{\pi}}{2}\text{erf}(a) \cdot \frac{\sqrt{\pi}}{2}\text{erf}(b) = \res{\frac{\pi}{4}}
-\]
-\end{frame}
-
-% ── METHOD 4: MONTE CARLO ─────────────────────────────────────────
-\begin{frame}{Solution - Method 4: Monte Carlo Numerical Integration}
-\textbf{Key Idea:} Use random sampling to approximate the integral
-
-\textbf{Monte Carlo Method:}
-\begin{itemize}
-    \item Generate random points $(x_i, y_i)$ in region $[0, L] \times [0, L]$
-    \item Evaluate $f(x_i, y_i) = e^{-x_i^2 - y_i^2}$ at each point
-    \item Average the function values and multiply by area
-\end{itemize}
-
-\textbf{Formula:}
-\[
-I \approx L^2 \times \frac{1}{N} \sum_{i=1}^N e^{-x_i^2 - y_i^2}
-\]
-
-For large $L$ and $N \to \infty$:
-\[
-I \approx \res{\frac{\pi}{4}} \approx 0.7854
-\]
-\end{frame}
-
-% ── COMPARISON TABLE ──────────────────────────────────────────────
-\begin{frame}{Solution Summary: All Methods Comparison}
-\begin{table}
-\centering
-\small
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Method} & \textbf{Key Technique} & \textbf{Difficulty} \\
-\hline
-Matrix Formulation & Gaussian integral theorem & Easy \\
-\hline
-Polar Coordinates & Change of variables & Medium \\
-\hline
-Separation of Variables & Product factorization & Easy \\
-\hline
-Error Function & Special function limits & Medium \\
-\hline
-Monte Carlo & Numerical simulation & Easy (coding) \\
-\hline
-\end{tabular}
-\end{table}
-
-\vspace{0.5cm}
-
-\begin{center}
-\textbf{All methods converge to: } \res{$\displaystyle \boxed{\frac{\pi}{4}}$}
-\end{center}
-\end{frame}
-
-% ── CONCLUSION ────────────────────────────────────────────────────
-\begin{frame}{Conclusion}
-\textbf{Key Takeaways:}
-\begin{itemize}
-    \item Used \textbf{matrix formulation} of quadratic form
-    \item Applied \textbf{Gaussian integral result}
-    \item Explored \textbf{4 analytical methods} + 1 numerical method
-    \item Used \textbf{symmetry argument} for region restriction
-    \item Verified with \textbf{Python visualizations}
-\end{itemize}
-
-\vspace{0.4cm}
-
-\begin{center}
-\textbf{Final Result: } \res{$\displaystyle \frac{\pi}{4}$}
-\end{center}
-
-\vspace{0.3cm}
-
-\begin{center}
-\small
-\textbf{Author:} CH. Taraka Abhinav (EE25BTECH11016) \\
-\textbf{Date:} March 31, 2026
-\end{center}
 \end{frame}
 
 % ── FINAL VISUAL: END WITH IMAGE ONLY ─────────────────────────────
