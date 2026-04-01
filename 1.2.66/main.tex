@@ -39,7 +39,7 @@
 \title{\bfseries Adams--Bashforth 4-Step Predictor Method}
 \subtitle{\textbf{Problem 1.2.66 \;|\; XE 2007}}
 \author{}
-\institute{\textbf{EE25BTECH11016 -- CH. Taraka Abhinav}}
+\institute{\textbf{Tangellapalli Mohana Krishna Sushma - EE25BTECH11058}}
 \date{}
 
 \begin{document}
@@ -50,29 +50,32 @@
 \end{frame}
 
 %% ── QUESTION ─────────────────────────────────────────────────────
-\begin{frame}{\textbf{Problem 1.2.66 \;--\; XE 2007 (Linked Answer)}}
+\begin{frame}{\textbf{Problem 1.2.66 \;--\; XE 2007}}
 
-\textbf{Consider the initial value problem:}
+\textbf{Initial Value Problem:}
 \[
   \bm{\frac{dy}{dx} = 2xy}, \qquad \bm{y(0) = 1}
 \]
 
 \vspace{0.5em}
-\textbf{Given the following data points ($h = 0.2$):}
+\textbf{Given:} The following data points with step size $h = 0.2$:
 
 \vspace{0.5em}
 \begin{center}
-\begin{tabular}{cccc}
+\begin{tabular}{ccccc}
   \toprule
-  $x$ & $0.0$ & $0.2$ & $0.4$ \quad\quad $0.6$ \\
-  $y$ & $1.0000$ & $1.0408$ & $1.1735$ \quad\quad $1.4333$ \\
+  $x$ & $0.0$ & $0.2$ & $0.4$ & $0.6$ \\
+  $y$ & $1.0000$ & $1.0408$ & $1.1735$ & $1.4333$ \\
   \bottomrule
 \end{tabular}
 \end{center}
 
 \vspace{0.8em}
-\textbf{Q27:} Identify the correct predictor scheme.\\[0.3em]
-\textbf{Q66 (Q28):} \textbf{Using the correct predictor from Q27, $\bm{y(0.8)}$ =\,:}
+\textbf{Question 27:} Identify the correct predictor scheme for this problem.
+
+\vspace{0.3em}
+\textbf{Question 66 (Question 28):} Using the correct predictor from Question 27, \\
+find the value of $\bm{y(0.8)}$:
 
 \vspace{0.5em}
 \begin{columns}[c]
@@ -150,7 +153,7 @@
 \end{frame}
 
 %% ── WHY ADAMS-BASHFORTH ─────────────────────────────────────────
-\begin{frame}{\textbf{Why Adams--Bashforth? (Answer to Q27)}}
+\begin{frame}{\textbf{Why Adams--Bashforth? (Answer to Question 27)}}
   \begin{center}
     \vfill
     We have \textbf{four equally-spaced data points} $(x_0, x_1, x_2, x_3)$\\[0.3em]
@@ -171,6 +174,10 @@
     \normalsize
     This is an \textbf{explicit method} $\Rightarrow$ it is a \textit{predictor},\\[0.3em]
     because it computes $y_{n+1}$ using \textbf{only previous values}.
+
+    \vspace{0.5em}
+    \textbf{Key Property:} The method does not require solving implicit equations,\\[0.2em]
+    making it computationally efficient for prediction steps.
     \vfill
   \end{center}
 \end{frame}
@@ -194,8 +201,12 @@
     through $(f_{n-3}, f_{n-2}, f_{n-1}, f_n)$ and integrate.
 
     \vspace{1em}
-    \textit{This yields a truncation error of $\mathcal{O}(h^5)$,\\
-    making the method \textbf{4th-order accurate} (global error $\mathcal{O}(h^4)$).}
+    \textbf{Method Characteristics:}
+    \begin{itemize}
+      \item \textit{Local truncation error: $\mathcal{O}(h^5)$}
+      \item \textit{Global accuracy: 4th-order (error $\mathcal{O}(h^4)$)}
+      \item \textit{Explicit formula: no iterations needed}
+    \end{itemize}
     \vfill
   \end{center}
 \end{frame}
@@ -821,11 +832,11 @@ int main() {
             \quad$\Rightarrow$\quad Exact: $y = e^{x^2}$
 
       \vspace{0.8em}
-      \item \textbf{Q27 Answer:}\; The correct predictor is the\\
+      \item \textbf{Question 27 Answer:}\; The correct predictor is the\\
             \textbf{Adams--Bashforth 4-Step} formula (uses all 4 data points)
 
       \vspace{0.8em}
-      \item \textbf{Q66/Q28 Answer:}\; Using AB4:
+      \item \textbf{Question 66/28 Answer:}\; Using AB4:
             \[
               y(0.8) \;=\; 1.4333 + \frac{0.2}{24}\bigl[55(1.72) - 59(0.94) + 37(0.42) - 0\bigr]
             \]
