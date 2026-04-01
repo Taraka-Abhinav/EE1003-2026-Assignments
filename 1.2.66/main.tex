@@ -1,0 +1,579 @@
+\documentclass[12pt]{beamer}
+\usetheme{Madrid}
+
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, shapes.geometric}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage{listings}
+\usepackage{pgfplots}
+\usepackage{courier}
+\pgfplotsset{compat=1.17}
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  columns=fullflexible
+}
+\setbeamerfont{frametitle}{series=\bfseries, size=\large}
+\setbeamerfont{title}{series=\bfseries, size=\Large}
+\setbeamerfont{subtitle}{series=\bfseries}
+
+\definecolor{madblue}{RGB}{0,62,126}
+\definecolor{okgreen}{RGB}{0,130,60}
+\definecolor{darkred}{RGB}{160,20,20}
+
+%% ── TOC-style circled option ────────────────────────────
+\newcommand{\myopt}[2]{%
+  \vspace{5pt}\noindent
+  \begin{tikzpicture}[baseline=(ch.base)]
+    \node[circle, fill=madblue, text=white,
+          font=\bfseries\small, minimum size=17pt, inner sep=0pt] (ch) {#1};
+  \end{tikzpicture}
+  \hspace{5pt}\textbf{#2}\par
+}
+
+%% ── Inline math result ──────────────────────────────────
+\newcommand{\res}[1]{\textcolor{madblue}{\bm{#1}}}
+\newcommand{\rarrow}{\Rightarrow}
+
+\title{\bfseries Newton-Raphson Method}
+\subtitle{\textbf{Problem 1.2.66 \;|\; GATE 2012}}
+\author{}
+\institute{\textbf{EE25BTECH11016 - CH. Taraka Abhinav}}
+\date{}
+
+\begin{document}
+
+%% ── TITLE ────────────────────────────────────────────────
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%% ── QUESTION + OPTIONS ───────────────────────────────────
+\begin{frame}{\textbf{Problem 1.2.66 \;--\; GATE 2012}}
+
+  \textbf{\large The equation}
+  \[
+    \bm{f(x) = x^3 - 3x + 2 = 0}
+  \]
+  \textbf{is to be solved using Newton-Raphson.
+  If $x_0 = -3$ is the initial approximation, then the
+  \emph{next} approximation $x_1$ is:}
+
+  \vspace{0.8em}
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \myopt{a}{$-\dfrac{3}{2}$}
+      \vspace{0.5em}
+      \myopt{b}{$-\dfrac{7}{3}$}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \myopt{c}{$-\dfrac{5}{3}$}
+      \vspace{0.5em}
+      \myopt{d}{$-\dfrac{8}{3}$}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+%% ── NR FORMULA ────────────────────────────────────────────
+\begin{frame}{\textbf{The Newton-Raphson Formula}}
+  \begin{center}
+    \vfill
+
+    The Newton-Raphson iteration formula is:
+    \[
+      x_{n+1} \;=\; x_n \;-\; \frac{f(x_n)}{f'(x_n)}
+    \]
+
+    \vspace{1em}
+    For \textbf{one} iteration from $x_0 = -3$:
+    \[
+      x_1 \;=\; x_0 \;-\; \frac{f(x_0)}{f'(x_0)}
+            \;=\; -3 \;-\; \frac{f(-3)}{f'(-3)}
+    \]
+
+    \vspace{1.2em}
+    \textit{We need two things:} \quad
+    \textcolor{madblue}{\textbf{$f(-3)$}} \quad and \quad
+    \textcolor{madblue}{\textbf{$f'(-3)$}}
+
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── DERIVATIVE ────────────────────────────────────────────
+\begin{frame}{\textbf{Setting Up \;--\; Function \& Derivative}}
+  \begin{center}
+    \vfill
+
+    The function:
+    \[
+      f(x) \;=\; x^3 - 3x + 2
+    \]
+
+    \vspace{0.8em}
+    Differentiating term by term:
+    \[
+      f'(x) \;=\; 3x^2 - 3
+    \]
+
+    \vspace{1.2em}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{r@{\qquad}l}
+      \textbf{Term} & \textbf{Derivative} \\
+      $x^3$         & $3x^2$ \\
+      $-3x$         & $-3$   \\
+      $2$           & $0$    \\
+    \end{tabular}
+
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── EVALUATE f(-3) ─────────────────────────────────────────
+\begin{frame}{\textbf{Evaluating $f(-3)$}}
+  \begin{center}
+    \vfill
+
+    \[
+      f(x) = x^3 - 3x + 2
+    \]
+
+    \vspace{0.6em}
+    Substituting $x = -3$:
+    \[
+      f(-3) \;=\; (-3)^3 - 3(-3) + 2
+    \]
+    \[
+      f(-3) \;=\; -27 + 9 + 2
+    \]
+
+    \vspace{0.8em}
+    \LARGE\textbf{\textcolor{madblue}{$f(-3) \;=\; -16$}}
+
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── EVALUATE f'(-3) ────────────────────────────────────────
+\begin{frame}{\textbf{Evaluating $f'(-3)$}}
+  \begin{center}
+    \vfill
+
+    \[
+      f'(x) = 3x^2 - 3
+    \]
+
+    \vspace{0.6em}
+    Substituting $x = -3$:
+    \[
+      f'(-3) \;=\; 3(-3)^2 - 3
+    \]
+    \[
+      f'(-3) \;=\; 3 \times 9 - 3
+    \]
+    \[
+      f'(-3) \;=\; 27 - 3
+    \]
+
+    \vspace{0.8em}
+    \textbf{\textcolor{madblue}{$f'(-3) \;=\; 24$}}
+
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── APPLY NR ──────────────────────────────────────────────
+\begin{frame}{\textbf{Applying the Newton-Raphson Formula}}
+  \begin{center}
+    \vfill
+
+    \[
+      x_1 \;=\; x_0 - \frac{f(x_0)}{f'(x_0)}
+            \;=\; -3 - \frac{f(-3)}{f'(-3)}
+    \]
+
+    \vspace{0.8em}
+    \textbf{Substituting the computed values:}
+    \[
+      x_1 \;=\; -3 - \frac{-16}{24}
+    \]
+    \[
+      x_1 \;=\; -3 + \frac{2}{3}
+    \]
+    \[
+      x_1 \;=\; \frac{-9}{3} + \frac{2}{3}
+    \]
+    \rarrow\boxed{\textbf{\textcolor{madblue}{$x_1 \;=\; -\dfrac{7}{3}$}}}
+    \vfill
+  \end{center}
+\end{frame}
+
+%% ── ADVANCED THEORY ─────────────────────────────────────
+
+\begin{frame}{\textbf{Derivation via Taylor Series}}
+  \begin{center}
+  \vfill
+  Let $x^*$ be the exact root, meaning $f(x^*) = 0$. \\
+  Expanding $f(x)$ using the Taylor series around our guess $x_n$:
+  \[
+    f(x^*) = f(x_n) + (x^* - x_n)f'(x_n) + \frac{(x^* - x_n)^2}{2!}f''(\xi) = 0
+  \]
+  For a small interval, we truncate the higher-order terms ($x^* \approx x_{n+1}$):
+  \[
+    f(x_n) + (x_{n+1} - x_n)f'(x_n) \approx 0
+  \]
+  \vspace{0.5em}
+  Rearranging algebraically to solve for the next iteration $x_{n+1}$:
+  \[
+    \boxed{ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} }
+  \]
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Error Analysis \& Asymptotic Constant}}
+  \begin{center}
+  \vfill
+  Let the error at step $n$ be $e_n = x_n - x^*$. \\
+  Using the exact Taylor expansion, we find the relation:
+  \[
+    e_{n+1} \approx \frac{f''(x^*)}{2 f'(x^*)} e_n^2
+  \]
+  \vspace{0.5em}
+  For a simple root ($f'(x^*) \neq 0$), the sequence exhibits \textbf{Quadratic Convergence} ($p=2$). The \textbf{Asymptotic Error Constant ($M$)} is:
+  \[
+    \lim_{n \to \infty} \frac{|e_{n+1}|}{|e_n|^2} = M = \left| \frac{f''(x^*)}{2f'(x^*)} \right|
+  \]
+  \vspace{0.5em}
+  For our problem: $f''(x) = 6x$, so at $x^* = -2$:
+  \[
+    M = \left| \frac{6(-2)}{2 \cdot f'(-2)} \right| = \left| \frac{-12}{2(9)} \right| = \frac{2}{3}
+  \]
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Conditions for Guaranteed Convergence}}
+  \begin{center}
+  \vfill
+  \textbf{Fourier's Sufficient Condition:} Convergence is guaranteed if:
+  \[
+    \left| \frac{f(x) f''(x)}{[f'(x)]^2} \right| < 1 \quad \text{for all } x \text{ in the interval.}
+  \]
+  \vspace{0.2em}
+  \textbf{Verifying our problem at $x_0 = -3$:}
+  \[ f(-3) = -16, \quad f'(-3) = 24 \]
+  \[ f''(x) = 6x \implies f''(-3) = -18 \]
+  \[
+    \left| \frac{f(-3) f''(-3)}{[f'(-3)]^2} \right| = \frac{(-16)(-18)}{(24)^2} = \frac{288}{576} = 0.5 < 1
+  \]
+  \textbf{\textcolor{okgreen}{Condition satisfied!}} Convergence from $x_0=-3$ is guaranteed.
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Factored Form \& Roots of $f(x)$}}
+  \begin{center}
+  \vfill
+  The polynomial factors as:
+  \[
+    f(x) = x^3 - 3x + 2 = (x-1)^2(x+2)
+  \]
+  \vspace{0.5em}
+  \textbf{Roots:}
+  \begin{itemize}
+    \item $x = 1$ \quad (double root, multiplicity 2)
+    \item $x = -2$ \quad (simple root)
+  \end{itemize}
+  \vspace{1em}
+  Starting from $x_0 = -3$, NR converges to the simple root $x^* = -2$.
+
+  \vspace{0.5em}
+  \textit{Note:} NR converges slowly near a \textbf{double root} ($x = 1$) because $f'(1) = 0$, so the method degrades to linear convergence there.
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Advanced Extensions: Multidimensional NR}}
+  \begin{center}
+  \vfill
+  In M.Tech/Advanced applications, we solve systems of non-linear equations $\mathbf{F}(\mathbf{x}) = 0$.
+  \vspace{1em}
+
+  The scalar derivative $f'(x)$ is replaced by the \textbf{Jacobian Matrix} $\mathbf{J}(\mathbf{x})$:
+  \[
+    \mathbf{J}(\mathbf{x}) = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+    \vdots & \ddots & \vdots \\
+    \frac{\partial f_n}{\partial x_1} & \cdots & \frac{\partial f_n}{\partial x_n}
+    \end{bmatrix}
+  \]
+  \vspace{1em}
+  The iteration formula becomes:
+  \[
+    \mathbf{x}_{n+1} = \mathbf{x}_n - \mathbf{J}^{-1}(\mathbf{x}_n) \mathbf{F}(\mathbf{x}_n)
+  \]
+  \vfill
+  \end{center}
+\end{frame}
+
+\begin{frame}{\textbf{Handling Pathologies: Multiple Roots}}
+  \begin{center}
+  \vfill
+  Our function has $x = 1$ as a \textbf{double root}. Near such a root, standard NR degrades to \textbf{Linear Convergence}.
+
+  \vspace{1em}
+  To restore quadratic convergence, we use the \textbf{Modified Newton-Raphson Method}:
+  \[
+    x_{n+1} = x_n - m \frac{f(x_n)}{f'(x_n)}
+  \]
+  where $m$ is the multiplicity (here $m = 2$).
+
+  \vspace{1em}
+  Alternatively, applying standard NR to $u(x) = \frac{f(x)}{f'(x)}$ always yields quadratic convergence regardless of multiplicity.
+  \vfill
+  \end{center}
+\end{frame}
+
+%% ── CONVERGENCE OF ITERATIONS ──────────────────────────────────────────────
+
+\begin{frame}{\textbf{Convergence of Iterations}}
+
+\begin{center}
+\vfill
+
+Starting with $x_0 = -3$:
+
+\[
+x_1 = -\tfrac{7}{3} \approx -2.3333
+\]
+\[
+x_2 \approx -2.0556
+\]
+\[
+x_3 \approx -2.0019
+\]
+\[
+x_4 \approx -2.0000025
+\]
+
+\vspace{1em}
+
+\textbf{After several iterations:}
+\[
+x_n \;\longrightarrow\; \textcolor{madblue}{-2}
+\]
+
+\vspace{1em}
+
+\textit{Hence, the root of the equation is:}
+\[
+\boxed{x^* = -2}
+\]
+
+\vfill
+\end{center}
+\end{frame}
+
+%% ── VERIFICATION ──────────────────────────────────────────
+\begin{frame}{\textbf{Final Verification}}
+
+\begin{center}
+\vfill
+
+\textbf{Checking $f(-2) = 0$:}
+
+\[
+f(-2) = (-2)^3 - 3(-2) + 2 = -8 + 6 + 2 = 0 \;\checkmark
+\]
+
+\vspace{1em}
+
+\textbf{Limit form:}
+\[
+x^* = \lim_{n \to \infty} x_n = -2
+\]
+
+\[
+\lim_{n \to \infty} f(x_n) = f(-2) = 0 \;\checkmark
+\]
+
+\vspace{1em}
+\textit{Newton-Raphson converges quadratically to the simple root $x^* = -2$.}
+
+\vfill
+\end{center}
+\end{frame}
+
+%% ── CODE FRAMES ───────────────────────────────────────────
+
+\begin{frame}[fragile]{\textbf{Python Code: Newton Plot}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x):
+    return x**3 - 3*x + 2
+
+def df(x):
+    return 3*x**2 - 3
+
+x0 = -3.0
+x1 = x0 - f(x0)/df(x0)   # = -7/3
+
+plt.style.use('dark_background')
+fig1, ax1 = plt.subplots(figsize=(8, 5))
+
+x = np.linspace(-4, 2, 600)
+ax1.plot(x, f(x), color='cyan', lw=2)
+
+tangent = f(x0) + df(x0)*(x - x0)
+ax1.plot(x, tangent, '--', color='yellow', lw=1.5)
+ax1.scatter(x0, f(x0), color='red', zorder=5, s=60)
+ax1.scatter(x1, 0, color='lime', zorder=5, s=60)
+ax1.plot([x0, x0], [0, f(x0)], '--', color='red', lw=1)
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+%% ── NEWTON PLOT ──────────────────────────────────────────
+\begin{frame}{\textbf{Newton-Raphson First Iteration}}
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{figs/NR.png}
+
+    \vspace{0.5em}
+    {\small \textit{Tangent at $x_0 = -3$ intersects x-axis at $x_1 = -\frac{7}{3}$}}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Zoomed Plot}}
+\begin{lstlisting}
+fig2, ax2 = plt.subplots(figsize=(8, 5))
+
+x_zoom = np.linspace(-3.5, -1.5, 400)
+ax2.plot(x_zoom, f(x_zoom), color='cyan', lw=2)
+ax2.axhline(0, color='white', lw=0.6)
+
+tangent_zoom = f(x0) + df(x0)*(x_zoom - x0)
+ax2.plot(x_zoom, tangent_zoom, '--', color='yellow', lw=1.5)
+
+ax2.scatter(x0, f(x0), color='red', zorder=5, s=60)
+ax2.scatter(x1, 0, color='lime', zorder=5, s=60)
+ax2.plot([x0, x0], [0, f(x0)], '--', color='red', lw=1)
+
+ax2.annotate(r'$x_1 = -7/3$', (x1, 0),
+             textcoords='offset points', xytext=(5, 12))
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+%% ── ZOOMED VIEW ────────────────────────────────────────────
+\begin{frame}{\textbf{Zoomed Newton Step}}
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{figs/Z.png}
+
+    \vspace{0.5em}
+    {\small \textit{Zoomed view showing tangent intersection clearly at $x = -\frac{7}{3}$}}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Full Graph}}
+\begin{lstlisting}
+fig3, ax3 = plt.subplots(figsize=(8, 5))
+
+x_full = np.linspace(-3.5, 2.5, 600)
+ax3.plot(x_full, f(x_full), color='cyan', lw=2)
+ax3.axhline(0, color='white', lw=0.6)
+ax3.axvline(0, color='white', lw=0.6)
+
+ax3.scatter([-2.0, 1.0], [0, 0],
+            color='lime', zorder=5, s=70)
+ax3.annotate(r'$x=-2$', (-2.0, 0),
+             textcoords='offset points', xytext=(5, 12))
+ax3.annotate(r'$x=1$', (1.0, 0),
+             textcoords='offset points', xytext=(5, 12))
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+%% ── FULL GRAPH ──────────────────────────────────────────────
+\begin{frame}{\textbf{Graph of $f(x)$}}
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{figs/G.png}
+
+    \vspace{0.5em}
+    {\small \textit{$f(x) = x^3 - 3x + 2 = (x-1)^2(x+2)$; roots at $x = 1$ (double) and $x = -2$}}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Convergence Plot}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x): return x**3 - 3*x + 2
+def df(x): return 3*x**2 - 3
+
+true_root = -2.0
+x = -3.0
+errors, iterations = [], []
+
+for i in range(8):
+    errors.append(abs(x - true_root))
+    iterations.append(i)
+    x = x - f(x)/df(x)
+
+fig, ax = plt.subplots()
+ax.plot(iterations, np.log10(errors), 'o-')
+ax.grid(True)
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{\textbf{Convergence Plot}}
+\begin{center}
+\includegraphics[width=\linewidth]{figs/QC.png}
+
+\vspace{0.4em}
+{\small \textit{Quadratic convergence of Newton-Raphson method}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\textbf{Python Code: Newton Fractal}}
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(z): return z**3 - 3*z + 2
+def df(z): return 3*z**2 - 3
+
+X, Y = np.meshgrid(np.linspace(-3,3,600),
+                   np.linspace(-3,3,600))
+Z = X + 1j*Y
+
+for _ in range(40):
+    denom = df(Z)
+    mask = np.abs(denom) > 1e-10
+    Z[mask] = Z[mask] - f(Z[mask])/denom[mask]
+
+plt.imshow(np.angle(Z), extent=[-3,3,-3,3],
+           origin='lower', cmap='hsv')
+plt.show()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{\textbf{Newton Fractal}}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{figs/NF.png}
+
+\vspace{0.4em}
+{\small \textit{Basins of attraction for the roots of $f(z) = z^3 - 3z + 2$}}
+\end{center}
+\end{frame}
+
+\end{document}
