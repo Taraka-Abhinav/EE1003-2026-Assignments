@@ -11,7 +11,7 @@ x_vals = np.array([0.0, 0.2, 0.4, 0.6])
 y_vals = np.array([1.0, 1.0408, 1.1735, 1.4333])
 
 # ── Compute f_i = f(x_i, y_i) ─────────────────────────────────
-f_vals = np.array([f(x_vals[i], y_vals[i]) for i in range(4)])
+f_vals = f(x_vals, y_vals)  # Vectorized computation
 # f0 = 0,  f1 = 0.41632,  f2 = 0.9388,  f3 = 1.71996
 
 # ── Adams–Bashforth 4-step predictor formula ───────────────────

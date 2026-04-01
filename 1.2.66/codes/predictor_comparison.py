@@ -8,7 +8,7 @@ def f(x, y):
 h = 0.2
 x = np.array([0.0, 0.2, 0.4, 0.6])
 y = np.array([1.0, 1.0408, 1.1735, 1.4333])
-fv = np.array([f(x[i], y[i]) for i in range(4)])
+fv = f(x, y)  # Vectorized computation
 
 y_exact_08 = np.exp(0.64)
 

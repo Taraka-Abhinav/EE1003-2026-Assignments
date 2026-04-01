@@ -27,7 +27,7 @@ def ab4_predict(h):
     x_rk, y_rk = rk4_solve(h, x_end=3*h + 1e-15)
     xv = x_rk[:4]
     yv = y_rk[:4]
-    fv = np.array([f(xv[i], yv[i]) for i in range(4)])
+    fv = f(xv, yv)  # Vectorized computation
     y_pred = yv[3] + (h/24)*(55*fv[3] - 59*fv[2] + 37*fv[1] - 9*fv[0])
     return 3*h + h, y_pred  # x_pred, y_pred
 
@@ -41,9 +41,9 @@ for hs in step_sizes:
     x_rk, y_rk = rk4_solve(hs, x_end=0.8)
     # Gather enough points for AB4
     if len(y_rk) >= 5:
-        xv = [i*hs for i in range(4)]
+        xv = np.array([i*hs for i in range(4)])
         yv = y_rk[:4]
-        fv = np.array([f(xv[i], yv[i]) for i in range(4)])
+        fv = f(xv, yv)  # Vectorized computation
         y_p = yv[3] + (hs/24)*(55*fv[3] - 59*fv[2] + 37*fv[1] - 9*fv[0])
         x_p = 4*hs
         y_e = np.exp(x_p**2)

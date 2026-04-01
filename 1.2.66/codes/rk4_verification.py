@@ -29,7 +29,7 @@ y_ex = np.exp(x_ex**2)
 # ── AB4 data points ───────────────────────────────────────────
 x_data = np.array([0.0, 0.2, 0.4, 0.6])
 y_data = np.array([1.0, 1.0408, 1.1735, 1.4333])
-fv = np.array([f(x_data[i], y_data[i]) for i in range(4)])
+fv = f(x_data, y_data)  # Vectorized computation
 y_ab4 = y_data[3] + (0.2/24)*(55*fv[3] - 59*fv[2] + 37*fv[1] - 9*fv[0])
 x_ab = np.append(x_data, 0.8)
 y_ab = np.append(y_data, y_ab4)
