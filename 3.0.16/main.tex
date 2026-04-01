@@ -86,6 +86,8 @@ I = \int_0^\infty \int_0^\infty e^{-x^2 - y^2} \, dx\,dy
 % ── METHOD 0: MATRIX FORMULATION ──────────────────────────────────
 \begin{frame}{Solution - Method 0: Matrix Formulation}
 \textbf{Step 1: Matrix Representation}
+
+Express the quadratic form as a matrix product:
 \[
 x^2 + y^2 =
 \begin{bmatrix} x & y \end{bmatrix}
@@ -94,38 +96,70 @@ x^2 + y^2 =
 = \bm{x}^T A \bm{x}
 \]
 
-where $A = I$ (Identity matrix), symmetric and positive definite.
+where $\bm{x} = \begin{bmatrix} x \\ y \end{bmatrix}$ and $A = I_2$ (Identity matrix).
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
-\textbf{Step 2: Standard Gaussian Result}
+\textbf{Properties of Matrix $A$:}
+\begin{itemize}
+    \item Symmetric: $A^T = A$
+    \item Positive definite: $\bm{x}^T A \bm{x} > 0$ for all $\bm{x} \neq \bm{0}$
+    \item Eigenvalues: $\lambda_1 = \lambda_2 = 1$ (both positive)
+    \item Determinant: $\det(A) = 1$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Solution - Method 0: Matrix Formulation (cont.)}
+\textbf{Step 2: General Gaussian Integral Formula}
+
+For an $n$-dimensional Gaussian integral with symmetric positive definite matrix $A$:
 \[
 \int_{\mathbb{R}^n} e^{-\bm{x}^T A \bm{x}} d\bm{x}
 = \sqrt{\frac{\pi^n}{\det(A)}}
 \]
 
-For $n = 2$, $A = I$, $\det(A) = 1$:
+\textbf{Derivation Insight:}
+\begin{itemize}
+    \item Use diagonalization: $A = Q\Lambda Q^T$ where $Q$ is orthogonal
+    \item Change variables: $\bm{y} = Q^T\bm{x}$ (preserves volume element)
+    \item Integral becomes product of 1D Gaussians
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{Apply to our problem:} $n = 2$, $\det(A) = 1$
 \[
 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
-e^{-(x^2 + y^2)} dx\,dy = \pi
+e^{-(x^2 + y^2)} dx\,dy = \sqrt{\frac{\pi^2}{1}} = \pi
 \]
 \end{frame}
 
 \begin{frame}{Solution - Method 0: Matrix Formulation (cont.)}
 \textbf{Step 3: Restricting to First Quadrant}
 
+\textbf{Symmetry Analysis:}
 \begin{itemize}
-    \item Given region: $(x \ge 0, y \ge 0)$ is \textbf{one-fourth} of full plane
-    \item Function is symmetric in all quadrants
+    \item Function $f(x,y) = e^{-x^2-y^2}$ is \textbf{even} in both variables
+    \item $f(-x,y) = f(x,-y) = f(-x,-y) = f(x,y)$
+    \item All four quadrants contribute equally
 \end{itemize}
 
+\vspace{0.3cm}
+
+\textbf{Quadrant Decomposition:}
+\[
+\pi = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{-(x^2+y^2)} dx\,dy
+= 4 \int_0^{\infty} \int_0^{\infty} e^{-(x^2+y^2)} dx\,dy
+\]
+
+\textbf{Therefore:}
 \[
 I = \frac{1}{4} \times \pi = \res{\frac{\pi}{4}}
 \]
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 
-\textbf{Result:} $\boxed{I = \frac{\pi}{4} \approx 0.7854}$
+\textbf{Final Result:} $\boxed{I = \frac{\pi}{4} \approx 0.7854}$
 \end{frame}
 
 % ── METHOD 1: POLAR COORDINATES ───────────────────────────────────
